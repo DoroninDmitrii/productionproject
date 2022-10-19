@@ -2,5 +2,6 @@
 .mVYHW{color:var(--primary-color)}.lPwbq{color:var(--primary-color)}.E8eho{color:var(--inverted-secondary-color)}.ENIPJ{color:red}
 .CXKG5{width:100%;height:var(--navbar-height);background:var(--inverted-bg-color);display:flex;align-items:center;padding:20px}._tl_p{margin-left:auto}.ZMsbP{margin-right:15px}
 
-.a4nOa{cursor:pointer}.FAEtI{padding:0;margin:0;border:0;background:none;outline:none}
-.ld5FU{height:calc(100vh - var(--navbar-height));width:var(--sidebar-width);background:var(--inverted-bg-color);position:relative;transition:width .4s}.EudhC{width:var(--sidebar-width-collapsed)}.QQRIw{position:absolute;bottom:20px;display:flex;justify-content:center;width:100%}
+.a4nOa{cursor:pointer;color:var(--primary-color)}.FAEtI{padding:0;border:0;background:none;outline:none}
+
+.ld5FU{height:calc(100vh - var(--navbar-height));width:var(--sidebar-width);background:var(--inverted-bg-color);position:relative;transition:width .4s}.EudhC{width:var(--sidebar-width-collapsed)}.QQRIw{position:absolute;bottom:20px;display:flex;justify-content:center;width:100%}.Cc0mZ{margin-left:20px;margin-top:7px}
