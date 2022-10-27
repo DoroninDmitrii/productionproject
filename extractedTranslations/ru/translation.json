@@ -1,5 +1,9 @@
 {
   "Language": "Language",
   "Main page": "Main page",
-  "Page not found": "Page not found"
+  "Mistake has happened": "Mistake has happened",
+  "Page not found": "Page not found",
+  "Reload": "Reload",
+  "Throw Error": "Throw Error",
+  "throw Error": "throw Error"
 }

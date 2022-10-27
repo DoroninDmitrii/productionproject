@@ -5,9 +5,9 @@ import PageLoader from 'widgets/PageLoader/PageLoader'
 
 const AppRouter = () => {
   return (
-          <Routes>
-              {Object.values(routeConfig).map(({ path, element }) => (
-                  <Route
+      <Routes>
+          {Object.values(routeConfig).map(({ path, element }) => (
+              <Route
               key={path}
               path={path}
               element={(
@@ -18,8 +18,8 @@ const AppRouter = () => {
                   </Suspense>
               )}
           />
-              ))}
-          </Routes>
+          ))}
+      </Routes>
   )
 }
 
