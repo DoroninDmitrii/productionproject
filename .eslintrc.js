@@ -9,6 +9,12 @@ module.exports = {
     'plugin:i18next/recommended'
   ],
   overrides: [
+    {
+      files: ['**/src/**/*.test.{ts.tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -30,6 +36,6 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
-    'i18next/no-literal-string': ['error', {markupOnly: true}]
+    'i18next/no-literal-string': ['error', { markupOnly: true }]
   }
 }
