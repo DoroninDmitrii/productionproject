@@ -1,5 +1,5 @@
 import path from 'path';
-import webpack from 'webpack';
+import webpack, { RuleSetRule } from 'webpack';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { BuildPaths } from '../build/types/config';
 
@@ -17,6 +17,18 @@ export default ({config}: {config: webpack.Configuration}) => {
   config.resolve?.extensions?.push('.ts', '.tsx')
   // Set new rules for existing config
   config.module?.rules?.push(buildCssLoaders(true))
+
+  config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
+    if (/svg/.test(rule.test as string)) {
+      return { ...rule, exclude: /\.svg$/i};
+    }
+    return rule
+  })
+
+  config.module?.rules?.push({
+    test: /\.svg$/,
+    use: ['@svgr/webpack']
+  })
 
   return config
 }
