@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
+import path from 'path'
 
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -45,8 +45,8 @@ export default {
   // For scss modules in Jest
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    //mock for imports where exist svg
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    // mock for imports where exist svg
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
   }
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
