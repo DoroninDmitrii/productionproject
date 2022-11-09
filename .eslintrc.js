@@ -38,7 +38,7 @@ module.exports = {
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
-    'react/display-name': 'off'
-    
+    'react/display-name': 'off',
+    '@typescript-eslint/prefer-includes': 'off'
   }
 }
