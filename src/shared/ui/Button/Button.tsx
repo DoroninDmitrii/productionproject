@@ -32,16 +32,13 @@ export const Button: FC<ButtonProps> = (props) => {
     ...otherProps
   } = props
 
-  // Ulbi variant
   const mods: Record<string, boolean> = {
-    [cls[theme]]: true,
-    [cls.square]: square,
-    [cls[size]]: true
+    [cls.square]: square
   }
 
   return (
       <button
-        className={classNames(cls.Button, mods, [className])}
+        className={classNames(cls.Button, mods, [className, cls[size], cls[theme]])}
         {...otherProps}
     >
           {children}
