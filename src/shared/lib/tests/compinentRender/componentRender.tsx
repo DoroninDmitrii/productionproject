@@ -8,6 +8,7 @@ export interface componentRenderOptions {
   route?: string
 }
 
+// For unit test when mistake with useRef
 export function componentRender (component: ReactNode, options: componentRenderOptions = {}) {
   const { route = '/' } = options
   return render(
