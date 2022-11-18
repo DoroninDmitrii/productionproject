@@ -23,10 +23,13 @@ module.exports = {
   },
   plugins: [
     'react',
-    'i18next'
+    'i18next',
+    'react-hooks'
   ],
   rules: {
     'react/jsx-indent': [2, 4],
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
