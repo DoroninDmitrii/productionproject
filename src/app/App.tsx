@@ -1,11 +1,10 @@
 /* eslint-disable i18next/no-literal-string */
 import { useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Modal } from 'shared/ui/Modal/Modal'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { Suspense, useState } from 'react'
+import { Suspense } from 'react'
 
 const App = () => {
   const { theme } = useTheme()
