@@ -7,5 +7,6 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
+  "i18n-ally.keystyle": "nested",
 
 }
