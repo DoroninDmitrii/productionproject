@@ -13,9 +13,9 @@ export const LoginForm = ({ className }: LoginFormProps) => {
       <div
         className={classNames(cls.LoginForm, {}, [className])}
         >
-          <input type="text"/>
-          <input type="text"/>
-          <Button>
+          <input type="text" className={cls.input}/>
+          <input type="text" className={cls.input}/>
+          <Button className={cls.loginBtn}>
               {t('Log in')}
           </Button>
       </div>
