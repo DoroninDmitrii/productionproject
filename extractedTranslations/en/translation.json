@@ -1,4 +1,5 @@
 {
+  "": "",
   "About": "About",
   "About Page": "About Page",
   "About page": "About page",
@@ -8,8 +9,16 @@
   "Main page": "Main page",
   "Mistake has happened": "Mistake has happened",
   "Page not found": "Page not found",
+  "Password": "Password",
   "Reload": "Reload",
   "Throw Error": "Throw Error",
   "Toggle": "Toggle",
+  "Username": "Username",
+  "W": "W",
+  "Write a password": "Write a password",
+  "Write a username": "Write a username",
+  "Wtire a ": "Wtire a ",
+  "Wtire a password": "Wtire a password",
+  "Wtire a username": "Wtire a username",
   "throw Error": "throw Error"
 }
