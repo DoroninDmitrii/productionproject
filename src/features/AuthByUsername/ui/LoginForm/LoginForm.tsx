@@ -15,6 +15,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
         className={classNames(cls.LoginForm, {}, [className])}
         >
           <Input
+           autofocus
            placeholder={t('Username')}
            type="text"
            className={cls.input}
