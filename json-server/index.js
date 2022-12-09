@@ -15,7 +15,6 @@ server.use(async (req, res, next) => {
   })
   next()
 })
-
 // Endpoint for login
 server.post('/login', (req, res) => {
   try {
@@ -51,6 +50,6 @@ server.use((req, res, next) => {
 server.use(router)
 
 // запуск сервера
-server.listen(9000, () => {
-  console.log('Server is running on 9000 port!')
+server.listen(8000, () => {
+  console.log('Server is running on 8000 port!')
 })
