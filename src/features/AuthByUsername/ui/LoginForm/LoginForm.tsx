@@ -1,10 +1,12 @@
 import { memo, useCallback } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { useTranslation } from 'react-i18next'
 import { loginAction } from '../../modal/slice/loginSlice'
+import { getLoginState } from '../../modal/selectors/getLoginState/getLoginState'
+import { loginByUsername } from '../../modal/services/loginByUserName/loginByUsername'
 import cls from './LoginForm.module.scss'
 
 interface LoginFormProps {
@@ -15,6 +17,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
+  const { password, username } = useSelector(getLoginState)
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginAction.setUsername(value))
@@ -23,6 +26,10 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   const onChangePassword = useCallback((value: string) => {
     dispatch(loginAction.setPassword(value))
   }, [dispatch])
+
+  const onLoginClick = useCallback(() => {
+    dispatch(loginByUsername({ password, username }))
+  }, [dispatch, password, username])
 
   return (
       <div
@@ -34,14 +41,20 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
            type="text"
            className={cls.input}
            onChange={onChangeUsername}
+           value={username}
            />
           <Input
           placeholder={t('Password')}
           type="text"
           className={cls.input}
           onChange={onChangePassword}
+          value={password}
           />
-          <Button theme={ButtonTheme.OUTLINE} className={cls.loginBtn}>
+          <Button
+          theme={ButtonTheme.OUTLINE}
+          className={cls.loginBtn}
+          onClick={onLoginClick}
+          >
               {t('Log in')}
           </Button>
       </div>
