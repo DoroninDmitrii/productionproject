@@ -33,8 +33,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
   return (
       <div
-        className={classNames(cls.LoginForm, {}, [className])}
-        >
+        className={classNames(cls.LoginForm, {}, [className])}>
+          {error && <div>{error}</div>}
           <Input
            autofocus
            placeholder={t('Username')}
