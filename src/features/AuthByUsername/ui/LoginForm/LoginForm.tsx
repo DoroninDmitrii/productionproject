@@ -8,6 +8,7 @@ import { loginAction } from '../../modal/slice/loginSlice'
 import { getLoginState } from '../../modal/selectors/getLoginState/getLoginState'
 import { loginByUsername } from '../../modal/services/loginByUserName/loginByUsername'
 import cls from './LoginForm.module.scss'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 
 interface LoginFormProps {
   className?: string
@@ -34,7 +35,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   return (
       <div
         className={classNames(cls.LoginForm, {}, [className])}>
-          {error && <div>{error}</div>}
+          <Text title={t('Authentication form')}/>
+          {error && <Text text={error} theme={TextTheme.ERROR}/>}
           <Input
            autofocus
            placeholder={t('Username')}

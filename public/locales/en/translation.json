@@ -12,5 +12,7 @@
   "Short Language": "En",
   "Log in": "Log in",
   "Username": "Username",
-  "Password": "Password"
+  "Password": "Password",
+  "Authentication form": "Authentication form",
+  "Your login or password is not correct": "Your login or password is not correct"
 }
