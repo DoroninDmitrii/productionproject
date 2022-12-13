@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Text } from './Text'
+import { Text, TextTheme } from './Text'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 
@@ -19,6 +19,13 @@ export const Primary = Template.bind({})
 Primary.args = {
   title: 'Title',
   text: 'Text'
+}
+
+export const Error = Template.bind({})
+Error.args = {
+  title: 'Title',
+  text: 'Text',
+  theme: TextTheme.ERROR
 }
 
 export const onlyTitle = Template.bind({})
