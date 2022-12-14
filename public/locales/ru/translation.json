@@ -14,5 +14,6 @@
   "Username": "Имя пользователя",
   "Password": "Пароль",
   "Authentication form": "Форма авторизации",
-  "Your login or password is not correct": "Вы ввели не верный логин или пароль"
+  "Your login or password is not correct": "Вы ввели не верный логин или пароль",
+  "Log out": "Выйти"
 }

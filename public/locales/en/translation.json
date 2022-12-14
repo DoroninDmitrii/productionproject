@@ -14,5 +14,6 @@
   "Username": "Username",
   "Password": "Password",
   "Authentication form": "Authentication form",
-  "Your login or password is not correct": "Your login or password is not correct"
+  "Your login or password is not correct": "Your login or password is not correct",
+  "Log out": "Log out"
 }
