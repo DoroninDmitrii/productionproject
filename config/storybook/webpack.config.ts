@@ -11,8 +11,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src')
   }
-  // For absolute import in storybook
-  config.resolve?.modules?.push(paths.src)
+  // For absolute import in storybook (add node_modules to fix storybook problem)
+  config.resolve.modules = [paths.src, 'node_modules']
   // Set new extensions for existing config
   config.resolve?.extensions?.push('.ts', '.tsx')
   // Set new rules for existing config
