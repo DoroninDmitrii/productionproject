@@ -6,6 +6,9 @@
   "Auth": "Auth",
   "Authentication form": "Authentication form",
   "Authontication form": "Authontication form",
+  "Eror": "",
+  "Erorr": "",
+  "Error": "",
   "Language": "Language",
   "Log in": "Log in",
   "Log out": "Log out",
@@ -24,5 +27,6 @@
   "Wtire a ": "Wtire a ",
   "Wtire a password": "Wtire a password",
   "Wtire a username": "Wtire a username",
+  "Your login or password is not correct": "",
   "throw Error": "throw Error"
 }
