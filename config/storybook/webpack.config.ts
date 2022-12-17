@@ -1,5 +1,5 @@
 import path from 'path'
-import webpack, { RuleSetRule } from 'webpack'
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders'
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader'
 import { BuildPaths } from '../build/types/config'
@@ -26,6 +26,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
   })
 
   config.module?.rules?.push(buildSvgLoader())
+  // fix isDev mistake in 34 lesson
+  config.plugins.push(new DefinePlugin({
+    __IS_DEV__: true
+  }))
 
   return config
 }
