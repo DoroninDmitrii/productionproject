@@ -10,11 +10,11 @@ import { loginByUsername } from '../../modal/services/loginByUserName/loginByUse
 import cls from './LoginForm.module.scss'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
@@ -63,3 +63,5 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
       </div>
   )
 })
+
+export default LoginForm
