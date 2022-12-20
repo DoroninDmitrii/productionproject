@@ -7,18 +7,18 @@ import { StateSchema } from './StateSchema'
 export function createReduxStore (initialState?: StateSchema) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
-    user: userReducer,
+    user: userReducer
   }
 
   const reducerManager = createReducerManager(rootReducers)
 
   const store = configureStore<StateSchema>({
-    reducer: rootReducers,
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState
   })
 
-  // @ts-ignore
+  // @ts-expect-error
   store.reducerManager = reducerManager
 
   return store

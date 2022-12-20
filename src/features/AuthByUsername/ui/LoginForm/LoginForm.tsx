@@ -28,11 +28,11 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const isLoading = useSelector(getLoginisLoading)
   const error = useSelector(getLoginError)
 
-
   useEffect(() => {
+    dispatch({ type: '@INIT loginform reducer' })
     store.reducerManager.add('loginForm', loginReducer)
-
     return () => {
+      dispatch({ type: '@DESTROY loginform reducer' })
       store.reducerManager.remove('loginForm')
     }
   }, [])
