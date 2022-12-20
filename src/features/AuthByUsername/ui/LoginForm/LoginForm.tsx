@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
@@ -8,11 +8,11 @@ import { loginAction, loginReducer } from '../../modal/slice/loginSlice'
 import { loginByUsername } from '../../modal/services/loginByUserName/loginByUsername'
 import cls from './LoginForm.module.scss'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider/config/StateSchema'
 import { getLoginUsername } from '../../modal/selectors/getLoginUsername/getLoginUsername'
 import { getLoginPassward } from '../../modal/selectors/getLoginPassword/getLoginPassword'
 import { getLoginisLoading } from '../../modal/selectors/getLoginisLoading/getLoginisLoading'
 import { getLoginError } from '../../modal/selectors/getLoginError/getLoginError'
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 export interface LoginFormProps {
   className?: string
@@ -21,21 +21,11 @@ export interface LoginFormProps {
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const store = useStore() as ReduxStoreWithManager
 
   const username = useSelector(getLoginUsername)
   const password = useSelector(getLoginPassward)
   const isLoading = useSelector(getLoginisLoading)
   const error = useSelector(getLoginError)
-
-  useEffect(() => {
-    dispatch({ type: '@INIT loginform reducer' })
-    store.reducerManager.add('loginForm', loginReducer)
-    return () => {
-      dispatch({ type: '@DESTROY loginform reducer' })
-      store.reducerManager.remove('loginForm')
-    }
-  }, [])
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginAction.setUsername(value))
@@ -50,11 +40,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch, password, username])
 
   return (
-      <div
+      <DynamicModuleLoader name="loginForm" reducer={loginReducer}>
+          <div
         className={classNames(cls.LoginForm, {}, [className])}>
-          <Text title={t('Authentication form')}/>
-          {error && <Text text={t('Your login or password is not correct')} theme={TextTheme.ERROR}/>}
-          <Input
+              <Text title={t('Authentication form')}/>
+              {error && <Text text={t('Your login or password is not correct')} theme={TextTheme.ERROR}/>}
+              <Input
            autofocus
            placeholder={t('Username')}
            type="text"
@@ -62,22 +53,24 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
            onChange={onChangeUsername}
            value={username}
            />
-          <Input
+              <Input
           placeholder={t('Password')}
           type="text"
           className={cls.input}
           onChange={onChangePassword}
           value={password}
           />
-          <Button
+              <Button
           theme={ButtonTheme.OUTLINE}
           className={cls.loginBtn}
           onClick={onLoginClick}
           disabled={isLoading}
           >
-              {t('Log in')}
-          </Button>
-      </div>
+                  {t('Log in')}
+              </Button>
+          </div>
+
+      </DynamicModuleLoader>
   )
 })
 
