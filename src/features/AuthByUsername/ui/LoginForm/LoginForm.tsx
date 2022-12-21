@@ -12,10 +12,14 @@ import { getLoginUsername } from '../../modal/selectors/getLoginUsername/getLogi
 import { getLoginPassward } from '../../modal/selectors/getLoginPassword/getLoginPassword'
 import { getLoginisLoading } from '../../modal/selectors/getLoginisLoading/getLoginisLoading'
 import { getLoginError } from '../../modal/selectors/getLoginError/getLoginError'
-import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 export interface LoginFormProps {
   className?: string
+}
+
+const initialReducers: ReducerList = {
+  loginForm: loginReducer
 }
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
@@ -40,9 +44,8 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch, password, username])
 
   return (
-      <DynamicModuleLoader name="loginForm" reducer={loginReducer}>
-          <div
-        className={classNames(cls.LoginForm, {}, [className])}>
+      <DynamicModuleLoader removeAfterUnmount={true} reducers={initialReducers}>
+          <div className={classNames(cls.LoginForm, {}, [className])}>
               <Text title={t('Authentication form')}/>
               {error && <Text text={t('Your login or password is not correct')} theme={TextTheme.ERROR}/>}
               <Input
