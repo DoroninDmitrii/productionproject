@@ -39,6 +39,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/consistent-type-assertions': 'off',
+    '@typescript-eslint/no-dynamic-delete': 'off',
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'i18next/no-literal-string': ['error', { markupOnly: true }],

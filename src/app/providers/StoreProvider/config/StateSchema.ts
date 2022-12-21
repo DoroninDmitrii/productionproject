@@ -1,8 +1,7 @@
-import { CombinedState, EnhancedStore } from '@reduxjs/toolkit'
+import { CombinedState, EnhancedStore, ReducersMapObject, Reducer, AnyAction } from '@reduxjs/toolkit'
 import { CounterSchema } from 'entities/Counter'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername'
-import { ReducersMapObject, Reducer, AnyAction } from '@reduxjs/toolkit'
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
