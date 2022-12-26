@@ -9,7 +9,7 @@ import { loginByUsername } from '../../modal/services/loginByUserName/loginByUse
 import cls from './LoginForm.module.scss'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { getLoginUsername } from '../../modal/selectors/getLoginUsername/getLoginUsername'
-import { getLoginPassward } from '../../modal/selectors/getLoginPassword/getLoginPassword'
+import { getLoginPassword } from '../../modal/selectors/getLoginPassword/getLoginPassword'
 import { getLoginisLoading } from '../../modal/selectors/getLoginisLoading/getLoginisLoading'
 import { getLoginError } from '../../modal/selectors/getLoginError/getLoginError'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -27,7 +27,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const dispatch = useDispatch()
 
   const username = useSelector(getLoginUsername)
-  const password = useSelector(getLoginPassward)
+  const password = useSelector(getLoginPassword)
   const isLoading = useSelector(getLoginisLoading)
   const error = useSelector(getLoginError)
 
