@@ -27,6 +27,11 @@ module.exports = {
     'i18next',
     'react-hooks'
   ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
     'react/jsx-indent': [2, 4],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -36,11 +41,13 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn',
+      { argsIgnorePattern: '^_' }
+    ],
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/consistent-type-assertions': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     'react/display-name': 'off',
