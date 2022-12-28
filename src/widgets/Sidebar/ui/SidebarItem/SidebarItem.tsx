@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import cls from './SidebarItem.module.scss'
 import { SidebarItemType } from '../../model/items'
+import { classNames } from 'shared/lib/classNames/classNames'
 
 interface SidebarItemsProps {
   item: SidebarItemType
@@ -15,7 +16,7 @@ const SidebarItem = ({ item, collapsed }: SidebarItemsProps) => {
       <AppLink
          theme={AppLinkTheme.SECONDARY}
          to={item.path}
-        className={cls.item}
+        className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
       >
           <item.Icon className={cls.icon}/>
           <span className={cls.link}>{t(item.text)}</span>
