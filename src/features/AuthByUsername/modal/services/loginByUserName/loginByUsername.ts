@@ -21,6 +21,8 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
       dispatch(userAction.setAuthData(response.data))
+      // @ts-expect-error
+      extra.navigate('/about')
 
       return response.data
     } catch (e) {
