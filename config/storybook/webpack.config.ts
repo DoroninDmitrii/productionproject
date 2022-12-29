@@ -28,7 +28,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.module?.rules?.push(buildSvgLoader())
   // fix isDev mistake in 34 lesson
   config.plugins.push(new DefinePlugin({
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: JSON.stringify('')
   }))
 
   return config
