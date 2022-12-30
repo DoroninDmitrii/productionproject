@@ -6,6 +6,7 @@
   "Auth": "Auth",
   "Authentication form": "Authentication form",
   "Authontication form": "Authontication form",
+  "Edit": "Edit",
   "Eror": "",
   "Erorr": "",
   "Error": "",
@@ -17,6 +18,7 @@
   "Mistake has happened": "Mistake has happened",
   "Page not found": "Page not found",
   "Password": "Password",
+  "Profile": "Profile",
   "Profile Page": "Profile Page",
   "Profile page": "Profile page",
   "Reload": "Reload",
@@ -30,5 +32,7 @@
   "Wtire a password": "Wtire a password",
   "Wtire a username": "Wtire a username",
   "Your login or password is not correct": "",
+  "Your name": "Your name",
+  "Your surname": "Your surname",
   "throw Error": "throw Error"
 }
