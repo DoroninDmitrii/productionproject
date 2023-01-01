@@ -12,14 +12,16 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src')
   }
   // For absolute import in storybook (add node_modules to fix storybook problem)
-  config.resolve.modules = [paths.src, 'node_modules']
+  let configResolveModules = config?.resolve?.modules
+  configResolveModules = [paths.src, 'node_modules']
   // Set new extensions for existing config
   config.resolve?.extensions?.push('.ts', '.tsx')
   // Set new rules for existing config
   config.module?.rules?.push(buildCssLoaders(true))
 
-  config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
+  const rules = config.module!.rules as RuleSetRule[]
+  config.module!.rules = rules.map((rule) => {
+    if (/svg/.test(rule?.test as string)) {
       return { ...rule, exclude: /\.svg$/i }
     }
     return rule
@@ -27,7 +29,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.module?.rules?.push(buildSvgLoader())
   // fix isDev mistake in 34 lesson
-  config.plugins.push(new DefinePlugin({
+  config.plugins?.push(new DefinePlugin({
     __IS_DEV__: true,
     __API__: JSON.stringify('')
   }))
