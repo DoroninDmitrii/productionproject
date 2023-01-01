@@ -42,6 +42,7 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-non-null-assertion': ['warn'],
+    '@typescript-eslint/prefer-nullish-coalescing': ['warn'],
     '@typescript-eslint/no-unused-vars': ['warn',
       { argsIgnorePattern: '^_' }
     ],

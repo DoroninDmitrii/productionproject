@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/prefer-ts-expect-error */
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import path from 'path'
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders'
@@ -12,24 +15,22 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src')
   }
   // For absolute import in storybook (add node_modules to fix storybook problem)
-  let configResolveModules = config?.resolve?.modules
-  configResolveModules = [paths.src, 'node_modules']
+  config!.resolve!.modules = [paths.src, 'node_modules']
   // Set new extensions for existing config
-  config.resolve?.extensions?.push('.ts', '.tsx')
+  config!.resolve!.extensions!.push('.ts', '.tsx')
   // Set new rules for existing config
-  config.module?.rules?.push(buildCssLoaders(true))
-
-  const rules = config.module!.rules as RuleSetRule[]
-  config.module!.rules = rules.map((rule) => {
+  config!.module!.rules!.push(buildCssLoaders(true))
+  // @ts-ignore
+  config!.module!.rules = config!.module!.rules?.map((rule: RuleSetRule) => {
     if (/svg/.test(rule?.test as string)) {
       return { ...rule, exclude: /\.svg$/i }
     }
     return rule
   })
 
-  config.module?.rules?.push(buildSvgLoader())
+  config!.module!.rules?.push(buildSvgLoader())
   // fix isDev mistake in 34 lesson
-  config.plugins?.push(new DefinePlugin({
+  config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: true,
     __API__: JSON.stringify('')
   }))
