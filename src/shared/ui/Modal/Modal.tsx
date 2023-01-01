@@ -1,6 +1,6 @@
 import { useTheme } from 'app/providers/ThemeProvider'
-import React, { useState, useRef, useEffect, useCallback } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import React, { useState, useRef, useEffect, useCallback, MutableRefObject } from 'react'
+import { classNames, Mods } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
 import cls from './Modal.module.scss'
 
@@ -24,7 +24,7 @@ export const Modal = (props: ModalProps) => {
   } = props
 
   const [isClosing, setIsClosing] = useState(false)
-  const timerRef = useRef<ReturnType<typeof setTimeout>>()
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
   const { theme } = useTheme()
 
   // For lazy loading modal
@@ -66,7 +66,7 @@ export const Modal = (props: ModalProps) => {
     }
   }, [isOpen, onKeyDown])
 
-  const mods: Record<string, boolean | undefined> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing
   }
