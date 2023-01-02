@@ -8,21 +8,33 @@ import { getProfileError } from 'entities/Profile/model/selectors/getProfileErro
 import { Text } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
+import { Profile } from '../../model/types/profile'
+import Loader from 'shared/ui/Loader/Loader'
 
 interface ProfileCardProps {
   className?: string
+  data?: Profile
+  isLoading?: boolean
+  error?: string
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
   const {
-    className
+    className,
+    data,
+    isLoading,
+    error
   } = props
 
   const { t } = useTranslation('profile')
 
-  const data = useSelector(getProfileData)
-  const isLoading = useSelector(getProfileisLoading)
-  const error = useSelector(getProfileError)
+  if (isLoading) {
+    return (
+        <div className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+            <Loader />
+        </div>
+    )
+  }
 
   return (
       <div className={classNames(cls.ProfileCard, {}, [className])}>
