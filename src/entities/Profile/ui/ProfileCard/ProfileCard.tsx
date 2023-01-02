@@ -1,11 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ProfileCard.module.scss'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData'
-import { getProfileisLoading } from 'entities/Profile/model/selectors/getProfileisLoading/getProfileisLoading'
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { Profile } from '../../model/types/profile'
@@ -30,8 +26,21 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-        <div className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+        <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
             <Loader />
+        </div>
+    )
+  }
+
+  if (error) {
+    return (
+        <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <Text
+            theme={TextTheme.ERROR}
+            title={t('Mistake is happened')}
+            text={t('Try again')}
+            align={TextAlign.CENTER}
+            />
         </div>
     )
   }
