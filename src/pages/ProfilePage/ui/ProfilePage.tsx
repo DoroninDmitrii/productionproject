@@ -1,4 +1,4 @@
-import { fetchProfileData, profileReducer, getProfileData, getProfileError, getProfileisLoading, profileAction, getProfileReadonly } from 'entities/Profile'
+import { fetchProfileData, profileReducer, getProfileData, getProfileError, getProfileisLoading, profileAction, getProfileReadonly, getProfileForm } from 'entities/Profile'
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -19,7 +19,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t, i18n } = useTranslation()
   const dispatch = useAppDispatch()
 
-  const data = useSelector(getProfileData)
+  const formData = useSelector(getProfileForm)
   const isLoading = useSelector(getProfileisLoading)
   const error = useSelector(getProfileError)
   const readonly = useSelector(getProfileReadonly)
@@ -41,7 +41,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           <div className={classNames('', {}, [className])}>
               <ProfilePageHeader />
               <ProfileCard
-              data={data}
+              data={formData}
               isLoading={isLoading}
               error={error}
               onChangeFirstname={onChangeFirstname}
