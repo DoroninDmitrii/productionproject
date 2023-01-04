@@ -5,6 +5,7 @@ import ProfilePage from 'pages/ProfilePage/ui/ProfilePage'
 import { getProfileData } from './model/selectors/getProfileData/getProfileData'
 import { getProfileError } from './model/selectors/getProfileError/getProfileError'
 import { getProfileisLoading } from './model/selectors/getProfileisLoading/getProfileisLoading'
+import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly'
 
 export { Profile, ProfileSchema }
 export { profileAction, profileReducer }
@@ -14,5 +15,6 @@ export { ProfilePage }
 export {
   getProfileData,
   getProfileError,
-  getProfileisLoading
+  getProfileisLoading,
+  getProfileReadonly
 }
