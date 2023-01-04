@@ -1,6 +1,6 @@
-import { fetchProfileData, profileReducer, getProfileData, getProfileError, getProfileisLoading } from 'entities/Profile'
+import { fetchProfileData, profileReducer, getProfileData, getProfileError, getProfileisLoading, profileAction, getProfileReadonly } from 'entities/Profile'
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -22,9 +22,18 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const data = useSelector(getProfileData)
   const isLoading = useSelector(getProfileisLoading)
   const error = useSelector(getProfileError)
+  const readonly = useSelector(getProfileReadonly)
 
   useEffect(() => {
     dispatch(fetchProfileData())
+  }, [dispatch])
+
+  const onChangeFirstname = useCallback((value?: string) => {
+    dispatch(profileAction.updateProfile({ first: value || '' }))
+  }, [dispatch])
+
+  const onChangeLastname = useCallback((value?: string) => {
+    dispatch(profileAction.updateProfile({ lastname: value || '' }))
   }, [dispatch])
 
   return (
@@ -35,6 +44,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
               data={data}
               isLoading={isLoading}
               error={error}
+              onChangeFirstname={onChangeFirstname}
+              onChangeLastname={onChangeLastname}
+              readonly={readonly}
                />
           </div>
       </DynamicModuleLoader>

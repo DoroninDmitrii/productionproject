@@ -11,6 +11,9 @@ interface ProfileCardProps {
   data?: Profile
   isLoading?: boolean
   error?: string
+  readonly?: boolean
+  onChangeFirstname: (value?: string) => void
+  onChangeLastname: (value?: string) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -18,7 +21,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
     className,
     data,
     isLoading,
-    error
+    error,
+    readonly,
+    onChangeFirstname,
+    onChangeLastname
   } = props
 
   const { t } = useTranslation('profile')
@@ -51,12 +57,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
               value={data?.first}
               placeholder={t('Your name')}
               className={cls.input}
+              onChange={onChangeFirstname}
+              readonly={readonly}
               />
 
               <Input
               value={data?.lastname}
               placeholder={t('Your surname')}
               className={cls.input}
+              onChange={onChangeLastname}
+              readonly={readonly}
               />
           </div>
       </div>

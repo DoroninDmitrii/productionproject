@@ -29,6 +29,8 @@ export const Input = memo((props: InputProps) => {
   // For autofocus
   const ref = useRef<HTMLInputElement>(null)
 
+  const isCaretVisible = isFocused && !readonly
+
   useEffect(() => {
     if (autofocus) {
       setIsFocused(true)
@@ -77,7 +79,7 @@ export const Input = memo((props: InputProps) => {
           readOnly={readonly}
           {...otherProps}
           />
-              {isFocused && (
+              {isCaretVisible && (
               <span className={cls.caret}
               style={{ left: `${caretPosition * 9}px` }}
               />
