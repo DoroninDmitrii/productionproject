@@ -1,4 +1,4 @@
-import { fetchProfileData, profileReducer, getProfileData, getProfileError, getProfileisLoading, profileAction, getProfileReadonly, getProfileForm } from 'entities/Profile'
+import { fetchProfileData, profileReducer, getProfileError, getProfileisLoading, profileAction, getProfileReadonly, getProfileForm } from 'entities/Profile'
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
