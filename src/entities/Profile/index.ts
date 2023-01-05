@@ -1,6 +1,7 @@
 import { Profile, ProfileSchema } from './model/types/profile'
 import { profileAction, profileReducer } from './model/slice/profileSlice'
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
+import { updateProfileData } from './model/services/updateProfileData/updateProfileData'
 import ProfilePage from 'pages/ProfilePage/ui/ProfilePage'
 import { getProfileData } from './model/selectors/getProfileData/getProfileData'
 import { getProfileError } from './model/selectors/getProfileError/getProfileError'
@@ -10,7 +11,7 @@ import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
 
 export { Profile, ProfileSchema }
 export { profileAction, profileReducer }
-export { fetchProfileData }
+export { fetchProfileData, updateProfileData }
 export { ProfilePage }
 
 export {

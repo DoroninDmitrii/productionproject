@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Text } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { useSelector } from 'react-redux'
-import { getProfileReadonly, profileAction } from 'entities/Profile'
+import { getProfileReadonly, profileAction, updateProfileData } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useCallback } from 'react'
 import cls from './ProfilePageHeader.module.scss'
@@ -31,7 +31,7 @@ const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   }, [dispatch])
 
   const onSave = useCallback(() => {
-    // dispatch(profileAction.cancelEdit())
+    dispatch(updateProfileData())
   }, [dispatch])
 
   return (
