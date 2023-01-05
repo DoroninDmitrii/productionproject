@@ -5,6 +5,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { Input } from 'shared/ui/Input/Input'
 import { Profile } from '../../model/types/profile'
 import Loader from 'shared/ui/Loader/Loader'
+import { KeyboardEvent } from 'react'
 
 interface ProfileCardProps {
   className?: string
@@ -14,6 +15,8 @@ interface ProfileCardProps {
   readonly?: boolean
   onChangeFirstname: (value?: string) => void
   onChangeLastname: (value?: string) => void
+  onChangeCity: (value?: string) => void
+  onChangeAge: (value?: string) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -24,10 +27,19 @@ export const ProfileCard = (props: ProfileCardProps) => {
     error,
     readonly,
     onChangeFirstname,
-    onChangeLastname
+    onChangeLastname,
+    onChangeCity,
+    onChangeAge
   } = props
 
   const { t } = useTranslation('profile')
+
+  // validation
+  const onKeyPress = (e: KeyboardEvent) => {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault()
+    }
+  }
 
   if (isLoading) {
     return (
@@ -66,6 +78,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
               placeholder={t('Your surname')}
               className={cls.input}
               onChange={onChangeLastname}
+              readonly={readonly}
+              />
+
+              <Input
+              onKeyPress={onKeyPress}
+              value={data?.age}
+              placeholder={t('Age')}
+              className={cls.input}
+              onChange={onChangeAge}
+              readonly={readonly}
+              />
+
+              <Input
+              value={data?.city}
+              placeholder={t('City')}
+              className={cls.input}
+              onChange={onChangeCity}
               readonly={readonly}
               />
           </div>
