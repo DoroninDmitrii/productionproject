@@ -52,9 +52,9 @@ export const Select = memo((props: SelectProps) => {
           )}
 
           <select
-          className={cls.select}
-          value={value}
-          onChange={onChangeHandler}
+              className={cls.select}
+              value={value}
+              onChange={onChangeHandler}
           >
               {optionList}
           </select>

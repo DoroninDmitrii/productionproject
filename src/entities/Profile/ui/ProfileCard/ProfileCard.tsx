@@ -7,8 +7,7 @@ import Loader from 'shared/ui/Loader/Loader'
 import { KeyboardEvent } from 'react'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import cls from './ProfileCard.module.scss'
-import { Select } from 'shared/ui/Select/Select'
-import { Currency } from 'shared/const/common'
+import { CurrencySelect } from 'entities/Currency'
 
 interface ProfileCardProps {
   className?: string
@@ -132,14 +131,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
               readonly={readonly}
               />
 
-              <Select
-              label={t('Choose a currency')}
-              options={[
-                { value: Currency.RUB, content: Currency.RUB },
-                { value: Currency.EUR, content: Currency.EUR },
-                { value: Currency.USD, content: Currency.USD }
-              ]}
-              />
+              <CurrencySelect value={data?.currency}/>
           </div>
       </div>
   )
