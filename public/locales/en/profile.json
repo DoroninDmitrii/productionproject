@@ -4,5 +4,11 @@
   "Try again": "Try again",
   "Edit": "Edit",
   "Cancel": "Cancel",
-  "Save": "Save"
+  "Save": "Save",
+  "Your name": "Your name",
+  "Your surname": "Your surname",
+  "Age": "Age" ,
+  "City": "City",
+  "Username": "Username",
+  "Avatar": "Avatar"
 }
