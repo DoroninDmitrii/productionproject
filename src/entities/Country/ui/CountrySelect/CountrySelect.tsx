@@ -25,7 +25,7 @@ const CountrySelect = memo((props: CountySelectOptions) => {
     readonly
   } = props
 
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
 
   const onChangeHandler = useCallback((value: string) => {
     onChange?.(value as Country)
@@ -33,7 +33,7 @@ const CountrySelect = memo((props: CountySelectOptions) => {
 
   return (
       <Select className={classNames('', {}, [className])}
-        label={t('Choose a county')}
+        label={t('Choose a country')}
         options={options}
         value={value}
         onChange={onChangeHandler}
