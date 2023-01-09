@@ -7,7 +7,8 @@ import Loader from 'shared/ui/Loader/Loader'
 import { KeyboardEvent } from 'react'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import cls from './ProfileCard.module.scss'
-import { CurrencySelect } from 'entities/Currency'
+import { Currency, CurrencySelect } from 'entities/Currency'
+import { Country } from 'shared/const/common'
 
 interface ProfileCardProps {
   className?: string
@@ -21,6 +22,8 @@ interface ProfileCardProps {
   onChangeAge?: (value?: string) => void
   onChangeUsername?: (value?: string) => void
   onChangeAvatar?: (value?: string) => void
+  onChangeCurrency?: (value?: Currency) => void
+  onChangeCountry?: (value?: Country) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -35,7 +38,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
     onChangeCity,
     onChangeAge,
     onChangeUsername,
-    onChangeAvatar
+    onChangeAvatar,
+    onChangeCountry,
+    onChangeCurrency
   } = props
 
   const { t } = useTranslation('profile')
@@ -131,7 +136,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
               readonly={readonly}
               />
 
-              <CurrencySelect value={data?.currency}/>
+              <CurrencySelect
+              className={cls.input}
+              value={data?.currency}
+              onChange={onChangeCurrency}
+              readonly={readonly}
+              />
           </div>
       </div>
   )

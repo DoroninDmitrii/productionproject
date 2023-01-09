@@ -8,6 +8,7 @@ export interface CurrencySelectOptions {
   className?: string
   value?: Currency
   onChange?: (value: Currency) => void
+  readonly?: boolean
 }
 
 const options = [
@@ -20,7 +21,8 @@ const CurrencySelect = memo((props: CurrencySelectOptions) => {
   const {
     className,
     value,
-    onChange
+    onChange,
+    readonly
   } = props
 
   const { t } = useTranslation()
@@ -35,6 +37,7 @@ const CurrencySelect = memo((props: CurrencySelectOptions) => {
         options={options}
         value={value}
         onChange={onChangeHandler}
+        readonly={readonly}
       />
   )
 })
