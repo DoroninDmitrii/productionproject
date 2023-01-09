@@ -1,16 +1,16 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import CurrencySelect from './CurrencySelect'
+import CountrySelect from './CountrySelect'
 
 export default {
-  title: 'entities/CurrencySelect',
-  component: CurrencySelect,
+  title: 'entities/CountrySelect',
+  component: CountrySelect,
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof CurrencySelect>
+} as ComponentMeta<typeof CountrySelect>
 
-const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelect {...args} />
+const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {}
