@@ -12,5 +12,10 @@
   "Username": "Username",
   "Avatar": "Avatar",
   "Choose a currency": "Choose a currency",
-  "Choose a country": "Choose a country"
+  "Choose a country": "Choose a country",
+  "Server error": "Server error",
+  "Data is absented": "Data is absented",
+  "Incorrect user data": "Incorrect user data",
+  "Incorrect country": "Incorrect country",
+  "Incorrect age": "Incorrect age"
 }

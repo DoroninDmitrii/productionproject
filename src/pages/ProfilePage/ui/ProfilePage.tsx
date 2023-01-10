@@ -1,4 +1,4 @@
-import { fetchProfileData, profileReducer, getProfileError, getProfileisLoading, profileAction, getProfileReadonly, getProfileForm, getProfileValidateErrors } from 'entities/Profile'
+import { fetchProfileData, profileReducer, getProfileError, getProfileisLoading, profileAction, getProfileReadonly, getProfileForm, getProfileValidateErrors, ValidateProfileError } from 'entities/Profile'
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -19,7 +19,7 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation('profile')
   const dispatch = useAppDispatch()
 
   const formData = useSelector(getProfileForm)
@@ -27,6 +27,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const error = useSelector(getProfileError)
   const readonly = useSelector(getProfileReadonly)
   const validateErrors = useSelector(getProfileValidateErrors)
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('Server error'),
+    [ValidateProfileError.NO_DATA]: t('Data is absented'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Incorrect user data'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age')
+  }
 
   useEffect(() => {
     dispatch(fetchProfileData())
@@ -71,7 +79,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
               {validateErrors?.length && validateErrors.map((err) => (
                   <Text
                     theme={TextTheme.ERROR}
-                    text={err}
+                    text={validateErrorTranslates[err]}
                     key={err}
                   />
               ))}
