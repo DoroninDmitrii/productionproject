@@ -84,18 +84,18 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                   />
               ))}
               <ProfileCard
-              data={formData}
-              isLoading={isLoading}
-              error={error}
-              onChangeFirstname={onChangeFirstname}
-              onChangeLastname={onChangeLastname}
-              onChangeAge={onChangeAge}
-              onChangeCity={onChangeCity}
-              onChangeUsername={onChangeUsername}
-              onChangeAvatar={onChangeAvatar}
-              onChangeCurrency={onChangeCurrency}
-              onChangeCountry={onChangeCountry}
-              readonly={readonly}
+                data={formData}
+                isLoading={isLoading}
+                error={error}
+                onChangeFirstname={onChangeFirstname}
+                onChangeLastname={onChangeLastname}
+                onChangeAge={onChangeAge}
+                onChangeCity={onChangeCity}
+                onChangeUsername={onChangeUsername}
+                onChangeAvatar={onChangeAvatar}
+                onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
+                readonly={readonly}
                />
           </div>
       </DynamicModuleLoader>
