@@ -1,4 +1,3 @@
-import { userAction } from 'entities/User'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk'
 import { fetchProfileData } from './fetchProfileData'
 import { Country } from 'entities/Country'
