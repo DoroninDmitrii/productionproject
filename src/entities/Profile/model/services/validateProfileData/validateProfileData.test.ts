@@ -28,7 +28,7 @@ describe('validateProifleData.test', () => {
   })
 
   test('incorrect age', async () => {
-    const result = validateProfileData({ ...data, age: undefined})
+    const result = validateProfileData({ ...data, age: undefined })
 
     expect(result).toEqual([
       ValidateProfileError.INCORRECT_AGE
@@ -36,7 +36,7 @@ describe('validateProifleData.test', () => {
   })
 
   test('incorrect county', async () => {
-    const result = validateProfileData({ ...data, country: undefined})
+    const result = validateProfileData({ ...data, country: undefined })
 
     expect(result).toEqual([
       ValidateProfileError.INCORRECT_COUNTRY
