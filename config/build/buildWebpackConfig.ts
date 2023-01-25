@@ -14,7 +14,8 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
     output: {
       filename: '[name].[contenthash].js',
       path: paths.build,
-      clean: true
+      clean: true,
+      publicPath: '/' // to fix  'http://localhost:3000/articles/main.2f549e7231d72ab8b511.js in 48 lesson
     },
     plugins: buildPlugins(options),
     module: {
