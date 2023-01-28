@@ -5,6 +5,7 @@ import { CounterSchema } from 'entities/Counter'
 import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername'
+import { ArticleDetailsSchema } from 'entities/Article'
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
@@ -12,6 +13,7 @@ export interface StateSchema {
   // async reducers
   loginForm?: LoginSchema
   profile?: ProfileSchema
+  articleDetails?: ArticleDetailsSchema
 }
 
 // for key in StateSchema ('counter', 'user', 'loginForm')
