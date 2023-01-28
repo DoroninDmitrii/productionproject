@@ -9,19 +9,20 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface ArticleDetailsProps {
   className?: string
+  id: string
 }
 
 const reducers: ReducerList = {
   articleDetails: articleDetailsReducer
 }
 
-export const ArticleDetails = memo(({ className }: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t, i18n } = useTranslation()
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchArticlebyId('1'))
-  }, [dispatch])
+    dispatch(fetchArticlebyId(id))
+  }, [dispatch, id])
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
