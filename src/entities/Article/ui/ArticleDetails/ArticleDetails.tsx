@@ -7,6 +7,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { fetchArticlebyId } from '../../model/services/fetchArticleById/fetchArticleById'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/ articleDetails'
 
 interface ArticleDetailsProps {
@@ -19,7 +20,7 @@ const reducers: ReducerList = {
 }
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation('article-details')
   const dispatch = useAppDispatch()
 
   const isLoading = useSelector(getArticleDetailsIsLoading)
@@ -38,7 +39,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     )
   } else if (error) {
     content = (
-        <div>error</div>
+        <Text
+          align={TextAlign.CENTER}
+          theme={TextTheme.ERROR}
+          title={t('Mistake is happened')}
+        />
     )
   } else {
     content = (
