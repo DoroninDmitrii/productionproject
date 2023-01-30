@@ -6,6 +6,8 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { fetchArticlebyId } from '../../model/services/fetchArticleById/fetchArticleById'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useSelector } from 'react-redux'
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/ articleDetails'
 
 interface ArticleDetailsProps {
   className?: string
@@ -20,14 +22,35 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t, i18n } = useTranslation()
   const dispatch = useAppDispatch()
 
+  const isLoading = useSelector(getArticleDetailsIsLoading)
+  const article = useSelector(getArticleDetailsData)
+  const error = useSelector(getArticleDetailsError)
+
   useEffect(() => {
     dispatch(fetchArticlebyId(id))
   }, [dispatch, id])
 
+  let content
+
+  if (isLoading) {
+    content = (
+        <div>Loading...</div>
+    )
+  } else if (error) {
+    content = (
+        <div>error</div>
+    )
+  } else {
+    content = (
+        <div>Article Details</div>
+    )
+  }
+
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <div className={classNames(cls.ArticleDetails, {}, [className])}>
-              {t('ArticleImageBlockComponent')}
+              {/* {t('ArticleImageBlockComponent')} */}
+              {content}
           </div>
       </DynamicModuleLoader>
   )
