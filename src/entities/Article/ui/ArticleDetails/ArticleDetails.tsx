@@ -9,6 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/ articleDetails'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 
 interface ArticleDetailsProps {
   className?: string
@@ -23,7 +24,8 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t, i18n } = useTranslation('article-details')
   const dispatch = useAppDispatch()
 
-  const isLoading = useSelector(getArticleDetailsIsLoading)
+  // const isLoading = useSelector(getArticleDetailsIsLoading)
+  const isLoading = true
   const article = useSelector(getArticleDetailsData)
   const error = useSelector(getArticleDetailsError)
 
@@ -35,7 +37,13 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   if (isLoading) {
     content = (
-        <div>Loading...</div>
+        <div>
+            <Skeleton className={cls.avatar} width={200} height={200} border={'50%'} />
+            <Skeleton className={cls.title} width={300} height={32} />
+            <Skeleton className={cls.skeleton} width={600} height={24} />
+            <Skeleton className={cls.skeleton} width="100%" height={200} />
+            <Skeleton className={cls.skeleton} width="100%" height={200} />
+        </div>
     )
   } else if (error) {
     content = (
