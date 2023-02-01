@@ -12,6 +12,7 @@ import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/ articleDetails'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { Icon } from 'shared/ui/Icon/Icon'
 import cls from './ArticleDetails.module.scss'
 
 interface ArticleDetailsProps {
@@ -72,11 +73,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
               size={TextSize.L}
             />
             <div className={cls.articleInfo}>
-                <EyeIcon className={cls.icon} />
+                <Icon className={cls.icon} Svg={EyeIcon} />
                 <Text text={String(article?.views)} />
             </div>
             <div className={cls.articleInfo}>
-                <CalendarIcon className={cls.icon} />
+                <Icon className={cls.icon} Svg={CalendarIcon} />
                 <Text text={article?.createdAt} />
             </div>
         </>
