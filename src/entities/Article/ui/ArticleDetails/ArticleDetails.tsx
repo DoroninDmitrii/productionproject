@@ -8,7 +8,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { fetchArticlebyId } from '../../model/services/fetchArticleById/fetchArticleById'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
+import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/ articleDetails'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
@@ -66,15 +66,17 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
             />
             </div>
             <Text
+              className={cls.title}
               title={article?.title}
               text={article?.subtitle}
+              size={TextSize.L}
             />
             <div className={cls.articleInfo}>
-                <EyeIcon />
+                <EyeIcon className={cls.icon} />
                 <Text text={String(article?.views)} />
             </div>
             <div className={cls.articleInfo}>
-                <CalendarIcon />
+                <CalendarIcon className={cls.icon} />
                 <Text text={article?.createdAt} />
             </div>
         </>
