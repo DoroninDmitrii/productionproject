@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import cls from './ArticleImageBlockComponent.module.scss'
@@ -6,7 +7,7 @@ interface ArticleImageBlockComponentProps {
   className?: string
 }
 
-export const ArticleImageBlockComponent = ({ className }: ArticleImageBlockComponentProps) => {
+export const ArticleImageBlockComponent = memo(({ className }: ArticleImageBlockComponentProps) => {
   const { t, i18n } = useTranslation()
 
   return (
@@ -14,6 +15,6 @@ export const ArticleImageBlockComponent = ({ className }: ArticleImageBlockCompo
           {t('ArticleImageBlockComponent')}
       </div>
   )
-}
+})
 
 export default ArticleImageBlockComponent
