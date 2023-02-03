@@ -1,7 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './Code.module.scss'
 import { memo, ReactNode } from 'react'
-import { Button } from '../Button/Button'
+import { Button, ButtonTheme } from '../Button/Button'
+import CopyIcon from 'shared/assets/icons/copy-20-20.svg'
+import { Icon } from 'shared/ui/Icon/Icon'
+import cls from './Code.module.scss'
 
 interface CodeProps {
   className?: string
@@ -13,7 +15,10 @@ export const Code = memo((props: CodeProps) => {
 
   return (
       <pre className={classNames(cls.Code, {}, [className])}>
-          <Button className={cls.copyBtn}>Copy</Button>
+          <Button className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
+              <CopyIcon className={cls.copyIcon}/>
+          </Button>
+
           <code >
               {children}
           </code>
