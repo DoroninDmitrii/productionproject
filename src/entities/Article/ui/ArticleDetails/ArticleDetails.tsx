@@ -13,7 +13,7 @@ import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoadi
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Icon } from 'shared/ui/Icon/Icon'
-import { ArticleBlock, ArticleBlockType, ArticleTextBlock } from '../../model/types/article'
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article'
 import ArticleCodeBlockComponent from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import ArticleImageBlockComponent from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
