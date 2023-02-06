@@ -26,8 +26,19 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
           <ArticleDetails id={id} />
-          <Text title={t('Comments')}/>
-          <CommentList />
+          <Text className={cls.commentTitle} title={t('Comments')}/>
+          <CommentList comments={[
+            {
+              id: '1',
+              text: 'comment 1',
+              user: { id: '1', username: 'First' }
+            },
+            {
+              id: '2',
+              text: 'comment 2',
+              user: { id: '2', username: 'Second' }
+            }
+          ]} />
       </div>
   )
 }

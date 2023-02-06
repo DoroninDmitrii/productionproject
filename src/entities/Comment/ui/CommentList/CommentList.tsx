@@ -20,7 +20,7 @@ export const CommentList = memo((props: CommentListProps) => {
       <div className={classNames(cls.CommentList, {}, [className])}>
           {comments?.length
             ? comments.map((comment) => {
-                <CommentCard comment={comment}/>
+              return <CommentCard key={comment.id} comment={comment}/>
             })
             : <Text text={t('No comments')}/>}
       </div>

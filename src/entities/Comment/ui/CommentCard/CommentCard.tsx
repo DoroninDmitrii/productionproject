@@ -13,7 +13,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
   const { className, comment, isLoading } = props
   return (
       <div className={classNames(cls.CommentCard, {}, [className])}>
-        {comment}
+          comment
       </div>
   )
 })
