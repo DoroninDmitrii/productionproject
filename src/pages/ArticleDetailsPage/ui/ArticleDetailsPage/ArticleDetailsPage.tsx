@@ -2,7 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { ArticleDetails } from 'entities/Article'
+import { Text } from 'shared/ui/Text/Text'
 import { useParams } from 'react-router-dom'
+import { CommentList } from 'entities/Comment'
 import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
@@ -24,6 +26,8 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
           <ArticleDetails id={id} />
+          <Text title={t('Comments')}/>
+          <CommentList />
       </div>
   )
 }
