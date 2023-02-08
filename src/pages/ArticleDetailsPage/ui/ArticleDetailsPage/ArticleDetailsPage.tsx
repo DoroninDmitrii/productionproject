@@ -27,7 +27,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
           <ArticleDetails id={id} />
           <Text className={cls.commentTitle} title={t('Comments')}/>
-          <CommentList comments={[
+          <CommentList isLoading={true} comments={[
             {
               id: '1',
               text: 'comment 1',
