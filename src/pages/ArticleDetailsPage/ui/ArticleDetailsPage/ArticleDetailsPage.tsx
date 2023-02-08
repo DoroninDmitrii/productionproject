@@ -27,18 +27,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
           <ArticleDetails id={id} />
           <Text className={cls.commentTitle} title={t('Comments')}/>
-          <CommentList isLoading={true} comments={[
-            {
-              id: '1',
-              text: 'comment 1',
-              user: { id: '1', username: 'First', avatar: 'https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg' }
-            },
-            {
-              id: '2',
-              text: 'comment 2',
-              user: { id: '2', username: 'Second', avatar: 'https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg' }
-            }
-          ]} />
+          <CommentList isLoading={true} comments={[]} />
       </div>
   )
 }
