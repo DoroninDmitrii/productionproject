@@ -31,12 +31,12 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             {
               id: '1',
               text: 'comment 1',
-              user: { id: '1', username: 'First' }
+              user: { id: '1', username: 'First', avatar: 'https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg' }
             },
             {
               id: '2',
               text: 'comment 2',
-              user: { id: '2', username: 'Second' }
+              user: { id: '2', username: 'Second', avatar: 'https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg' }
             }
           ]} />
       </div>
