@@ -1,6 +1,6 @@
 import { fetchProfileData, profileReducer, getProfileError, getProfileisLoading, profileAction, getProfileReadonly, getProfileForm, getProfileValidateErrors, ValidateProfileError } from 'entities/Profile'
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -10,6 +10,7 @@ import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 const reducers: ReducerList = {
   profile: profileReducer
@@ -36,11 +37,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age')
   }
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData())
-    }
-  }, [dispatch])
+  useInitialEffect(() => {
+    dispatch(fetchProfileData())
+  })
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileAction.updateProfile({ first: value || '' }))
