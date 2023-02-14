@@ -1,6 +1,7 @@
 import { fetchProfileData, profileReducer, getProfileError, getProfileisLoading, profileAction, getProfileReadonly, getProfileForm, getProfileValidateErrors, ValidateProfileError } from 'entities/Profile'
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
 import { useCallback } from 'react'
+import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -28,6 +29,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const error = useSelector(getProfileError)
   const readonly = useSelector(getProfileReadonly)
   const validateErrors = useSelector(getProfileValidateErrors)
+  const { id } = useParams<{ id: string }>()
 
   const validateErrorTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t('Server error'),
@@ -38,7 +40,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData())
+    if (id) {
+      dispatch(fetchProfileData(id))
+    }
   })
 
   const onChangeFirstname = useCallback((value?: string) => {
