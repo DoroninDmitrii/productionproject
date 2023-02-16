@@ -8,6 +8,7 @@ import { getAddCommentFromError, getAddCommentFromText } from '../../model/selec
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { addCommentFormAction, addCommentFormReducer } from '../../model/slices/addCommentFormSlice'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { sendComment } from '../../model/services/sendComment/sendComment'
 import cls from './AddCommentForm.module.scss'
 
 interface AddCommentFormProps {
@@ -30,6 +31,10 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     dispatch(addCommentFormAction.setText(value))
   }, [dispatch])
 
+  const onSendComment = useCallback(() => {
+    dispatch(sendComment())
+  }, [dispatch])
+
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <div className={classNames(cls.AddCommentForm, {}, [className])}>
@@ -41,6 +46,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
           />
               <Button
               theme={ButtonTheme.OUTLINE}
+              onClick={onSendComment}
           >
                   {t('Send')}
               </Button>
