@@ -117,6 +117,68 @@
       "userId": "1",
       "text": "hry",
       "id": "GvHNP4k"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello",
+      "id": "WwCSVRU"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "new",
+      "id": "nHJ0Y8H"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "new2",
+      "id": "HPniPoh"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "dsdsds",
+      "id": "8Bj3tar"
+    },
+    {
+      "userId": "2",
+      "text": "122323",
+      "id": "rC-p8ql"
+    },
+    {
+      "userId": "2",
+      "text": "2222222222222222222222",
+      "id": "Pr4BtLz"
+    },
+    {
+      "userId": "2",
+      "text": "2222222",
+      "id": "BoztbCm"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "22222222222222222222221!",
+      "id": "_qW8CFP"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "id": "65RS4-d"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "1",
+      "id": "g96JRGm"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "heyy",
+      "id": "1MQL-Ja"
     }
   ],
   "users": [
@@ -155,7 +217,7 @@
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "admin",
+      "username": "user",
       "avatar": "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
     }
   ]
