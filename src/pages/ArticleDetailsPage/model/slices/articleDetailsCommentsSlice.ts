@@ -1,6 +1,6 @@
 import {
   createEntityAdapter,
-  createSlice, 
+  createSlice,
   PayloadAction
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
