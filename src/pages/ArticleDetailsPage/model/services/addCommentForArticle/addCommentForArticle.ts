@@ -12,7 +12,6 @@ export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
 
     const userData = getUserAuthData(getState())
     const article = getArticleDetailsData(getState())
-    // const dispatch = useAppDispatch()
 
     if (!userData || !text || !article) {
       return rejectWithValue('no data')
