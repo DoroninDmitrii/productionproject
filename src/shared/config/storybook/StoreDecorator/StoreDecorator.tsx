@@ -12,7 +12,7 @@ const defaultAsyncReducers: ReducerList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  // @ts-ignore
+  // @ts-expect-error
   atricleDetailsComments: articleDetailsCommnetsReducer
 }
 
