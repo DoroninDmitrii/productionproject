@@ -1,17 +1,17 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import Articlelistitem from './Articlelistitem'
+import ArticleListItem from './ArticleListItem'
 
 export default {
   title: 'entities/Articlelistitem',
-  component: Articlelistitem,
+  component: ArticleListItem,
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof Articlelistitem>
+} as ComponentMeta<typeof ArticleListItem>
 
-const Template: ComponentStory<typeof Articlelistitem> = (args) => <Articlelistitem {...args} />
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}
