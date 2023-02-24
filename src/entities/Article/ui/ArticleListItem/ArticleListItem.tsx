@@ -27,8 +27,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   }
 
   return (
-      <Card className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-          <div className={cls.card}>
+      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+          <Card className={cls.card}>
               <div className={cls.imageWrapper}>
                   <img alt={article.title} src={article.img} className={cls.img} />
                   <Text text={article.createdAt} className={cls.date} />
@@ -39,8 +39,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                   <Icon Svg={EyeIcon}/>
               </div>
               <Text text={article.title} className={cls.title} />
-          </div>
-      </Card>
+          </Card>
+      </div>
   )
 })
 
