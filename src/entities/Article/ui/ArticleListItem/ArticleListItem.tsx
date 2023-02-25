@@ -7,6 +7,7 @@ import { Icon } from 'shared/ui/Icon/Icon'
 import { Card } from 'shared/ui/Card/Card'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import cls from './ArticleListItem.module.scss'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface ArticleListItemProps {
   className?: string
@@ -21,7 +22,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   if (view === ArticleView.BIG) {
     return (
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            {article.title}
+            <Card className={cls.card}>
+                <div className={cls.header}>
+                    <Avatar size={30} src={article.user.avatar} />
+                    <Text text={article.user.username} className={cls.username} />
+                    <Text text={article.createdAt} className={cls.date} />
+                </div>
+            </Card>
         </div>
     )
   }

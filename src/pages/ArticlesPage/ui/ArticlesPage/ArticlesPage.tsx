@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
-import { ArticleList } from 'entities/Article'
+import { ArticleList, ArticleView } from 'entities/Article'
 import { Article } from 'entities/Article'
 
 interface ArticlePageProps {
@@ -15,6 +15,11 @@ const articles = {
     "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
     "views": 1022,
     "createdAt": "26.02.2022",
+    "user": {
+      id: "1",
+      username: "Ivan",
+      avatar: "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
+    },
     "type": [
       "IT"
     ],
@@ -95,7 +100,12 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
   return (
       <div className={classNames('', {}, [className])}>
           {/* {t('Article page')} */}
-          <ArticleList articles={[articles]} />
+          <ArticleList view={ArticleView.BIG} articles={
+            new Array(16).fill(0).map((item, index) => ({
+              ...articles,
+              id: String(index)
+            }))
+          } />
       </div>
   )
 }

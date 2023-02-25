@@ -23,11 +23,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const { t, i18n } = useTranslation()
 
   const renderArticle = (article: Article) => {
-    return <ArticleListItem article={article} view={view} />
+    return <ArticleListItem article={article} view={view} className={cls.card} />
   }
 
   return (
-      <div className={classNames(cls.ArticleList, {}, [className])}>
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
           {articles.length > 0
             ? articles.map(renderArticle)
             : null}
