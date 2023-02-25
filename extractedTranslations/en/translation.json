@@ -40,6 +40,13 @@
   "Profile": "Profile",
   "Profile Page": "Profile Page",
   "Profile page": "Profile page",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Reload": "Reload",
   "SERVER_": "SERVER_",
   "SERVER_ERROR": "SERVER_ERROR",
