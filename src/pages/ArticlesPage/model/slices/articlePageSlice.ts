@@ -5,6 +5,7 @@ import {
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
 import { Article, ArticleView } from 'entities/Article'
+import { fetchArticlesList } from '../services/fetchArticlesList'
 import { ArticlePageSchema } from '../types/articlePageSchema'
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -28,6 +29,21 @@ const articlePageSlice = createSlice({
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload
     }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticlesList.pending, (state, action) => {
+        state.error = undefined
+        state.isLoading = true
+      })
+      .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
+        state.isLoading = false
+        articlesAdapter.setAll(state, action.payload)
+      })
+      .addCase(fetchArticlesList.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.payload
+      })
   }
 })
 
