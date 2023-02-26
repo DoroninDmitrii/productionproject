@@ -8,6 +8,7 @@ import { LoginSchema } from 'features/AuthByUsername'
 import { ArticleDetailsSchema } from 'entities/Article'
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage'
 import { AddCommentFormSchema } from 'features/addCommentForm'
+import { ArticlePageSchema } from 'pages/ArticlesPage'
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
@@ -18,6 +19,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentSchema
   addCommentForm?: AddCommentFormSchema
+  articlePage?: ArticlePageSchema
 }
 
 // for key in StateSchema ('counter', 'user', 'loginForm')

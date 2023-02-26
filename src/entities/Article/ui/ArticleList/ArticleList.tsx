@@ -3,8 +3,8 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import ArticleListItem from '../ArticleListItem/ArticleListItem'
-import cls from './ArticleList.module.scss'
 import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton'
+import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
   className?: string
@@ -17,7 +17,7 @@ const getSkeleton = (view: ArticleView) => {
   return new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((item, index) => (
-        <ArticleListItemSkeleton className={cls.card} key={index} view={view}/>
+        <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
     ))
 }
 
