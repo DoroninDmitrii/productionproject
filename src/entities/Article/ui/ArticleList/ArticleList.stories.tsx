@@ -23,7 +23,7 @@ const article: Article = {
   createdAt: '26.02.2022',
   user: {
     id: '1',
-    username: 'Ivan',
+    username: 'Ivan'
   },
   type: [ArticleType.IT],
   blocks: [
