@@ -36,8 +36,10 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
   }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList())
     dispatch(articlePageActions.initState())
+    dispatch(fetchArticlesList({
+      page: 1
+    }))
   })
 
   return (
