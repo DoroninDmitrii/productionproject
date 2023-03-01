@@ -7,14 +7,17 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList'
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 import {
   getArticlesPageError,
+  getArticlesPageHasMore,
   getArticlesPageIsLoading,
+  getArticlesPageNum,
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import Page from 'shared/ui/Page/Page'
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 
 interface ArticlePageProps {
   className?: string
@@ -31,9 +34,15 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading)
   const view = useSelector(getArticlesPageView)
   const error = useSelector(getArticlesPageError)
+  const page = useSelector(getArticlesPageNum)
+  const hasMore = useSelector(getArticlesPageHasMore)
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageActions.setView(view))
+  }, [dispatch])
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage())
   }, [dispatch])
 
   useInitialEffect(() => {
@@ -45,7 +54,7 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <Page className={classNames('', {}, [className])}>
+          <Page onScrollEnd={onLoadNextPart} className={classNames('', {}, [className])}>
               <ArticleViewSelector view={view} onViewClick={onChangeView}/>
               <ArticleList
                 isLoading={isLoading}
