@@ -34,7 +34,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   }, [collapsed, sidebarItemsList])
 
   return (
-      <div data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+      <menu data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
           <Button
               // eslint-disable-next-line i18next/no-literal-string
@@ -55,6 +55,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               <ThemeSwitcher />
               <LangSwitcher short={collapsed} className={cls.lang}/>
           </div>
-      </div>
+      </menu>
   )
 })

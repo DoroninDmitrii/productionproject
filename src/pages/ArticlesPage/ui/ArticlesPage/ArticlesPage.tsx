@@ -14,6 +14,7 @@ import {
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
+import Page from 'shared/ui/Page/Page'
 
 interface ArticlePageProps {
   className?: string
@@ -44,14 +45,14 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <div className={classNames('', {}, [className])}>
+          <Page className={classNames('', {}, [className])}>
               <ArticleViewSelector view={view} onViewClick={onChangeView}/>
               <ArticleList
                 isLoading={isLoading}
                 view={view}
                 articles={articles}
               />
-          </div>
+          </Page>
       </DynamicModuleLoader>
   )
 }
