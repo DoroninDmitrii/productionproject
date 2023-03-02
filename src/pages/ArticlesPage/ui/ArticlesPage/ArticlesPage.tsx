@@ -11,6 +11,7 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import {
   getArticlesPageError,
   getArticlesPageHasMore,
+  getArticlesPageInited,
   getArticlesPageIsLoading,
   getArticlesPageNum,
   getArticlesPageView
@@ -36,6 +37,7 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
   const error = useSelector(getArticlesPageError)
   const page = useSelector(getArticlesPageNum)
   const hasMore = useSelector(getArticlesPageHasMore)
+  const inited = useSelector(getArticlesPageInited)
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageActions.setView(view))
@@ -46,14 +48,16 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
   }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(articlePageActions.initState())
-    dispatch(fetchArticlesList({
-      page: 1
-    }))
+    if (!inited) {
+      dispatch(articlePageActions.initState())
+      dispatch(fetchArticlesList({
+        page: 1
+      }))
+    }
   })
 
   return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
           <Page onScrollEnd={onLoadNextPart} className={classNames('', {}, [className])}>
               <ArticleViewSelector view={view} onViewClick={onChangeView}/>
               <ArticleList
