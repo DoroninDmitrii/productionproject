@@ -23,12 +23,15 @@ export interface StateSchema {
 
 // for key in StateSchema ('counter', 'user', 'loginForm')
 export type StateSchemaKey = keyof StateSchema
+export type MountedReducers = ObjectRecord<StateSchemaKey, boolean>
 
 export interface reducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>
   add: (key: StateSchemaKey, reducer: Reducer) => void
   remove: (key: StateSchemaKey) => void
+  // true - reducer is mounted false - isn't
+  getMountedReducers: () => MountedReducers
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
