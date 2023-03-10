@@ -8,6 +8,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { scrollSaveAction } from 'features/ScrollSave/index'
 import { StateSchema } from '../../app/providers/StoreProvider/index'
 import { getSaveScrollByPath } from 'features/ScrollSave/model/selectors/scrollSave'
+import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
 import cls from './Page.module.scss'
 
 interface PageProps {
@@ -34,12 +35,12 @@ export const Page = memo((props: PageProps) => {
     wrapperRef.current.scrollTop = scrollPosition
   })
 
-  const onScroll = (e: UIEvent<HTMLDivElement>) => {
+  const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
+    console.log('SCROLL')
     dispatch(scrollSaveAction.setScrollPosition({
       position: e.currentTarget.scrollTop, path: pathname
     }))
-    console.log('scroll', e.currentTarget.scrollTop)
-  }
+  }, 500)
 
   return (
       <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
