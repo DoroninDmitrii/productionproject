@@ -2,5 +2,11 @@
   "Article page": "Article page",
   "Read more...": "Read more...",
   "Sort by": "Sort by",
-  "Search": "Search"
+  "Search": "Search",
+  "ascending": "ascending",
+  "descending": "descending",
+  "by": "by",
+  "data": "data",
+  "title": "title",
+  "watching": "watching" 
 }

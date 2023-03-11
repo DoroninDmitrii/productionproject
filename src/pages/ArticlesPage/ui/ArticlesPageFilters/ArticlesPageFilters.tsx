@@ -6,8 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getArticlesPageView } from '../../model/selectors/articlesPageSelectors'
 import { articlePageActions } from '../../model/slices/articlePageSlice'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
-import { ArticleView } from 'entities/Article'
-import { Select } from 'shared/ui/Select/Select'
+import { ArticleSortSelector, ArticleView } from 'entities/Article'
 import Card from 'shared/ui/Card/Card'
 import { Input } from 'shared/ui/Input/Input'
 import cls from './ArticlesPageFilters.module.scss'
@@ -29,7 +28,12 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   return (
       <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
           <div className={cls.sortWrapper}>
-              <Select label={t('Sort by')}/>
+              <ArticleSortSelector
+                order={}
+                sort={}
+                onChangeOrder={}
+                onChangeSort={}
+              />
               <ArticleViewSelector view={view} onViewClick={onChangeView}/>
           </div>
           <Card className={cls.search}>

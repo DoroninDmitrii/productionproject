@@ -2,5 +2,11 @@
   "": "",
   "Find": "Find",
   "Search": "Search",
-  "Sort by": "Sort by"
+  "Sort by": "Sort by",
+  "ascending": "ascending",
+  "by": "by",
+  "data": "data",
+  "descending": "descending",
+  "title": "title",
+  "watching": "watching"
 }
