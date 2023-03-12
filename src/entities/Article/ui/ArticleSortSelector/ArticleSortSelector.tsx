@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/array-type */
 import { ArticleSortField } from 'entities/Article/model/types/article'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -15,10 +16,10 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-  const { className } = props
+  const { className, sort, order, onChangeOrder, onChangeSort } = props
   const { t, i18n } = useTranslation('acticle')
 
-  const orderOptions = useMemo<SelectOptions[]>(() => [
+  const orderOptions = useMemo<SelectOptions<SortOrder>[]>(() => [
     {
       value: 'asc',
       content: t('ascending')
@@ -29,7 +30,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     }
   ], [t])
 
-  const sortFieldOptions = useMemo<SelectOptions[]>(() => [
+  const sortFieldOptions = useMemo<SelectOptions<ArticleSortField>[]>(() => [
     {
       value: ArticleSortField.CREATED,
       content: t('data')
@@ -46,8 +47,20 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
   return (
       <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-          <Select options={sortFieldOptions} label={t('Sort by')}/>
-          <Select options={orderOptions} label={t('by')}/>
+          <Select
+            options={sortFieldOptions}
+            label={t('Sort by')}
+            value={sort}
+            onChange={onChangeSort}
+          />
+
+          <Select
+            options={orderOptions}
+            label={t('by')}
+            value={order}
+            onChange={onChangeOrder}
+            className={cls.order}
+          />
       </div>
   )
 })
