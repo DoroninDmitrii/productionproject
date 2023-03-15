@@ -12,6 +12,7 @@ import { Input } from 'shared/ui/Input/Input'
 import { SortOrder } from 'shared/types'
 import { ArticleSortField } from 'entities/Article/model/types/article'
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList'
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
 import cls from './ArticlesPageFilters.module.scss'
 
 interface ArticlesPageFiltersProps {
@@ -30,6 +31,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }))
   }, [dispatch])
+
+  const debouncedFetchData = useDebounce(fetchData, 500)
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageActions.setView(view))
@@ -51,8 +54,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   const onChangeSearch = useCallback((search: string) => {
     dispatch(articlePageActions.setSearch(search))
     dispatch(articlePageActions.setPage(1))
-    fetchData()
-  }, [dispatch, fetchData])
+    debouncedFetchData()
+  }, [dispatch, debouncedFetchData])
 
   return (
       <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
