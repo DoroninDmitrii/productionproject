@@ -1,8 +1,11 @@
 {
+  "All": "All",
   "Article is not ": "Article is not ",
   "Article is not foind": "Article is not foind",
   "Article is not found": "Article is not found",
   "Article page": "Article page",
+  "Economic": "Economic",
+  "It": "It",
   "Mistake is happened": "Mistake is happened",
   "Read more": {
     "": {
@@ -10,5 +13,14 @@
         "": ""
       }
     }
-  }
+  },
+  "Science": "Science",
+  "Search": "Search",
+  "Sort by": "Sort by",
+  "ascending": "ascending",
+  "by": "by",
+  "data": "data",
+  "descending": "descending",
+  "title": "title",
+  "watching": "watching"
 }

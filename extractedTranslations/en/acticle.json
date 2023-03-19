@@ -1,6 +1,15 @@
 {
   "": "",
+  "ALL": "",
+  "ALL ": "",
+  "All": "",
+  "Econo": "",
+  "Economic": "",
   "Find": "Find",
+  "IT": "",
+  "It": "",
+  "SCIENCE": "",
+  "Science": "",
   "Search": "Search",
   "Sort by": "Sort by",
   "ascending": "ascending",
@@ -8,5 +17,8 @@
   "data": "data",
   "descending": "descending",
   "title": "title",
-  "watching": "watching"
+  "watching": "watching",
+  "Айти": "Айти",
+  "Наука": "",
+  "Экономика": ""
 }

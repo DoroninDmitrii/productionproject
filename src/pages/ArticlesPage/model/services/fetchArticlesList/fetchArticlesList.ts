@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkConfig } from 'app/providers/StoreProvider'
-import { Article } from 'entities/Article'
+import { Article, ArticleType } from 'entities/Article'
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams'
-import { getArticlesPageLimit, getArticlesPageSort, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageNum } from '../../selectors/articlesPageSelectors'
+import { getArticlesPageLimit, getArticlesPageSort, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageNum, getArticlesPageType } from '../../selectors/articlesPageSelectors'
 
 interface FetchArticlesListProps {
   replace?: boolean
@@ -21,9 +21,10 @@ ThunkConfig<string>>(
     const order = getArticlesPageOrder(getState())
     const search = getArticlesPageSearch(getState())
     const page = getArticlesPageNum(getState())
+    const type = getArticlesPageType(getState())
 
     try {
-      addQueryParams({ sort, order, search })
+      addQueryParams({ sort, order, search, type })
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'user',
@@ -31,7 +32,8 @@ ThunkConfig<string>>(
           _page: page,
           _sort: sort,
           _order: order,
-          q: search
+          q: search,
+          type: type === ArticleType.ALL ? undefined : type
         }
       })
 

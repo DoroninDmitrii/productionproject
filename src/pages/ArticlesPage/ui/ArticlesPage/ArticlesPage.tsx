@@ -40,7 +40,8 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
   const page = useSelector(getArticlesPageNum)
   const hasMore = useSelector(getArticlesPageHasMore)
   const inited = useSelector(getArticlesPageInited)
-  const [searchParams, setSearchParams] = useSearchParams()
+
+  const [searchParams] = useSearchParams()
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage())

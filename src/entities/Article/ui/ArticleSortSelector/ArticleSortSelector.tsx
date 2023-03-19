@@ -17,7 +17,7 @@ interface ArticleSortSelectorProps {
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   const { className, sort, order, onChangeOrder, onChangeSort } = props
-  const { t, i18n } = useTranslation('acticle')
+  const { t, i18n } = useTranslation('article')
 
   const orderOptions = useMemo<SelectOptions<SortOrder>[]>(() => [
     {
