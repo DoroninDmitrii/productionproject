@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import ArticleListItem from '../ArticleListItem/ArticleListItem'
 import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
@@ -29,10 +30,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleView.SMALL
   } = props
 
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation('article')
 
   const renderArticle = (article: Article) => {
     return <ArticleListItem article={article} view={view} className={cls.card} key={article.id} />
+  }
+
+  if (!isLoading && !articles.length) {
+    return (
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <Text size={TextSize.L} title={t('Articles are not found')}/>
+        </div>
+    )
   }
 
   return (

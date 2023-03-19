@@ -6,7 +6,7 @@ import {
 import { articlePageActions } from '../../slices/articlePageSlice'
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
 import { SortOrder } from 'shared/types'
-import { ArticleSortField } from 'entities/Article'
+import { ArticleSortField, ArticleType } from 'entities/Article'
 
 export const initArticlesPage = createAsyncThunk<
 void,
@@ -21,6 +21,7 @@ ThunkConfig<string>>(
       const orderFromUrl = searchParams.get('order')
       const sortFromUrl = searchParams.get('sort')
       const searchFromUrl = searchParams.get('search')
+      const typeFromUrl = searchParams.get('type')
 
       if (orderFromUrl) {
         dispatch(articlePageActions.setOrder(orderFromUrl as SortOrder))
@@ -30,6 +31,9 @@ ThunkConfig<string>>(
       }
       if (searchFromUrl) {
         dispatch(articlePageActions.setSearch(searchFromUrl))
+      }
+      if (typeFromUrl) {
+        dispatch(articlePageActions.setType(typeFromUrl as ArticleType))
       }
 
       dispatch(articlePageActions.initState())
