@@ -34,6 +34,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   }, [collapsed, sidebarItemsList])
 
   return (
+      // eslint-disable-next-line i18next/no-literal-string
       <menu data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
           <Button
