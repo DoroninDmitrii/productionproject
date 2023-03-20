@@ -15,15 +15,17 @@ import { AddCommentForm } from 'features/addCommentForm'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import cls from './ArticleDetailsPage.module.scss'
 import Page from 'widgets/Page/Page'
+import { articleDetaisPageRecommendationsReducer, getArticleRecommendations } from '../../model/slices/articleDetaisPageRecommendationsSlice'
+import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
   className?: string
 }
 
 const reducers: ReducerList = {
-  articleDetailsComments: articleDetailsCommnetsReducer
+  articleDetailsComments: articleDetailsCommnetsReducer,
+  articleDetailsRecommendations: articleDetaisPageRecommendationsReducer
 }
 
 export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
@@ -34,6 +36,8 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
+  const recommendation = useSelector(getArticleRecommendations.selectAll)
+  const recommendationIsLoading = useSelector(getArticleCommentsIsLoading)
 
   const onBackToList = useCallback(() => {
     navigate(RoutePath.articles)
