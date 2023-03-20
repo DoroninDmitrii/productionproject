@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { ArticleDetails } from 'entities/Article'
-import { Text } from 'shared/ui/Text/Text'
+import { ArticleDetails, ArticleList } from 'entities/Article'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CommentList } from 'entities/Comment'
 import { ReducerList, DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -17,6 +17,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import Page from 'widgets/Page/Page'
 import { articleDetaisPageRecommendationsReducer, getArticleRecommendations } from '../../model/slices/articleDetaisPageRecommendationsSlice'
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendation/fetchArticleRecommendation'
 import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
@@ -49,6 +50,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
+    dispatch(fetchArticleRecommendations())
   })
 
   if (!id) {
@@ -66,7 +68,21 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                   {t('Back to list')}
               </Button>
               <ArticleDetails id={id} />
-              <Text className={cls.commentTitle} title={t('Comments')}/>
+              <Text
+                size={TextSize.L}
+                className={cls.commentTitle}
+                title={t('Recommendations')}
+              />
+              <ArticleList
+                articles={recommendation}
+                isLoading={recommendationIsLoading}
+                className={cls.recommendations}
+              />
+              <Text
+                size={TextSize.L}
+                className={cls.commentTitle}
+                title={t('Comments')}
+              />
               <AddCommentForm onSendComment={onSendComment} />
               <CommentList isLoading={commentsIsLoading} comments={comments} />
           </Page>
