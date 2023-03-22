@@ -6,7 +6,7 @@ import { Text, TextSize } from 'shared/ui/Text/Text'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CommentList } from 'entities/Comment'
 import { ReducerList, DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { articleDetailsCommnetsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
@@ -77,6 +77,8 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 articles={recommendation}
                 isLoading={recommendationIsLoading}
                 className={cls.recommendations}
+                // eslint-disable-next-line i18next/no-literal-string
+                target="_blank"
               />
               <Text
                 size={TextSize.L}
