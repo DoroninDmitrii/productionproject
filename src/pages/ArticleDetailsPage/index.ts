@@ -4,3 +4,5 @@ export {
 
 export { ArticleDetailsCommentSchema } from './model/types/ArticleDetailsCommentSchema'
 export { ArticleDetaisPageRecommendationsSchema } from './model/types/ArticleDetaisPageRecommendationsSchema'
+
+export { ArticleDetailsPageSchema } from './model/types/index'

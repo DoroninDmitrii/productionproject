@@ -16,8 +16,9 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import Page from 'widgets/Page/Page'
-import { articleDetaisPageRecommendationsReducer, getArticleRecommendations } from '../../model/slices/articleDetaisPageRecommendationsSlice'
+import { getArticleRecommendations } from '../../model/slices/articleDetaisPageRecommendationsSlice'
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendation/fetchArticleRecommendation'
+import { articleDetailsPageReducer } from '../../model/slices'
 import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
@@ -25,8 +26,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducerList = {
-  articleDetailsComments: articleDetailsCommnetsReducer,
-  articleDetailsRecommendations: articleDetaisPageRecommendationsReducer
+  articleDetailsPage: articleDetailsPageReducer
 }
 
 export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
