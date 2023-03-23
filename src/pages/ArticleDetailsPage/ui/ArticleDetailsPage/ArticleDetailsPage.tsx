@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { ArticleDetails, ArticleList } from 'entities/Article'
 import { Text, TextSize } from 'shared/ui/Text/Text'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { CommentList } from 'entities/Comment'
 import { ReducerList, DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
@@ -13,13 +13,12 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { AddCommentForm } from 'features/addCommentForm'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import Page from 'widgets/Page/Page'
 import { getArticleRecommendations } from '../../model/slices/articleDetaisPageRecommendationsSlice'
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendation/fetchArticleRecommendation'
 import { articleDetailsPageReducer } from '../../model/slices'
 import cls from './ArticleDetailsPage.module.scss'
+import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -33,16 +32,11 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t, i18n } = useTranslation('article-details')
   const { id } = useParams<{ id: string }>()
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
   const recommendation = useSelector(getArticleRecommendations.selectAll)
   const recommendationIsLoading = useSelector(getArticleCommentsIsLoading)
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
-  }, [navigate])
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text))
@@ -64,9 +58,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-              <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                  {t('Back to list')}
-              </Button>
+              <ArticleDetailsPageHeader/>
               <ArticleDetails id={id} />
               <Text
                 size={TextSize.L}
