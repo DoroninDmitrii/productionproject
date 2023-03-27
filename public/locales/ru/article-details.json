@@ -4,5 +4,7 @@
   "Comments": "Комментарии",
   "Back to list": "Назад к списку",
   "Recommendations": "Рекомендации",
-  "Edit": "Редактировать"
+  "Edit": "Редактировать",
+  "Article is edited according to ID = ": "Редактировать статью согласно ID = ",
+  "Create a new article": "Создать новую статью"
 }

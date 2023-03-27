@@ -4,5 +4,7 @@
   "Comments": "Comments",
   "Back to list": "Back to list",
   "Recommendations": "Recommendations",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "Article is edited according to ID = ": "Article is edited according to ID = ",
+  "Create a new article": "Create a new article"
 }
