@@ -25,7 +25,8 @@ module.exports = {
   plugins: [
     'react',
     'i18next',
-    'react-hooks'
+    'react-hooks',
+    'plugin'
   ],
   settings: {
     react: {
@@ -36,6 +37,7 @@ module.exports = {
     'react/jsx-indent': [2, 4],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
+    'plugin/path-checker': 'error',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
