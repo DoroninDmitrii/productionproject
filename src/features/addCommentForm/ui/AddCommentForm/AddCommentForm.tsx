@@ -8,6 +8,7 @@ import { getAddCommentFromError, getAddCommentFromText } from '../../model/selec
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { addCommentFormAction, addCommentFormReducer } from '../../model/slices/addCommentFormSlice'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { HStack } from 'shared/ui/Stack'
 import cls from './AddCommentForm.module.scss'
 
 export interface AddCommentFormProps {
@@ -38,7 +39,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <div className={classNames(cls.AddCommentForm, {}, [className])}>
+          <HStack justify='between' max className={classNames(cls.AddCommentForm, {}, [className])}>
               <Input
               className={cls.input}
               placeholder={t('Write a comment')}
@@ -51,7 +52,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
           >
                   {t('Send')}
               </Button>
-          </div>
+          </HStack>
       </DynamicModuleLoader>
   )
 })
