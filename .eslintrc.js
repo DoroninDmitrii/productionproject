@@ -53,7 +53,13 @@ module.exports = {
     '@typescript-eslint/no-dynamic-delete': 'off',
     'no-unused-vars': 'off',
     'react/jsx-props-no-spreading': 'warn',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'i18next/no-literal-string': [
+      'error', 
+      { 
+        markupOnly: true,
+        ignoreAttribute: ['role', 'data-testid', 'justify', 'direction'] 
+      }
+    ],
     'react/display-name': 'off',
     '@typescript-eslint/prefer-includes': 'off'
   }

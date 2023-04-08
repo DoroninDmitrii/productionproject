@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import Flex, { FlexProps } from '../Flex/Flex'
 
 type HStackProps = Omit<FlexProps, 'direction'>

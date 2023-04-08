@@ -35,11 +35,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   }, [collapsed, sidebarItemsList])
 
   return (
-      // eslint-disable-next-line i18next/no-literal-string
       <menu data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
           <Button
-              // eslint-disable-next-line i18next/no-literal-string
               data-testid='sidebar-toggle'
               onClick={onToggle}
               className={cls.collapseBtn}
@@ -50,7 +48,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               {collapsed ? '>' : '<'}
           </Button>
 
-          <VStack gap='8' className={cls.items}>
+          <VStack role='navigation' gap='8' className={cls.items}>
               {itemList}
           </VStack>
           <div className={cls.switchers}>

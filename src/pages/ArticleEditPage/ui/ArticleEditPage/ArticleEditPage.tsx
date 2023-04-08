@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import Page from 'widgets/Page/Page'
-import cls from './ArticleEditPage.module.scss'
 
 interface ArticleEditPageProps {
   className?: string
@@ -18,7 +17,7 @@ export const ArticleEditPage = memo((props: ArticleEditPageProps) => {
   const isEdit = Boolean(id)
 
   return (
-      <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
           {isEdit ? t('Article is edited according to ID = ') + id : t('Create a new article')}
       </Page>
   )
