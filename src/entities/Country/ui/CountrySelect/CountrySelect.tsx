@@ -39,7 +39,7 @@ const CountrySelect = memo((props: CountySelectOptions) => {
         onChange={onChangeHandler}
         items={options}
         readonly={readonly}
-        direction='top'
+        direction='top right'
     />
   )
 })

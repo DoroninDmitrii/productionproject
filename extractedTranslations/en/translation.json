@@ -64,6 +64,8 @@
   "Throw Error": "Throw Error",
   "Toggle": "Toggle",
   "Try again": "Try again",
+  "Use profile": "Use profile",
+  "User profile": "User profile",
   "Username": "Username",
   "W": "W",
   "Write a password": "Write a password",
@@ -74,5 +76,6 @@
   "Your login or password is not correct": "",
   "Your name": "Your name",
   "Your surname": "Your surname",
+  "profile": "profile",
   "throw Error": "throw Error"
 }
