@@ -1,0 +1,2 @@
+
+export interface {{pascalCase}}Schema {}
