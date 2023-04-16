@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { ArticleDetails, ArticleList } from 'entities/Article'
+import { ArticleDetails } from 'entities/Article'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { useParams } from 'react-router-dom'
 import { CommentList } from 'entities/Comment'
@@ -14,12 +14,11 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { AddCommentForm } from 'features/addCommentForm'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import Page from 'widgets/Page/Page'
-import { getArticleRecommendations } from '../../model/slices/articleDetaisPageRecommendationsSlice'
-import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendation/fetchArticleRecommendation'
 import { articleDetailsPageReducer } from '../../model/slices'
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
-import cls from './ArticleDetailsPage.module.scss'
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList'
 import { VStack } from 'shared/ui/Stack'
+import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -36,8 +35,6 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
-  const recommendation = useSelector(getArticleRecommendations.selectAll)
-  const recommendationIsLoading = useSelector(getArticleCommentsIsLoading)
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text))
@@ -45,7 +42,6 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
-    dispatch(fetchArticleRecommendations())
   })
 
   if (!id) {
@@ -62,18 +58,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
               <VStack gap='16' max>
                   <ArticleDetailsPageHeader/>
                   <ArticleDetails id={id} />
-                  <Text
-                    size={TextSize.L}
-                    className={cls.commentTitle}
-                    title={t('Recommendations')}
-                  />
-                  <ArticleList
-                    articles={recommendation}
-                    isLoading={recommendationIsLoading}
-                    className={cls.recommendations}
-                // eslint-disable-next-line i18next/no-literal-string
-                    target="_blank"
-                  />
+                  <ArticleRecommendationsList />
                   <Text
                     size={TextSize.L}
                     className={cls.commentTitle}

@@ -5,14 +5,16 @@ import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername'
 import { ArticleDetailsSchema } from 'entities/Article'
-import { ArticleDetailsCommentSchema, ArticleDetailsPageSchema, ArticleDetaisPageRecommendationsSchema } from 'pages/ArticleDetailsPage'
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
 import { AddCommentFormSchema } from 'features/addCommentForm'
 import { ArticlePageSchema } from 'pages/ArticlesPage'
 import { ScrollSaveSchema } from 'features/ScrollSave'
+import { rtkApi } from 'shared/api/rtkApi'
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
   scrollSave: ScrollSaveSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async reducers
   loginForm?: LoginSchema
