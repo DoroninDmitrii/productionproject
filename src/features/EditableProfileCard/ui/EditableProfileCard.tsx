@@ -3,17 +3,15 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import {
-  fetchProfileData,
-  getProfileError,
-  getProfileisLoading,
-  profileAction,
-  getProfileReadonly,
-  getProfileForm,
-  getProfileValidateErrors,
-  ValidateProfileError
-} from 'entities/Profile'
-import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard'
+import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData'
+import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
+import { getProfileisLoading } from '../model/selectors/getProfileisLoading/getProfileisLoading'
+import { profileAction } from '../model/slice/profileSlice'
+import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly'
+import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm'
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { ValidateProfileError } from '../model/types/EditableProfileCardSchema'
+import { ProfileCard } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'

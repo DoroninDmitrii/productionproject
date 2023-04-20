@@ -1,4 +1,4 @@
-import { ProfileSchema, ValidateProfileError } from '../types/profile'
+import { ProfileSchema, ValidateProfileError } from '../types/EditableProfileCardSchema'
 import { profileReducer, profileAction } from './profileSlice'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'

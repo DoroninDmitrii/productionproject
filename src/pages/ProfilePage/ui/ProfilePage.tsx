@@ -1,4 +1,4 @@
-import { profileReducer } from 'entities/Profile'
+import { profileReducer } from 'features/EditableProfileCard'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
