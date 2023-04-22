@@ -17,5 +17,6 @@
   "Data is absented": "Данные отсутствуют",
   "Incorrect user data": "Некорректные данные",
   "Incorrect country": "Некорректно указана страна",
-  "Incorrect age": "Некорректно указан возраст"
+  "Incorrect age": "Некорректно указан возраст",
+  "Profile is not found": "Профиль не найден"
 }

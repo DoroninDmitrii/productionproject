@@ -1,30 +1,37 @@
 import { memo, useCallback } from 'react'
-import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData'
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError'
-import { getProfileisLoading } from '../model/selectors/getProfileisLoading/getProfileisLoading'
-import { profileAction } from '../model/slice/profileSlice'
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly'
-import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm'
-import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
-import { ValidateProfileError } from '../model/types/EditableProfileCardSchema'
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
+import { getProfileisLoading } from '../../model/selectors/getProfileisLoading/getProfileisLoading'
+import { profileAction, profileReducer } from '../../model/slice/profileSlice'
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { ValidateProfileError } from '../../model/types/EditableProfileCardSchema'
 import { ProfileCard } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import EditableProfileCardHeader from '../EditableProfileCardHeader/EditableProfileCardHeader'
+import { VStack } from 'shared/ui/Stack'
 import cls from './EditableProfileCard.module.scss'
 
 interface EditableProfileCardProps {
   className?: string
+  id: string
+}
+
+const reducers: ReducerList = {
+  profile: profileReducer
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-  const { className } = props
+  const { className, id } = props
   const { t, i18n } = useTranslation('profile')
 
   const dispatch = useAppDispatch()
@@ -34,7 +41,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const error = useSelector(getProfileError)
   const readonly = useSelector(getProfileReadonly)
   const validateErrors = useSelector(getProfileValidateErrors)
-  const { id } = useParams<{ id: string }>()
 
   const validateErrorTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t('Server error'),
@@ -83,29 +89,32 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   }, [dispatch])
 
   return (
-      <div className={classNames(cls.EditableProfileCard, {}, [className])}>
-          {validateErrors?.length && validateErrors.map((err) => (
-              <Text
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+          <VStack gap={'8'} max className={classNames(cls.EditableProfileCard, {}, [className])}>
+              <EditableProfileCardHeader />
+              {validateErrors?.length && validateErrors.map((err) => (
+                  <Text
                   theme={TextTheme.ERROR}
                   text={validateErrorTranslates[err]}
                   key={err}
               />
-          ))}
-          <ProfileCard
-              data={formData}
-              isLoading={isLoading}
-              error={error}
-              onChangeFirstname={onChangeFirstname}
-              onChangeLastname={onChangeLastname}
-              onChangeAge={onChangeAge}
-              onChangeCity={onChangeCity}
-              onChangeUsername={onChangeUsername}
-              onChangeAvatar={onChangeAvatar}
-              onChangeCurrency={onChangeCurrency}
-              onChangeCountry={onChangeCountry}
-              readonly={readonly}
+              ))}
+              <ProfileCard
+                  data={formData}
+                  isLoading={isLoading}
+                  error={error}
+                  onChangeFirstname={onChangeFirstname}
+                  onChangeLastname={onChangeLastname}
+                  onChangeAge={onChangeAge}
+                  onChangeCity={onChangeCity}
+                  onChangeUsername={onChangeUsername}
+                  onChangeAvatar={onChangeAvatar}
+                  onChangeCurrency={onChangeCurrency}
+                  onChangeCountry={onChangeCountry}
+                  readonly={readonly}
           />
-      </div>
+          </ VStack>
+      </DynamicModuleLoader>
   )
 })
 

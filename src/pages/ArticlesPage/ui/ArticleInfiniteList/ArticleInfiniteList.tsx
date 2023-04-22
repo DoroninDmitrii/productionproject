@@ -33,8 +33,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const inited = useSelector(getArticlesPageInited)
 
   if (error) {
-    // @ts-ignore
-    return <Text>{t('Mistake is happened')}</Text>
+    return <Text text={t('Mistake is happened')} />
   }
 
   return (
