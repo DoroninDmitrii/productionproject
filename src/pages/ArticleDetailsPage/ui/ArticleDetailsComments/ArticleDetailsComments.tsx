@@ -10,6 +10,7 @@ import { getArticleComments } from '../../model/slices/articleDetailsCommentsSli
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsCommentsProps {
   className?: string
@@ -34,7 +35,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
   })
 
   return (
-      <div className={classNames('', {}, [className])}>
+      <VStack gap='16' max className={classNames('', {}, [className])}>
           <Text
             size={TextSize.L}
             className={''}
@@ -45,7 +46,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
               isLoading={commentsIsLoading}
               comments={comments}
           />
-      </div>
+      </VStack>
   )
 })
 
