@@ -135,3 +135,6 @@ dist
 # loki
 .loki/report.html
 .loki/report.json
+
+# unit test
+/reports
