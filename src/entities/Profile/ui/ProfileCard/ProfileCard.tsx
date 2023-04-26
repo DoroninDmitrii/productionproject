@@ -67,10 +67,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <HStack justify={'center'} max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
             <Text
-            theme={TextTheme.ERROR}
-            title={t('Mistake is happened')}
-            text={t('Try again')}
-            align={TextAlign.CENTER}
+                theme={TextTheme.ERROR}
+                title={t('Mistake is happened')}
+                text={t('Try again')}
+                align={TextAlign.CENTER}
             />
         </HStack>
     )
@@ -95,6 +95,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
               className={cls.input}
               onChange={onChangeFirstname}
               readonly={readonly}
+              data-testid={'ProfileCard.firstname'}
           />
 
           <Input
@@ -103,6 +104,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
               className={cls.input}
               onChange={onChangeLastname}
               readonly={readonly}
+              data-testid={'ProfileCard.lastname'}
           />
 
           <Input

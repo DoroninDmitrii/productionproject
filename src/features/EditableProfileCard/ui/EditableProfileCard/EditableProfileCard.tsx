@@ -19,7 +19,6 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import EditableProfileCardHeader from '../EditableProfileCardHeader/EditableProfileCardHeader'
 import { VStack } from 'shared/ui/Stack'
-import cls from './EditableProfileCard.module.scss'
 
 interface EditableProfileCardProps {
   className?: string
@@ -94,9 +93,10 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
               <EditableProfileCardHeader />
               {validateErrors?.length && validateErrors.map((err) => (
                   <Text
-                  theme={TextTheme.ERROR}
-                  text={validateErrorTranslates[err]}
-                  key={err}
+                      theme={TextTheme.ERROR}
+                      text={validateErrorTranslates[err]}
+                      key={err}
+                      data-testid='EditableProfileCard.Error'
               />
               ))}
               <ProfileCard
