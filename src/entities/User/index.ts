@@ -8,7 +8,8 @@ export {
 
 export {
   isUserAdmin,
-  isUserManager
+  isUserManager,
+  getUserRoles
 } from './model/selectors/roleSelectors'
 
 export {

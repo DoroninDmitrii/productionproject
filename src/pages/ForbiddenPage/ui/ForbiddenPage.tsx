@@ -2,13 +2,13 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Page from 'widgets/Page/Page'
 
-const AdminPanelPage = () => {
+const ForbiddenPage = () => {
   const { t, i18n } = useTranslation()
   return (
       <Page>
-          {t('Admin panel')}
+          {t('You have not right for that page')}
       </Page>
   )
 }
 
-export default AdminPanelPage
+export default ForbiddenPage
