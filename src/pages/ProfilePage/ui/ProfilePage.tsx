@@ -14,9 +14,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t, i18n } = useTranslation('profile')
   const { id } = useParams<{ id: string }>()
 
-  if (!id) {
-    return <Text text={t('Profile is not found')}/>
-  }
+  // for storybook
+  // if (!id) {
+  //   return <Text text={t('Profile is not found')}/>
+  // }
 
   return (
       <Page className={classNames('', {}, [className])}>
