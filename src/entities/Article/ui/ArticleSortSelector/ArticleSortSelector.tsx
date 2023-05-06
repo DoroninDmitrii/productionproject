@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/array-type */
-import { ArticleSortField } from '../../model/types/article'
+import { ArticleSortField } from '../../model/const/articlesConst'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'

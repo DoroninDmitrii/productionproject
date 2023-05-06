@@ -10,7 +10,7 @@ import { ArticleSortSelector, ArticleTypeTabs, ArticleView } from 'entities/Arti
 import Card from 'shared/ui/Card/Card'
 import { Input } from 'shared/ui/Input/Input'
 import { SortOrder } from 'shared/types'
-import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article'
+import { ArticleSortField, ArticleType } from 'entities/Article/index'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
 import cls from './ArticlesPageFilters.module.scss'
