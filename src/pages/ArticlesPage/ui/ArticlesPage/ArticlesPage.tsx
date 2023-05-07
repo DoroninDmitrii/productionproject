@@ -21,7 +21,7 @@ const reducers: ReducerList = {
   articlePage: articlePageReducer
 }
 
-export const ArticlePage = ({ className }: ArticlePageProps) => {
+export const ArticlesPage = ({ className }: ArticlePageProps) => {
   const { t, i18n } = useTranslation('article')
   const dispatch = useAppDispatch()
 
@@ -48,4 +48,4 @@ export const ArticlePage = ({ className }: ArticlePageProps) => {
   )
 }
 
-export default memo(ArticlePage)
+export default memo(ArticlesPage)

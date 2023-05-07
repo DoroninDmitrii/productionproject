@@ -3,7 +3,7 @@ import { AboutPage } from 'pages/AboutPage'
 import { AdminPanelPage } from 'pages/AdminPanelPage'
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { ArticleEditPage } from 'pages/ArticleEditPage'
-import { ArticlePage } from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage'
+import { ArticlesPage } from 'pages/ArticlesPage'
 import { ForbiddenPage } from 'pages/ForbiddenPage'
 import { MainPage } from 'pages/MainPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
@@ -57,7 +57,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.ARTICLES]: {
     path: RoutePath.articles,
-    element: <ArticlePage />,
+    element: <ArticlesPage />,
     authOnly: true
   },
   [AppRoutes.ARTICLE_DETAILS]: {
