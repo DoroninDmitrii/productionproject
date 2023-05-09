@@ -17,5 +17,7 @@
   "Password": "Пароль",
   "Authentication form": "Форма авторизации",
   "Your login or password is not correct": "Вы ввели не верный логин или пароль",
-  "Log out": "Выйти"
+  "Log out": "Выйти",
+  "Admin Panel": "Админ панель",
+  "You have not right for that page": "У вас нет прав для просмотра этой страницы"
 }
