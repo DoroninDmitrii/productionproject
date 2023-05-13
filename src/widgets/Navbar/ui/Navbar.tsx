@@ -9,7 +9,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { Dropdown } from 'shared/ui/Popups'
+import { Dropdown, Popover } from 'shared/ui/Popups'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { HStack } from 'shared/ui/Stack'
@@ -64,9 +64,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             </AppLink>
 
             <HStack gap='16' className={cls.actions}>
-                <Button theme={ButtonTheme.CLEAR}>
-                    <Icon Svg={NotificationIcon} inverted />
-                </Button>
+                <Popover
+                    direction='bottom left'
+                    trigger={
+                        <Button theme={ButtonTheme.CLEAR}>
+                            <Icon Svg={NotificationIcon} inverted />
+                        </Button>
+                }>
+                    hello
+                </Popover>
                 <Dropdown
                     direction={'bottom left'}
                     items={[
