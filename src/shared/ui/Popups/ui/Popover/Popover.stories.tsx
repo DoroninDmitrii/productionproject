@@ -1,10 +1,10 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import Popover from './Popover'
+import { Popover } from './Popover'
 
 export default {
-  title: 'entities/Popover',
+  title: 'shared/Popover',
   component: Popover,
   argTypes: {
     backgroundColor: { control: 'color' }
