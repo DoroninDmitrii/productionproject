@@ -1,7 +1,10 @@
 import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { useNotification } from '../../api/notificationApi'
+import { VStack } from 'shared/ui/Stack'
+import NotificationItem from '../NotificationItem/NotificationItem'
 import cls from './NotificationList.module.scss'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 
 interface NotificationListProps {
   className?: string
@@ -9,12 +12,26 @@ interface NotificationListProps {
 
 export const NotificationList = memo((props: NotificationListProps) => {
   const { className } = props
-  const { t, i18n } = useTranslation()
+
+  const { data, isLoading } = useNotification(null, {
+    pollingInterval: 10000
+  })
+
+  if (isLoading) {
+    return (
+        <VStack gap='16' max className={classNames(cls.NotificationList, {}, [className])}>
+            <Skeleton width="100%" border="8px" height="80px"/>
+
+        </VStack>
+    )
+  }
 
   return (
-      <div className={classNames(cls.NotificationList, {}, [className])}>
-
-      </div>
+      <VStack gap='16' max className={classNames(cls.NotificationList, {}, [className])}>
+          {data?.map(item => (
+              <NotificationItem key={item.id} item={item} />
+          ))}
+      </VStack>
   )
 })
 

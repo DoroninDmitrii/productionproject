@@ -1,5 +1,8 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
+import { Button } from '../../../Button/Button'
 
 import { Popover } from './Popover'
 
@@ -14,4 +17,13 @@ export default {
 const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />
 
 export const Normal = Template.bind({})
-Normal.args = {}
+Normal.args = {
+  trigger: <Button>Open</ Button>
+}
+Normal.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const Dark = Template.bind({})
+Dark.args = {
+  trigger: <Button>Open</ Button>
+}
+Dark.decorators = [ThemeDecorator(Theme.DARK)]

@@ -1,5 +1,8 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
 
 import NotificationItem from './NotificationItem'
 
@@ -8,10 +11,30 @@ export default {
   component: NotificationItem,
   argTypes: {
     backgroundColor: { control: 'color' }
-  }
+  },
+  decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof NotificationItem>
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />
 
 export const Normal = Template.bind({})
-Normal.args = {}
+Normal.args = {
+  item:
+    {
+      id: '1',
+      title: 'Уведомление 1',
+      description: 'Произошло какое-то событие'
+    }
+}
+Normal.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const DARK = Template.bind({})
+DARK.args = {
+  item:
+    {
+      id: '1',
+      title: 'Уведомление 1',
+      description: 'Произошло какое-то событие'
+    }
+}
+DARK.decorators = [ThemeDecorator(Theme.DARK)]
