@@ -1,5 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { NotificationList } from 'entities/Notification'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 import Drawer from './Drawer'
 
@@ -14,4 +16,8 @@ export default {
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />
 
 export const Normal = Template.bind({})
-Normal.args = {}
+Normal.args = {
+  children: <NotificationList />,
+  isOpen: true
+}
+Normal.decorators = [StoreDecorator({})]
