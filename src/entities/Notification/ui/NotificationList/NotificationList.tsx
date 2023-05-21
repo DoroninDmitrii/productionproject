@@ -3,8 +3,8 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useNotification } from '../../api/notificationApi'
 import { VStack } from 'shared/ui/Stack'
 import NotificationItem from '../NotificationItem/NotificationItem'
-import cls from './NotificationList.module.scss'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import cls from './NotificationList.module.scss'
 
 interface NotificationListProps {
   className?: string
@@ -21,7 +21,6 @@ export const NotificationList = memo((props: NotificationListProps) => {
     return (
         <VStack gap='16' max className={classNames(cls.NotificationList, {}, [className])}>
             <Skeleton width="100%" border="8px" height="80px"/>
-
         </VStack>
     )
   }
