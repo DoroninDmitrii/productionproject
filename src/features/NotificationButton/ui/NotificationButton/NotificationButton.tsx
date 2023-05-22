@@ -4,8 +4,9 @@ import { Popover } from 'shared/ui/Popups'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg'
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
 import { NotificationList } from 'entities/Notification'
-import Drawer from 'shared/ui/Drawer/Drawer'
+import { Drawer } from 'shared/ui/Drawer/Drawer'
 import cls from './NotificationButton.module.scss'
 
 interface NotificationButtonProps {
@@ -50,12 +51,12 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
       <div>
           {isMobile
             ? (
-                <>
+                <AnimationProvider>
                     {trigger}
                     <Drawer isOpen={isOpen} isClose={onCloseDrawer}>
                         <NotificationList />
                     </Drawer>
-                </>
+                </AnimationProvider>
               )
             : (
                 <Popover
