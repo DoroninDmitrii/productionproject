@@ -28,6 +28,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     return rule
   })
 
+  config.resolve!.alias = { '@': paths.src }
+
   config!.module!.rules?.push(buildSvgLoader())
   // fix isDev mistake in 34 lesson
   config!.plugins!.push(new DefinePlugin({

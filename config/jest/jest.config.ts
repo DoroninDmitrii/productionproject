@@ -42,7 +42,9 @@ export default {
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     // mock for imports where exist svg
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    // fro alias
+    '^@/(.*)$': '<rootDir>src/$1'
   },
   reporters: [
     'default',
