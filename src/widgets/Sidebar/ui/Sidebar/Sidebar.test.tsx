@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { withTranslation } from 'react-i18next'
 import { Sidebar } from '../../ui/Sidebar/Sidebar'
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation'
-import { componentRender } from 'shared/lib/tests/compinentRender/componentRender'
+import { renderWithTranslation } from '@/shared/lib/tests/renderWithTranslation/renderWithTranslation'
+import { componentRender } from '@/shared/lib/tests/compinentRender/componentRender'
 
 describe('Sidebar', () => {
   test('Test render', () => {

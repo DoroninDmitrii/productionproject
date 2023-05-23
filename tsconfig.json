@@ -13,7 +13,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
@@ -40,6 +40,7 @@
   // For jest
   "include": [
     "./config/jest/setupTests.ts",
+    "./scripts/updateimports.ts",
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./config/**/*.ts",

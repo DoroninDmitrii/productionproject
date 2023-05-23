@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
+import { ThunkConfig } from '@/app/providers/StoreProvider'
 import {
   getArticlesPageInited
 } from '../../selectors/articlesPageSelectors'
 import { articlePageActions } from '../../slices/articlePageSlice'
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
-import { SortOrder } from 'shared/types'
-import { ArticleSortField, ArticleType } from 'entities/Article'
+import { SortOrder } from '@/shared/types'
+import { ArticleSortField, ArticleType } from '@/entities/Article'
 
 export const initArticlesPage = createAsyncThunk<
 void,

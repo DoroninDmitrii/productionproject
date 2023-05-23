@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { Profile } from 'entities/Profile'
+import { ThunkConfig } from '@/app/providers/StoreProvider'
+import { Profile } from '@/entities/Profile'
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm'
 import { ValidateProfileError } from '../../const/const'
 import { validateProfileData } from '../validateProfileData/validateProfileData'

@@ -1,8 +1,8 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { ArticleList } from 'entities/Article'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { ArticleList } from '@/entities/Article'
 import { getArticles } from '../../model/slices/articlePageSlice'
 import {
   getArticlesPageError,
@@ -12,7 +12,7 @@ import {
   getArticlesPageNum,
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors'
-import { Text } from 'shared/ui/Text/Text'
+import { Text } from '@/shared/ui/Text/Text'
 
 interface ArticleInfiniteListProps {
   className?: string
