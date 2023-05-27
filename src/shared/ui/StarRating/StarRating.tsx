@@ -31,17 +31,26 @@ export const StarRating = memo((props: StarRatingProps) => {
     }
   }
 
+  const onClick = (starsCount: number) => () => {
+    if (!isSelected) {
+      onSelect?.(starsCount)
+      setCurrentStarsCount(starsCount)
+      setIsSelected(true)
+    }
+  }
+
   return (
       <div className={classNames('', {}, [className])}>
           {stars.map((starNumber) => (
               <Icon
-                  className={classNames(cls.starIcon, { [cls.hovered]: currentStarsCount >= starNumber, [cls.normal]: isSelected }, [])}
+                  className={classNames(cls.starIcon, { [cls.hovered]: currentStarsCount >= starNumber, [cls.normal]: isSelected, [cls.selected]: isSelected }, [])}
                   Svg={StarIcon}
                   key={starNumber}
                   width={size}
                   height={size}
                   onMouseLeave={onLeave}
                   onMouseEnter={onHover(starNumber)}
+                  onClick={onClick(starNumber)}
               />
           ))}
       </div>
