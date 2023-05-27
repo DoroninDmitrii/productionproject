@@ -1,4 +1,4 @@
-import { memo, useCallback, useState, useEffect } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import Card from '@/shared/ui/Card/Card'
@@ -9,6 +9,7 @@ import { Modal } from '@/shared/ui/Modal/Modal'
 import { Input } from '@/shared/ui/Input/Input'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import { useMobile } from '@/shared/lib/hooks/useMobile/useMobile'
 import cls from './RatingCard.module.scss'
 
 interface RatingCardProps {
@@ -70,18 +71,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
       </VStack>
   )
 
-  // for mobile or pc
-  const [width, setWidth] = useState<number>(window.innerWidth)
-
-  function handleWindowSizeChange () {
-    setWidth(window.innerWidth)
-  }
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange)
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange)
-    }
-  }, [])
+  const { width } = useMobile()
 
   const isMobile = width <= 768
 

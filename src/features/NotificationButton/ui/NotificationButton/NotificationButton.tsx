@@ -1,4 +1,4 @@
-import { memo, useState, useCallback, useEffect } from 'react'
+import { memo, useState, useCallback } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Popover } from '@/shared/ui/Popups'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
@@ -7,6 +7,7 @@ import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg'
 import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 import { NotificationList } from '@/entities/Notification'
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import { useMobile } from '@/shared/lib/hooks/useMobile/useMobile'
 import cls from './NotificationButton.module.scss'
 
 interface NotificationButtonProps {
@@ -32,18 +33,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
       </Button>
   )
 
-  // for mobile or pc
-  const [width, setWidth] = useState<number>(window.innerWidth)
-
-  function handleWindowSizeChange () {
-    setWidth(window.innerWidth)
-  }
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange)
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange)
-    }
-  }, [])
+  const { width } = useMobile()
 
   const isMobile = width <= 768
 
