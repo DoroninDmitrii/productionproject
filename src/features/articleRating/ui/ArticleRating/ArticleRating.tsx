@@ -33,7 +33,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
         feedback
       })
     } catch {
-      console.log(e)
+      console.log('Mistake is happened')
     }
   }, [userData?.id, articleId, rateAticleMutation])
 
