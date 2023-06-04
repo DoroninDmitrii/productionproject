@@ -10,7 +10,6 @@ import { Input } from '@/shared/ui/Input/Input'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
 import { useMobile } from '@/shared/lib/hooks/useMobile/useMobile'
-import cls from './RatingCard.module.scss'
 
 interface RatingCardProps {
   className?: string
@@ -78,9 +77,9 @@ export const RatingCard = memo((props: RatingCardProps) => {
   const isMobile = width <= 768
 
   return (
-      <Card className={classNames(cls.RatingCard, {}, [className])} max>
+      <Card className={classNames('', {}, [className])} max>
           <VStack align={'center'} gap={'8'} max>
-              <Text title={title}/>
+              <Text title={starsCount ? t('Thank you') : title}/>
               <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars}/>
           </VStack>
 
