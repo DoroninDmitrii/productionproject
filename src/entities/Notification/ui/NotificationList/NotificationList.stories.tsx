@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Theme } from '@/app/providers/ThemeProvider'
+import withMock from 'storybook-addon-mock'
 
 import NotificationList from './NotificationList'
 
@@ -12,15 +13,25 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' }
   },
-  decorators: [StoreDecorator({})]
+  decorators: [withMock]
 } as ComponentMeta<typeof NotificationList>
 
 const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [ThemeDecorator(Theme.LIGHT)]
-
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Normal.decorators = [StoreDecorator({})]
+Normal.parameters = {
+  mockData: [{
+    url: `${__API__}/notifications`,
+    method: 'GET',
+    status: 200,
+    response: [
+      {
+        id: '1',
+        title: 'Message',
+        description: 'Your first message'
+      }
+    ]
+  }]
+}
