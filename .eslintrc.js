@@ -37,7 +37,7 @@ module.exports = {
     'react/jsx-indent': [2, 4],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-    'plugin/path-checker': 'error',
+    'plugin/path-checker': ['error', { alias: '@' }],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -54,13 +54,13 @@ module.exports = {
     'no-unused-vars': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'i18next/no-literal-string': [
-      'error', 
-      { 
+      'error',
+      {
         markupOnly: true,
-        ignoreAttribute: ['as', 'role', 'data-testid', 'justify', 'direction', 'align', 'gap', 'target', 'border'] 
+        ignoreAttribute: ['as', 'role', 'data-testid', 'justify', 'direction', 'align', 'gap', 'target', 'border']
       }
     ],
     'react/display-name': 'off',
-    '@typescript-eslint/prefer-includes': 'off'
+    '@typescript-eslint/prefer-includes': 'off',
   }
 }
