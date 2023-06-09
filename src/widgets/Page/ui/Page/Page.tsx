@@ -5,9 +5,8 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { scrollSaveAction } from '@/features/ScrollSave/index'
-import { StateSchema } from '../../app/providers/StoreProvider/index'
-import { getSaveScrollByPath } from '@/features/ScrollSave/model/selectors/scrollSave'
+import { scrollSaveAction, getSaveScrollByPath } from '@/features/ScrollSave'
+import { StateSchema } from '../../../../app/providers/StoreProvider/index'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 import cls from './Page.module.scss'
 
@@ -48,5 +47,3 @@ export const Page = memo((props: PageProps) => {
       </section>
   )
 })
-
-export default Page
