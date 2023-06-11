@@ -6,4 +6,3 @@ export type { ArticleDetailsCommentSchema } from './model/types/ArticleDetailsCo
 export type { ArticleDetaisPageRecommendationsSchema } from './model/types/ArticleDetaisPageRecommendationsSchema'
 
 export type { ArticleDetailsPageSchema } from './model/types/index'
-export { articleDetailsPageReducer } from './model/slices/index'
