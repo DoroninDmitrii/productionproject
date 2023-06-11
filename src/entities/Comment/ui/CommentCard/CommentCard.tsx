@@ -5,7 +5,7 @@ import { Text } from '@/shared/ui/Text/Text'
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/const/router'
 import { VStack } from '@/shared/ui/Stack'
 import cls from './CommentCard.module.scss'
 
