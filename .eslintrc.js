@@ -45,6 +45,13 @@ module.exports = {
         testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] 
       }
     ],
+    'plugin/layer-plugin': [
+      'error', 
+      { 
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'] 
+      }
+    ],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',

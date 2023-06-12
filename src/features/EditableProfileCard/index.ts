@@ -7,5 +7,5 @@ export { getProfileisLoading } from './model/selectors/getProfileisLoading/getPr
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard'
 export { EditableProfileCardHeader } from './ui/EditableProfileCardHeader/EditableProfileCardHeader'
 export type { ProfileSchema } from './model/types/EditableProfileCardSchema'
-export { profileReducer, profileAction } from './model/slice/profileSlice'
+export { profileAction } from './model/slice/profileSlice'
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData'
