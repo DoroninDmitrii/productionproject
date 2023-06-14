@@ -26,7 +26,8 @@ module.exports = {
     'react',
     'i18next',
     'react-hooks',
-    'plugin'
+    'plugin',
+    "unused-imports"
   ],
   settings: {
     react: {
@@ -37,19 +38,20 @@ module.exports = {
     'react/jsx-indent': [2, 4],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
+    "unused-imports/no-unused-imports": "error",
     'plugin/path-checker': ['error', { alias: '@' }],
     'plugin/public-api-imports': [
-      'error', 
-      { 
+      'error',
+      {
         alias: '@',
-        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] 
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
       }
     ],
     'plugin/layer-plugin': [
-      'error', 
-      { 
+      'error',
+      {
         alias: '@',
-        ignoreImportPatterns: ['**/StoreProvider', '**/testing'] 
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing']
       }
     ],
     'react/react-in-jsx-scope': 'off',

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback, MutableRefObject } from 'react'
+import { useState, useRef, useEffect, useCallback, MutableRefObject } from 'react'
 
 interface UseModalProps {
   isClose?: () => void

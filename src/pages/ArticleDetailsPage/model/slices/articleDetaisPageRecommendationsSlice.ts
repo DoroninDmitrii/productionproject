@@ -1,7 +1,6 @@
 import {
   createEntityAdapter,
-  createSlice,
-  PayloadAction
+  createSlice
 } from '@reduxjs/toolkit'
 import { StateSchema } from '@/app/providers/StoreProvider'
 import { ArticleDetaisPageRecommendationsSchema } from '../types/ArticleDetaisPageRecommendationsSchema'

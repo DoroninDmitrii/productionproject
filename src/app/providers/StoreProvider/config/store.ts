@@ -1,4 +1,4 @@
-import { CombinedState, configureStore, getDefaultMiddleware, ReducersMapObject, Reducer } from '@reduxjs/toolkit'
+import { CombinedState, configureStore, ReducersMapObject, Reducer } from '@reduxjs/toolkit'
 import { counterReducer } from '@/entities/Counter'
 import { userReducer } from '@/entities/User'
 import { scrollSaveReducer } from '@/features/ScrollSave'

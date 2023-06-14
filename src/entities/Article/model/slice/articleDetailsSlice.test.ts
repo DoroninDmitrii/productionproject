@@ -1,5 +1,5 @@
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema'
-import { articleDetailsReducer, articleDetailsAction } from './articleDetailsSlice'
+import { articleDetailsReducer } from './articleDetailsSlice'
 import { fetchArticlebyId } from '../services/fetchArticleById/fetchArticleById'
 
 const data = {
