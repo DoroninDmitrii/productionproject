@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { ArticleImageBlock } from '../../model/types/article'
-import { Text, TextAlign } from '@/shared/ui/Text/Text'
+import { Text, TextAlign } from '@/shared/ui/Text'
 import cls from './ArticleImageBlockComponent.module.scss'
 
 interface ArticleImageBlockComponentProps {

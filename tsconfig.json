@@ -40,7 +40,8 @@
   // For jest
   "include": [
     "./config/jest/setupTests.ts",
-    "./scripts/updateimports.ts",
+    "scripts/refactoring/updateimports.ts",
+    "scripts/refactoring/createPublicApiForSharedUI.ts",
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./config/**/*.ts",
