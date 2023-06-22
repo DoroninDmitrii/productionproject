@@ -13,10 +13,18 @@ export const parameters = {
       date: /Date$/
     }
   },
-  layout: 'fullscreen'
+  layout: 'fullscreen',
+  themes: {
+    default: 'light',
+    list: [
+      { name: 'light', class: ['app', Theme.LIGHT], color: '#e8e8ea' },
+      { name: 'dark', class: ['app', Theme.DARK], color: '#090949' },
+      { name: 'orange', class: ['app', Theme.ORANGE], color: '#bd5012' }
+    ],
+  },
 }
 
 addDecorator(StyleDecorator)
-addDecorator(ThemeDecorator(Theme.LIGHT))
+// addDecorator(ThemeDecorator(Theme.LIGHT))
 addDecorator(RouterDecorator)
 addDecorator(SuspenseDecorator)
