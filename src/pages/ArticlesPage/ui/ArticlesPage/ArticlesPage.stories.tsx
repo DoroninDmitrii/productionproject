@@ -16,4 +16,10 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {.
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [StoreDecorator({})]
+Normal.decorators = [StoreDecorator({
+  articlePage: {
+    limit: 9,
+    page: 2,
+    order: 'asc'
+  }
+})]
