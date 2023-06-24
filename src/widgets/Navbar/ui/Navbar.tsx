@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Text, TextTheme } from '@/shared/ui/Text'
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticleCreate } from '@/shared/const/router'
 import { HStack } from '@/shared/ui/Stack'
 import { NotificationButton } from '@/features/NotificationButton'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
@@ -41,7 +41,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
               theme={TextTheme.INVERTED}
               />
             <AppLink
-              to={RoutePath.articles_create}
+              to={getRouteArticleCreate()}
               theme={AppLinkTheme.SECONDARY}
               className={cls.createBtn}
               >

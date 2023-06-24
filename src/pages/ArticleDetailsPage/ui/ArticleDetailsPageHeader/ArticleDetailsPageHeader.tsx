@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticles, getRouteArticleEdit } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { getUserAuthData } from '@/entities/User'
@@ -23,13 +23,14 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
   const canEdit = useSelector(getCanEditArticle)
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
+    navigate(getRouteArticles())
   }, [navigate])
 
   const onEditArticle = useCallback(() => {
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    navigate(`${RoutePath.articles_details}/${article?.id}/edit`)
-  }, [navigate, article?.id])
+    if (article) {
+      navigate(getRouteArticleEdit(article.id))
+    }
+  }, [navigate, article])
 
   return (
       <HStack max justify='between' className={classNames('', {}, [className])}>
