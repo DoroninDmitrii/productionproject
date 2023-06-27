@@ -9,25 +9,17 @@ import CopyPlugin from 'copy-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 export function buildPlugins ({ paths, isDev, apiUrl, project }: BuildOptions): webpack.WebpackPluginInstance[] {
+  const isProd = !isDev
+
   const plugins = [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css'
-    }),
     // fro global variables
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project)
 
-    }),
-    // Copies individual files or entire directories, which already exist, to the build directory.
-    new CopyPlugin({
-      patterns: [
-        { from: paths.locales as string, to: paths.buildLocales }
-      ]
     }),
     // helps watching dependency in files
     new CircularDependencyPlugin({
@@ -52,6 +44,21 @@ export function buildPlugins ({ paths, isDev, apiUrl, project }: BuildOptions): 
     plugins.push(new BundleAnalyzerPlugin({
       openAnalyzer: false
     }))
+  }
+
+  if (isProd) {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css'
+      }))
+    plugins.push(
+    // Copies individual files or entire directories, which already exist, to the build directory.
+      new CopyPlugin({
+        patterns: [
+          { from: paths.locales as string, to: paths.buildLocales }
+        ]
+      }))
   }
 
   return plugins
