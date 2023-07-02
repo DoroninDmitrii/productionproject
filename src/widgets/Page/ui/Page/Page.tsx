@@ -8,9 +8,10 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { scrollSaveAction, getSaveScrollByPath } from '@/features/ScrollSave'
 import { StateSchema } from '../../../../app/providers/StoreProvider/index'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
+import { TestProps } from '@/shared/types/tests'
 import cls from './Page.module.scss'
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
@@ -41,7 +42,12 @@ export const Page = memo((props: PageProps) => {
   }, 500)
 
   return (
-      <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+      <section
+          onScroll={onScroll}
+          ref={wrapperRef}
+          className={classNames(cls.Page, {}, [className])}
+          data-testid={props['data-testid'] ?? 'Page'}
+          >
           {children}
           {onScrollEnd ? <div className={cls.trigger} ref={triggerRef}/> : null}
       </section>
