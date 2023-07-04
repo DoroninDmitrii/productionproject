@@ -137,4 +137,4 @@ dist
 .loki/report.json
 
 # unit test
-/reports
+/reports/unit
