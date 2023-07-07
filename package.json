@@ -27,8 +27,8 @@
     "prepare": "husky install",
     "postinstall": "rm -rf ./node_modules/.cache"
   },
-    "lint-staged": {
-      "**/*.{ts,tsx}": "eslint"
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
   },
   "repository": {
     "type": "git",
@@ -82,7 +82,7 @@
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.3.0",
-    "eslint-plugin-plugin": "^0.0.7",
+    "eslint-plugin-plugin": "^0.0.12",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.3.0",

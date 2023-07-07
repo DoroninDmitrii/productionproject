@@ -60,6 +60,5 @@ export function buildPlugins ({ paths, isDev, apiUrl, project }: BuildOptions): 
         ]
       }))
   }
-
   return plugins
 }
