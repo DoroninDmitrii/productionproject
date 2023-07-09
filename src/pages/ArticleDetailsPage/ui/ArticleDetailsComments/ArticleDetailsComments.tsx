@@ -11,6 +11,7 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { VStack } from '@/shared/ui/Stack'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface ArticleDetailsCommentsProps {
   className?: string
@@ -21,7 +22,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
   const { className, id } = props
   const { t, i18n } = useTranslation('article-details')
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
