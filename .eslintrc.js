@@ -20,7 +20,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: 'tsconfig.json'
+    // commented because cypress showed a mistake
+    // project: 'tsconfig.json'
   },
   plugins: [
     'react',
