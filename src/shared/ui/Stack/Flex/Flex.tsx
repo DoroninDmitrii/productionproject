@@ -54,7 +54,8 @@ export const Flex = (props: FlexProps) => {
     align = 'center',
     direction = 'row',
     gap,
-    max
+    max,
+    ...otherProps
   } = props
 
   const { t, i18n } = useTranslation()
@@ -72,7 +73,7 @@ export const Flex = (props: FlexProps) => {
   }
 
   return (
-      <div className={classNames(cls.Flex, mods, classes)}>
+      <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>
           {children}
       </div>
   )
