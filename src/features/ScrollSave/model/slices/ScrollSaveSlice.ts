@@ -1,19 +1,22 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ScrollSaveSchema } from '../types/ScrollSaveSchema'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ScrollSaveSchema } from '../types/ScrollSaveSchema';
 
 const initialState: ScrollSaveSchema = {
-  scroll: {}
-}
+  scroll: {},
+};
 
 export const scrollSaveSlice = createSlice({
   name: 'scrollSaveSlice',
   initialState,
   reducers: {
-    setScrollPosition: (state, { payload }: PayloadAction<{ path: string, position: number }>) => {
-      state.scroll[payload.path] = payload.position
-    }
-  }
-})
+    setScrollPosition: (
+      state,
+      { payload }: PayloadAction<{ path: string; position: number }>,
+    ) => {
+      state.scroll[payload.path] = payload.position;
+    },
+  },
+});
 
-export const { actions: scrollSaveAction } = scrollSaveSlice
-export const { reducer: scrollSaveReducer } = scrollSaveSlice
+export const { actions: scrollSaveAction } = scrollSaveSlice;
+export const { reducer: scrollSaveReducer } = scrollSaveSlice;

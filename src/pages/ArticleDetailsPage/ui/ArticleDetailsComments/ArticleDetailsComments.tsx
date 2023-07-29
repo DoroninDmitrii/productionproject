@@ -1,54 +1,52 @@
-import { memo, useCallback } from 'react'
-import { useSelector } from 'react-redux'
-import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/Text'
-import { AddCommentForm } from '@/features/addCommentForm'
-import { CommentList } from '@/entities/Comment'
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
-import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
-import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { VStack } from '@/shared/ui/Stack'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text';
+import { AddCommentForm } from '@/features/addCommentForm';
+import { CommentList } from '@/entities/Comment';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { VStack } from '@/shared/ui/Stack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {
-  className?: string
-  id?: string
+  className?: string;
+  id?: string;
 }
 
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-  const { className, id } = props
-  const { t, i18n } = useTranslation('article-details')
+export const ArticleDetailsComments = memo(
+  (props: ArticleDetailsCommentsProps) => {
+    const { className, id } = props;
+    const { t, i18n } = useTranslation('article-details');
 
-  const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
 
-  const comments = useSelector(getArticleComments.selectAll)
-  const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
+    const comments = useSelector(getArticleComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-  const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text))
-  }, [dispatch])
+    const onSendComment = useCallback(
+      (text: string) => {
+        dispatch(addCommentForArticle(text));
+      },
+      [dispatch],
+    );
 
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id))
-  })
+    useInitialEffect(() => {
+      dispatch(fetchCommentsByArticleId(id));
+    });
 
-  return (
-      <VStack gap='16' max className={classNames('', {}, [className])}>
-          <Text
-            size={TextSize.L}
-            className={''}
-            title={t('Comments')}
-          />
-          <AddCommentForm onSendComment={onSendComment} />
-          <CommentList
-              isLoading={commentsIsLoading}
-              comments={comments}
-          />
-      </VStack>
-  )
-})
+    return (
+        <VStack gap='16' max className={classNames('', {}, [className])}>
+            <Text size={TextSize.L} className={''} title={t('Comments')} />
+            <AddCommentForm onSendComment={onSendComment} />
+            <CommentList isLoading={commentsIsLoading} comments={comments} />
+        </VStack>
+    );
+  },
+);
 
-export default ArticleDetailsComments
+export default ArticleDetailsComments;

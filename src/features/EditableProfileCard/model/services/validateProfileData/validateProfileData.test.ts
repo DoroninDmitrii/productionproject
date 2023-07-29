@@ -1,7 +1,7 @@
-import { validateProfileData } from './validateProfileData'
-import { Country } from '@/entities/Country'
-import { Currency } from '@/entities/Currency'
-import { ValidateProfileError } from '../../const/const'
+import { validateProfileData } from './validateProfileData';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ValidateProfileError } from '../../const/const';
 
 const data = {
   username: 'admin',
@@ -10,46 +10,40 @@ const data = {
   lastname: 'Ivanov',
   first: 'Ivan',
   city: 'Moscow',
-  currency: Currency.USD
-}
+  currency: Currency.USD,
+};
 
 describe('validateProifleData.test', () => {
   test('success', async () => {
-    const result = validateProfileData(data)
-    expect(result).toEqual([])
-  })
+    const result = validateProfileData(data);
+    expect(result).toEqual([]);
+  });
 
   test('without first name and last name', async () => {
-    const result = validateProfileData({ ...data, first: '', lastname: '' })
+    const result = validateProfileData({ ...data, first: '', lastname: '' });
 
-    expect(result).toEqual([
-      ValidateProfileError.INCORRECT_USER_DATA
-    ])
-  })
+    expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+  });
 
   test('incorrect age', async () => {
-    const result = validateProfileData({ ...data, age: undefined })
+    const result = validateProfileData({ ...data, age: undefined });
 
-    expect(result).toEqual([
-      ValidateProfileError.INCORRECT_AGE
-    ])
-  })
+    expect(result).toEqual([ValidateProfileError.INCORRECT_AGE]);
+  });
 
   test('incorrect county', async () => {
-    const result = validateProfileData({ ...data, country: undefined })
+    const result = validateProfileData({ ...data, country: undefined });
 
-    expect(result).toEqual([
-      ValidateProfileError.INCORRECT_COUNTRY
-    ])
-  })
+    expect(result).toEqual([ValidateProfileError.INCORRECT_COUNTRY]);
+  });
 
   test('incorrect all', async () => {
-    const result = validateProfileData({})
+    const result = validateProfileData({});
 
     expect(result).toEqual([
       ValidateProfileError.INCORRECT_USER_DATA,
       ValidateProfileError.INCORRECT_AGE,
-      ValidateProfileError.INCORRECT_COUNTRY
-    ])
-  })
-})
+      ValidateProfileError.INCORRECT_COUNTRY,
+    ]);
+  });
+});

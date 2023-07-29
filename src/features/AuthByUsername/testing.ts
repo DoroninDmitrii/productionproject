@@ -1,1 +1,1 @@
-export { loginReducer } from './modal/slice/loginSlice'
+export { loginReducer } from './modal/slice/loginSlice';

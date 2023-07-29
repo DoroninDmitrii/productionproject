@@ -1,31 +1,31 @@
-import { Fragment, ReactNode } from 'react'
-import { Listbox as HListBox } from '@headlessui/react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button } from '../../../Button//Button'
-import { HStack } from '../../../Stack/'
-import { DropdownDirection } from '../../../../types/ui'
-import { mapDirectionClass } from '../../styles/consts'
-import cls from './ListBox.module.scss'
-import popupCls from '../../styles/popup.module.scss'
+import { Fragment, ReactNode } from 'react';
+import { Listbox as HListBox } from '@headlessui/react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '../../../Button//Button';
+import { HStack } from '../../../Stack/';
+import { DropdownDirection } from '../../../../types/ui';
+import { mapDirectionClass } from '../../styles/consts';
+import cls from './ListBox.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
-  value: string
-  content: ReactNode
-  disabled?: boolean
+  value: string;
+  content: ReactNode;
+  disabled?: boolean;
 }
 
 interface ListBoxProps {
-  items?: ListBoxItem[]
-  className?: string
-  value?: string
-  defaultValue?: string
-  onChange: (value: string) => void
-  readonly?: boolean
-  direction?: DropdownDirection
-  label?: string
+  items?: ListBoxItem[];
+  className?: string;
+  value?: string;
+  defaultValue?: string;
+  onChange: (value: string) => void;
+  readonly?: boolean;
+  direction?: DropdownDirection;
+  label?: string;
 }
 
-export function ListBox (props: ListBoxProps) {
+export function ListBox(props: ListBoxProps) {
   const {
     className,
     items,
@@ -34,52 +34,49 @@ export function ListBox (props: ListBoxProps) {
     onChange,
     readonly,
     direction = 'bottom right',
-    label
-  } = props
+    label,
+  } = props;
 
-  const optionalClasses = [mapDirectionClass[direction]]
+  const optionalClasses = [mapDirectionClass[direction]];
 
   return (
       <HStack gap='4'>
           {label && <span>{label + '>'}</span>}
           <HListBox
-              disabled={readonly}
-              as={'div'}
-              className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
-              value={value}
-              onChange={onChange}
-          >
+        disabled={readonly}
+        as={'div'}
+        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+        value={value}
+        onChange={onChange}
+      >
               <HListBox.Button className={cls.trigger}>
-                  <Button disabled={readonly}>
-                      {value ?? defaultValue}
-                  </ Button>
+                  <Button disabled={readonly}>{value ?? defaultValue}</Button>
               </HListBox.Button>
-              <HListBox.Options className={classNames(cls.options, {}, optionalClasses)}>
+              <HListBox.Options
+          className={classNames(cls.options, {}, optionalClasses)}
+        >
                   {items?.map((item) => (
                       <HListBox.Option
-                    key={item.value}
-                    value={item.value}
-                    disabled={item.disabled}
-                    as={Fragment}
-                >
+              key={item.value}
+              value={item.value}
+              disabled={item.disabled}
+              as={Fragment}
+            >
                           {({ active, selected }) => (
                               <li
-                              className={classNames(cls.item,
-                                {
-                                  [popupCls.active]: active,
-                                  [popupCls.disabled]: item.disabled
-                                }
-                              )}
-                              >
+                  className={classNames(cls.item, {
+                    [popupCls.active]: active,
+                    [popupCls.disabled]: item.disabled,
+                  })}
+                >
                                   {selected && '✓'}
                                   {item.content}
                               </li>
-                          )}
+              )}
                       </HListBox.Option>
-                  ))}
+          ))}
               </HListBox.Options>
           </HListBox>
       </HStack>
-
-  )
+  );
 }

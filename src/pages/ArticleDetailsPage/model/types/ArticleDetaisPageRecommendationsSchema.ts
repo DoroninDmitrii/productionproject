@@ -1,7 +1,8 @@
-import { EntityState } from '@reduxjs/toolkit'
-import { Article } from '@/entities/Article'
+import { EntityState } from '@reduxjs/toolkit';
+import { Article } from '@/entities/Article';
 
-export interface ArticleDetaisPageRecommendationsSchema extends EntityState<Article> {
-  isLoading?: boolean
-  error?: string
+export interface ArticleDetaisPageRecommendationsSchema
+  extends EntityState<Article> {
+  isLoading?: boolean;
+  error?: string;
 }

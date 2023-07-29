@@ -1,19 +1,19 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Code } from './Code'
+import { Code } from './Code';
 
 export default {
   title: 'shared/Code',
   component: Code,
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
-} as ComponentMeta<typeof Code>
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />
+const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
 Normal.args = {
   text: `export default {
     title: 'shared/Code',
@@ -23,5 +23,5 @@ Normal.args = {
     }
   } as ComponentMeta<typeof Code>
   
-  const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />`
-}
+  const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />`,
+};

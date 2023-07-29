@@ -1,5 +1,5 @@
-export type UISchema = Record<string, number>
+export type UISchema = Record<string, number>;
 
 export interface ScrollSaveSchema {
-  scroll: UISchema
+  scroll: UISchema;
 }
