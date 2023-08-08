@@ -852,6 +852,10 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
@@ -861,6 +865,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
       "avatar": "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
     },
     {
@@ -870,6 +878,10 @@
       "roles": [
         "MANAGER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      },
       "avatar": "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
     },
     {
@@ -879,6 +891,10 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
       "avatar": "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
     }
   ],
