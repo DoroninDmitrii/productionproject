@@ -39,7 +39,7 @@ module.exports = {
     }
   },
   rules: {
-    'react/jsx-indent': [2, 4],
+    'react/jsx-indent': ['error', 4],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     "unused-imports/no-unused-imports": "error",

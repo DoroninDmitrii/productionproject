@@ -14,7 +14,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { VStack } from '@/shared/ui/Stack';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { getFeatureFlag, toogleFeatures } from '@/shared/lib/features';
 import { Counter } from '@/entities/Counter';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -44,6 +44,12 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   if (!id) {
     return null;
   }
+
+  const counter = toogleFeatures({
+    name: 'isCounterEnabled',
+    on: () => <CounterRedesigned/>,
+    off: () => <Counter />
+  })
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
