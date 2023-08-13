@@ -1,17 +1,10 @@
 {
-  "": "",
-  "Article is edited according to ID = ": "Article is edited according to ID = ",
-  "Article is edited according to id": "Article is edited according to id",
-  "Article is edited according to id =": "Article is edited according to id =",
-  "Article is not found": "Article is not found",
-  "Back to ": "Back to ",
-  "Back to list": "Back to list",
-  "Comments": "Comments",
-  "Create a new article": "Create a new article",
-  "Edit": "Edit",
-  "Mistake is happened": "Mistake is happened",
-  "Re": "Re",
-  "Recommend": "Recommend",
-  "Recommendation": "Recommendation",
-  "Recommendations": "Recommendations"
+  "Article is not found": "Статья не найдена",
+  "Mistake is happened": "Произошла ошибка",
+  "Comments": "Комментарии",
+  "Back to list": "Назад к списку",
+  "Recommendations": "Рекомендации",
+  "Edit": "Редактировать",
+  "Article is edited according to ID = ": "Редактировать статью согласно ID = ",
+  "Create a new article": "Создать новую статью"
 }

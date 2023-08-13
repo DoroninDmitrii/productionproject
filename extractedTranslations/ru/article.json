@@ -1,29 +1,18 @@
 {
-  "": "",
-  "All": "All",
-  "Article is not ": "Article is not ",
-  "Article is not foind": "Article is not foind",
-  "Article is not found": "Article is not found",
-  "Article page": "Article page",
-  "Articles are not found": "Articles are not found",
-  "Articles is not found": "Articles is not found",
-  "Economic": "Economic",
-  "It": "It",
-  "Mistake is happened": "Mistake is happened",
-  "Read more": {
-    "": {
-      "": {
-        "": ""
-      }
-    }
-  },
-  "Science": "Science",
-  "Search": "Search",
-  "Sort by": "Sort by",
-  "ascending": "ascending",
-  "by": "by",
-  "data": "data",
-  "descending": "descending",
-  "title": "title",
-  "watching": "watching"
+  "Article page": "Статья",
+  "Read more...": "Читать далее...",
+  "Sort by": "Сортировать по",
+  "Search": "Поиск",
+  "ascending": "возрастанию",
+  "descending": "убыванию",
+  "by": "по",
+  "data": "дате",
+  "title": "названию",
+  "watching": "просмотрам",
+  "All": "Все статьи",
+  "It": "Айти",
+  "Economic": "Экономика",
+  "Science": "Наука",
+  "Articles are not found": "Статьи не найдены",
+  "Mistake is happened": "Произошла ошибка"
 }

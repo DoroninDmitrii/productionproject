@@ -1,29 +1,18 @@
 {
-  "": "",
-  "All": "All",
-  "Article is not ": "Article is not ",
-  "Article is not foind": "Article is not foind",
-  "Article is not found": "Article is not found",
   "Article page": "Article page",
-  "Articles are not found": "Articles are not found",
-  "Articles is not found": "Articles is not found",
-  "Economic": "Economic",
-  "It": "It",
-  "Mistake is happened": "Mistake is happened",
-  "Read more": {
-    "": {
-      "": {
-        "": ""
-      }
-    }
-  },
-  "Science": "Science",
-  "Search": "Search",
+  "Read more...": "Read more...",
   "Sort by": "Sort by",
+  "Search": "Search",
   "ascending": "ascending",
+  "descending": "descending",
   "by": "by",
   "data": "data",
-  "descending": "descending",
   "title": "title",
-  "watching": "watching"
+  "watching": "watching",
+  "All": "All",
+  "It": "It",
+  "Economic": "Economic",
+  "Science": "Science",
+  "Articles are not found": "Articles are not found",
+  "Mistake is happened": "Mistake is happened"
 }
