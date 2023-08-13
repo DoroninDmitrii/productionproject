@@ -41,6 +41,7 @@
   "include": [
     "./config/jest/setupTests.ts",
     "scripts/refactoring/updateimports.ts",
+    "scripts/remove-feature.ts",
     "scripts/refactoring/createPublicApiForSharedUI.ts",
     "scripts/refactoring/createReadme.ts",
     "./src/**/*.ts",
