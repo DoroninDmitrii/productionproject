@@ -856,6 +856,11 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
       },
+      "jsonSettings": {
+        "theme": "app_orange_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
@@ -868,6 +873,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       },
       "avatar": "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
     },
@@ -882,6 +892,11 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
       },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
     },
     {
@@ -894,6 +909,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       },
       "avatar": "https://cdn.britannica.com/81/191581-050-8C0A8CD3/Alan-Turing.jpg"
     }
