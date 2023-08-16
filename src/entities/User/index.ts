@@ -15,3 +15,4 @@ export { UserRole } from './model/const/userConst';
 export type { UserSchema, User } from './model/types/user';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
 export { useJsonSettings } from './model/selectors/jsonSelector';
+export { initAuthData } from './model/services/initAuthData'
