@@ -6,7 +6,7 @@ import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export const ArticlePageGreeting = memo(() => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const { isArticlesPageWasOpened } = useJsonSettings();
   const dispatch = useAppDispatch();

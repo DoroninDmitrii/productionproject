@@ -15,7 +15,7 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import ArticlesPageFilters from '../ArticlesPageFilters/ArticlesPageFilters';
 import ArticleInfiniteList from '../ArticleInfiniteList/ArticleInfiniteList';
 import cls from './ArticlePage.module.scss';
-import { ArticlePageGreeting } from '@/features/ArticlePageGreeting/ui/ArticlePageGreeting';
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 
 interface ArticlePageProps {
   className?: string;
