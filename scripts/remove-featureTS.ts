@@ -3,6 +3,8 @@ import { Project, SyntaxKind } from 'ts-morph';
 const removeFeatureName = process.argv[2];
 const featureState = process.argv[3];
 
+const toggleFunctionName = 'toggleFeatures';
+
 if (!removeFeatureName) {
   throw new Error('Write the name of feature');
 }
@@ -29,7 +31,7 @@ files.forEach((sourceFile) => {
       let isToggleFeatures = false;
 
       node.forEachChild(child => {
-        if (child.isKind(SyntaxKind.Identifier) && child.getText() === 'toggleFeatures') {
+        if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleFunctionName) {
           isToggleFeatures = true;
         }
       })

@@ -1,10 +1,11 @@
 {
-  "Article is not found": "Статья не найдена",
-  "Mistake is happened": "Произошла ошибка",
-  "Comments": "Комментарии",
-  "Back to list": "Назад к списку",
-  "Recommendations": "Рекомендации",
-  "Edit": "Редактировать",
   "Article is edited according to ID = ": "Редактировать статью согласно ID = ",
-  "Create a new article": "Создать новую статью"
+  "Article is not found": "Статья не найдена",
+  "Back to list": "Назад к списку",
+  "Comments": "Комментарии",
+  "Create a new article": "Создать новую статью",
+  "Edit": "Редактировать",
+  "Mistake is happened": "Произошла ошибка",
+  "Recommendations": "Рекомендации",
+  "The estimate of the aricle will be soon": "The estimate of the aricle will be soon"
 }

@@ -1,10 +1,11 @@
 {
-  "Article is not found": "Article is not found",
-  "Mistake is happened": "Mistake is happened",
-  "Comments": "Comments",
-  "Back to list": "Back to list",
-  "Recommendations": "Recommendations",
-  "Edit": "Edit",
   "Article is edited according to ID = ": "Article is edited according to ID = ",
-  "Create a new article": "Create a new article"
+  "Article is not found": "Article is not found",
+  "Back to list": "Back to list",
+  "Comments": "Comments",
+  "Create a new article": "Create a new article",
+  "Edit": "Edit",
+  "Mistake is happened": "Mistake is happened",
+  "Recommendations": "Recommendations",
+  "The estimate of the aricle will be soon": "The estimate of the aricle will be soon"
 }

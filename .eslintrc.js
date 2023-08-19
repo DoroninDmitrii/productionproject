@@ -77,7 +77,19 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['as', 'role', 'data-testid', 'justify', 'direction', 'align', 'gap', 'target', 'border']
+        ignoreAttribute: 
+        [
+        'as', 
+        'role', 
+        'data-testid', 
+        'justify', 
+        'direction', 
+        'align', 
+        'gap', 
+        'target', 
+        'border',
+        'feature'
+      ]
       }
     ],
     'react/display-name': 'off',
