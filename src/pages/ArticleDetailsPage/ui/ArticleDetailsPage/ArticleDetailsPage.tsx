@@ -14,7 +14,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { VStack } from '@/shared/ui/Stack';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { ToggleFeatures, toogleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card'
 import cls from './ArticleDetailsPage.module.scss';
 

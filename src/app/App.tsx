@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { getUserInited , initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 const App = () => {
   const { theme } = useTheme();
@@ -23,15 +24,31 @@ const App = () => {
   }
 
   return (
-      <div className={classNames('app', {}, [theme])}>
-          <Suspense fallback=''>
-              <Navbar />
-              <div className='content-page'>
-                  <Sidebar />
-                  {inited && <AppRouter />}
-              </div>
-          </Suspense>
-      </div>
+      <ToggleFeatures
+    feature={'isAppRedesigned'}
+    off={
+        <div className={classNames('app', {}, [theme])}>
+            <Suspense fallback=''>
+                <Navbar />
+                <div className='content-page'>
+                    <Sidebar />
+                    {inited && <AppRouter />}
+                </div>
+            </Suspense>
+        </div>
+    }
+    on={
+        <div className={classNames('app_redesigned', {}, [theme])}>
+            <Suspense fallback=''>
+                <Navbar />
+                <div className='content-page'>
+                    <Sidebar />
+                    {inited && <AppRouter />}
+                </div>
+            </Suspense>
+        </div>
+    }
+    />
   );
 };
 

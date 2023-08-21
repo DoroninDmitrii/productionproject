@@ -1,5 +1,5 @@
 import { useMemo, useState, ReactNode, useEffect } from 'react';
-import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
+import { ThemeContext } from '@/shared/lib/context/ThemeContext';
 import { Theme } from '@/shared/const/theme';
 import { useJsonSettings } from '@/entities/User';
 
