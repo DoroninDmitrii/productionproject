@@ -9,6 +9,7 @@ import { scrollSaveAction, getSaveScrollByPath } from '@/features/ScrollSave';
 import { StateSchema } from '../../../../app/providers/StoreProvider/index';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { TestProps } from '@/shared/types/tests';
+import { toogleFeatures } from '@/shared/lib/features';
 import cls from './Page.module.scss';
 
 interface PageProps extends TestProps {
@@ -46,11 +47,17 @@ export const Page = memo((props: PageProps) => {
     );
   }, 500);
 
+  const PageToggle = toogleFeatures({
+    name: 'isAppRedesigned',
+    off: () => cls.Page,
+    on: () => cls.PageRedesigned,
+  })
+
   return (
       <section
       onScroll={onScroll}
       ref={wrapperRef}
-      className={classNames(cls.Page, {}, [className])}
+      className={classNames(cls.PageRedesigned, {}, [className])}
       data-testid={props['data-testid'] ?? 'Page'}
     >
           {children}

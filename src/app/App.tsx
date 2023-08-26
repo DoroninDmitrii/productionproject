@@ -9,6 +9,7 @@ import { getUserInited , initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 const App = () => {
   const { theme } = useTheme();
@@ -32,7 +33,7 @@ const App = () => {
                 <Navbar />
                 <div className='content-page'>
                     <Sidebar />
-                    {inited && <AppRouter />}
+                    <AppRouter />
                 </div>
             </Suspense>
         </div>
@@ -40,11 +41,12 @@ const App = () => {
     on={
         <div className={classNames('app_redesigned', {}, [theme])}>
             <Suspense fallback=''>
-                <Navbar />
-                <div className='content-page'>
-                    <Sidebar />
-                    {inited && <AppRouter />}
-                </div>
+                <MainLayout 
+                    content={<AppRouter/>} 
+                    header={<Navbar/>} 
+                    sidebar={<Sidebar/>}
+                    toolbar={<div>hey</div>} 
+                />
             </Suspense>
         </div>
     }
