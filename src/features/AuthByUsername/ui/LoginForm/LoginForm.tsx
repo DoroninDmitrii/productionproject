@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Input } from '@/shared/ui/Input';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { useTranslation } from 'react-i18next';
 import { loginAction, loginReducer } from '../../modal/slice/loginSlice';
 import { loginByUsername } from '../../modal/services/loginByUserName/loginByUsername';

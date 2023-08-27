@@ -1,13 +1,13 @@
 import { ReactNode, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '../../lib/hooks/useTheme/useTheme';
+import { useTheme } from '../../../lib/hooks/useTheme/useTheme';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 import {
   AnimationProvider,
   useAnimationLibs,
-} from '../../lib/components/AnimationProvider';
+} from '../../../lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {

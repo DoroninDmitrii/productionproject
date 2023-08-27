@@ -6,7 +6,7 @@ import { Icon } from '@/shared/ui/deprecated/Icon';
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { useMobile } from '@/shared/lib/hooks/useMobile/useMobile';
 import cls from './NotificationButton.module.scss';
 
