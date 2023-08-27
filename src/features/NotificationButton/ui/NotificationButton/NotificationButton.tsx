@@ -1,8 +1,8 @@
 import { memo, useState, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Popover } from '@/shared/ui/Popups';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import { NotificationList } from '@/entities/Notification';

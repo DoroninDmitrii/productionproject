@@ -15,7 +15,7 @@ import { VStack } from '@/shared/ui/Stack';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/Card'
+import { Card } from '@/shared/ui/deprecated/Card'
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
