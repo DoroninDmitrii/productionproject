@@ -7,9 +7,9 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebaritems';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/AppLogo';
+import { AppLogo } from '@/shared/ui//deprecated/AppLogo';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {

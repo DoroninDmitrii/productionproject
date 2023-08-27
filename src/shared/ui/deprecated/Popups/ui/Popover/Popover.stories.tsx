@@ -1,9 +1,9 @@
 /* eslint-disable i18next/no-literal-string */
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '../../../../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
-import { Button } from '../../../deprecated/Button/Button';
+import { Button } from '../../../../deprecated/Button/Button';
 
 import { Popover } from './Popover';
 

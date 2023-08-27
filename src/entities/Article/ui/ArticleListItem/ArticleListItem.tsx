@@ -11,7 +11,7 @@ import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppLink } from '@/shared/ui/AppLink';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { AppImage } from '@/shared/ui/deprecated/AppImage';
 import cls from './ArticleListItem.module.scss';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';

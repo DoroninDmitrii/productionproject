@@ -17,7 +17,7 @@ import {
   DynamicModuleLoader,
   ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
