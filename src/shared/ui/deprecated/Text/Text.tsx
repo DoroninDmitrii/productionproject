@@ -38,6 +38,10 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   [TextSize.XL]: 'h1',
 };
 
+/**
+ * @deprecated
+ */
+
 export const Text = memo((props: TextProps) => {
   const {
     className,

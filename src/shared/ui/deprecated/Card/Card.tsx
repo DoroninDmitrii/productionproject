@@ -13,6 +13,10 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   max?: boolean;
 }
 
+/**
+ * @deprecated
+ */
+
 export const Card = memo((props: CardProps) => {
   const {
     className,

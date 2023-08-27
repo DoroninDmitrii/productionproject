@@ -8,6 +8,10 @@ interface AppLogoProps {
   className?: string;
 }
 
+/**
+ * @deprecated
+ */
+
 export const AppLogo = memo((props: AppLogoProps) => {
   const { className } = props;
 

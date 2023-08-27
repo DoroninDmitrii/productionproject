@@ -9,6 +9,10 @@ interface CodeProps {
   text: string;
 }
 
+/**
+ * @deprecated
+ */
+
 export const Code = memo((props: CodeProps) => {
   const { className, text } = props;
 

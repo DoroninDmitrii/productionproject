@@ -16,6 +16,10 @@ interface TabsProps {
   onTabClick: (tab: TabItem) => void;
 }
 
+/**
+ * @deprecated
+ */
+
 export const Tabs = memo((props: TabsProps) => {
   const { className, value, tabs, onTabClick } = props;
   const { t, i18n } = useTranslation('article');

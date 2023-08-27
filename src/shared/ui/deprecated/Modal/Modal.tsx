@@ -16,6 +16,10 @@ interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
+/**
+ * @deprecated
+ */
+
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, isClose, lazy } = props;
 

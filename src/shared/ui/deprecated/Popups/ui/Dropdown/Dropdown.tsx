@@ -21,6 +21,10 @@ interface DropdownProps {
   trigger: ReactNode;
 }
 
+/**
+ * @deprecated
+ */
+
 export function Dropdown(props: DropdownProps) {
   const { className, items, trigger, direction = 'bottom right' } = props;
 
