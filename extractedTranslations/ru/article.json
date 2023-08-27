@@ -1,18 +1,18 @@
 {
+  "All": "Все статьи",
   "Article page": "Статья",
+  "Articles are not found": "Статьи не найдены",
+  "Economic": "Экономика",
+  "It": "Айти",
+  "Mistake is happened": "Произошла ошибка",
   "Read more...": "Читать далее...",
-  "Sort by": "Сортировать по",
+  "Science": "Наука",
   "Search": "Поиск",
+  "Sort by": "Сортировать по",
   "ascending": "возрастанию",
-  "descending": "убыванию",
   "by": "по",
   "data": "дате",
+  "descending": "убыванию",
   "title": "названию",
-  "watching": "просмотрам",
-  "All": "Все статьи",
-  "It": "Айти",
-  "Economic": "Экономика",
-  "Science": "Наука",
-  "Articles are not found": "Статьи не найдены",
-  "Mistake is happened": "Произошла ошибка"
+  "watching": "просмотрам"
 }

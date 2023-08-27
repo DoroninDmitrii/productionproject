@@ -90,25 +90,28 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
       <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
           <div className={cls.sortWrapper}>
               <ArticleSortSelector
-          order={order}
-          sort={sort}
-          onChangeOrder={onChangeOrder}
-          onChangeSort={onChangeSort}
-        />
-              <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                  order={order}
+                  sort={sort}
+                  onChangeOrder={onChangeOrder}
+                  onChangeSort={onChangeSort}
+              />
+              <ArticleViewSelector 
+                  view={view} 
+                  onViewClick={onChangeView} 
+              />
           </div>
           <Card className={cls.search}>
               <Input
-          value={search}
-          onChange={onChangeSearch}
-          placeholder={t('Search')}
-        />
+                  value={search}
+                  onChange={onChangeSearch}
+                  placeholder={t('Search')}
+              />
           </Card>
           <ArticleTypeTabs
-        className={cls.tabs}
-        value={type}
-        onChangeType={onChangeType}
-      />
+              className={cls.tabs}
+              value={type}
+              onChangeType={onChangeType}
+          />
       </div>
   );
 });

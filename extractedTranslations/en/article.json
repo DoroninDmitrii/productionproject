@@ -1,18 +1,18 @@
 {
+  "All": "All",
   "Article page": "Article page",
+  "Articles are not found": "Articles are not found",
+  "Economic": "Economic",
+  "It": "It",
+  "Mistake is happened": "Mistake is happened",
   "Read more...": "Read more...",
-  "Sort by": "Sort by",
+  "Science": "Science",
   "Search": "Search",
+  "Sort by": "Sort by",
   "ascending": "ascending",
-  "descending": "descending",
   "by": "by",
   "data": "data",
+  "descending": "descending",
   "title": "title",
-  "watching": "watching",
-  "All": "All",
-  "It": "It",
-  "Economic": "Economic",
-  "Science": "Science",
-  "Articles are not found": "Articles are not found",
-  "Mistake is happened": "Mistake is happened"
+  "watching": "watching"
 }
