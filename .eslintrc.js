@@ -88,7 +88,9 @@ module.exports = {
         'gap', 
         'target', 
         'border',
-        'feature'
+        'feature',
+        'color',
+        'variant'
       ]
       }
     ],

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { SidebarItemType } from '../../model/types/sidebar';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
@@ -22,7 +22,7 @@ const SidebarItem = ({ item, collapsed }: SidebarItemsProps) => {
 
   return (
       <AppLink
-      theme={AppLinkTheme.SECONDARY}
+      // variant={'primary'}
       to={item.path}
       className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
     >

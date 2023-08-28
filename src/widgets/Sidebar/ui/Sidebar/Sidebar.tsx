@@ -9,7 +9,7 @@ import SidebarItem from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebaritems';
 import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui//deprecated/AppLogo';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -43,6 +43,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 ])}
               >
                   <AppLogo className={cls.appLogo} />
+                  <VStack role='navigation' gap='8' className={cls.items}>
+                      {itemList}
+                  </VStack>
               </menu>
           } 
           off={
@@ -53,13 +56,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 ])}
               >
                   <Button
-              data-testid='sidebar-toggle'
-              onClick={onToggle}
-              className={cls.collapseBtn}
-              theme={ButtonTheme.BACKGROUND_INVERTED}
-              square
-              size={ButtonSize.L}
-            >
+                      data-testid='sidebar-toggle'
+                      onClick={onToggle}
+                      className={cls.collapseBtn}
+                      theme={ButtonTheme.BACKGROUND_INVERTED}
+                      square
+                      size={ButtonSize.L}
+                  >
                       {collapsed ? '>' : '<'}
                   </Button>
       

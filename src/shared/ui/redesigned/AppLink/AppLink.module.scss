@@ -1,0 +1,15 @@
+.primary {
+    color: var(--text-redesigned);
+
+    &:hover {
+        color: var(--accent-redesigned);
+    }
+}
+
+.red {
+    color: var(--cancel-redesigned);
+
+    &:hover {
+        color: 0.8;
+    }
+}
