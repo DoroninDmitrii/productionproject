@@ -11,26 +11,22 @@ interface AppLinkProps extends LinkProps {
   children?: ReactNode;
 }
 
-/**
- * @deprecated
- */
-
 export const AppLink = memo((props: AppLinkProps) => {
-  const {
-    to,
-    className,
-    children,
-    variant = 'primary',
-    ...otherProps
-  } = props;
+    const {
+        to,
+        className,
+        children,
+        variant = 'primary',
+        ...otherProps
+    } = props;
 
-  return (
-      <Link
-      to={to}
-      {...otherProps}
-      className={classNames(cls.AppLink, {}, [className, cls[variant]])}
-    >
-          {children}
-      </Link>
-  );
+    return (
+        <Link
+            to={to}
+            {...otherProps}
+            className={classNames(cls.AppLink, {}, [className, cls[variant]])}
+        >
+            {children}
+        </Link>
+    );
 });
