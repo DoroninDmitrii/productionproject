@@ -10,6 +10,8 @@ import { getSidebarItems } from '../../model/selectors/getSidebaritems';
 import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -38,7 +40,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             on={
                 <menu
                     data-testid='sidebar'
-                    className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [
+                    className={classNames(cls.SidebarRedesigned, { [cls.collapsedRedesigned]: collapsed }, [
                         className,
                     ])}
                 >
@@ -46,6 +48,14 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     <VStack role='navigation' gap='8' className={cls.items}>
                         {itemList}
                     </VStack>
+                    <Icon
+                        data-testid='sidebar-toggle'
+                        onClick={onToggle}
+                        className={cls.collapseBtn}
+                        Svg={ArrowIcon}
+                        clickable
+                    >
+                    </Icon>
                 </menu>
             } 
             off={
