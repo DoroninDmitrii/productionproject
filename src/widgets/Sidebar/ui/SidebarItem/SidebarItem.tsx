@@ -28,8 +28,9 @@ const SidebarItem = ({ item, collapsed }: SidebarItemsProps) => {
             feature='isAppRedesigned'
             on={
                 <AppLink
-                    className={classNames(cls.item, { [cls.collapsedRedesigned]: collapsed }, [])}
                     to={item.path}
+                    className={classNames(cls.itemRedesigned, { [cls.collapsedRedesigned]: collapsed }, [])}
+                    activeClassName={cls.active}
                 >
                     <Icon Svg={item.Icon}/>
                     <span className={cls.link}>{t(item.text)}</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button, ButtonSize, ButtonTheme } from './Button';
+import { Button, ButtonVariant } from './Button';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -23,80 +23,53 @@ Primary.args = {
 export const Clear = Template.bind({});
 Clear.args = {
   children: 'Text',
-  theme: ButtonTheme.CLEAR,
+  variant: 'clear',
 };
 
 export const ClearInverted = Template.bind({});
 ClearInverted.args = {
   children: 'Text',
-  theme: ButtonTheme.CLEAR_INVERTED,
+  variant: 'clear',
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
+  variant: 'clear',
 };
 
 export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
-  size: ButtonSize.L,
+  variant: 'outline',
+  size: 'l',
 };
 
 export const OutlineSizeXL = Template.bind({});
 OutlineSizeXL.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
-  size: ButtonSize.XL,
+  variant: 'outline',
+  size: 'xl',
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
   children: 'Text',
-  theme: ButtonTheme.OUTLINE,
+  variant: 'outline',
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Background = Template.bind({});
-Background.args = {
-  children: 'Text',
-  theme: ButtonTheme.BACKGROUND,
-};
-
-export const BackgroundInverted = Template.bind({});
-BackgroundInverted.args = {
-  children: 'Text',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
-};
-
-export const Square = Template.bind({});
-Square.args = {
-  children: '>',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
-  square: true,
-};
 
 export const SquareSizeL = Template.bind({});
 SquareSizeL.args = {
   children: '>',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
+  variant: 'clear',
   square: true,
-  size: ButtonSize.L,
-};
-
-export const SquareSizeXL = Template.bind({});
-SquareSizeXL.args = {
-  children: '>',
-  theme: ButtonTheme.BACKGROUND_INVERTED,
-  square: true,
-  size: ButtonSize.XL,
+  size: 'l',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   children: '>',
-  theme: ButtonTheme.OUTLINE,
+  variant: 'outline',
   disabled: true,
 };
