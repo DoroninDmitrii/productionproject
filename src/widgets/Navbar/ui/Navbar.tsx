@@ -9,7 +9,7 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 import { getRouteArticleCreate } from '@/shared/const/router';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';

@@ -6,7 +6,7 @@ import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getRouteProfile } from '@/shared/const/router';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {

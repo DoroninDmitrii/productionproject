@@ -8,7 +8,7 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
