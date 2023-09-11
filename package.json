@@ -28,7 +28,7 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
     "postinstall": "rm -rf ./node_modules/.cache",
-    "remove-feature": "npx ts-node ./scripts/remove-feature.ts"
+    "remove-feature": "npx ts-node ./scripts/remove-featureTSX.ts"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": ["prettier --list-different", "eslint"]
