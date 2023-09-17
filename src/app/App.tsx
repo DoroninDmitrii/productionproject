@@ -12,46 +12,46 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 
 const App = () => {
-  const { theme } = useTheme();
-  const dispatch = useAppDispatch();
-  const inited = useSelector(getUserInited);
+    const { theme } = useTheme();
+    const dispatch = useAppDispatch();
+    const inited = useSelector(getUserInited);
 
-  useEffect(() => {
-    dispatch(initAuthData());
-  }, [dispatch]);
+    useEffect(() => {
+        dispatch(initAuthData());
+    }, [dispatch]);
 
-  if (!inited) {
-    return <PageLoader />
-  }
+    if (!inited) {
+        return <PageLoader />
+    }
 
-  return (
-      <ToggleFeatures
-    feature={'isAppRedesigned'}
-    off={
-        <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback=''>
-                <Navbar />
-                <div className='content-page'>
-                    <Sidebar />
-                    <AppRouter />
+    return (
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            off={
+                <div className={classNames('app', {}, [theme])}>
+                    <Suspense fallback=''>
+                        <Navbar />
+                        <div className='content-page'>
+                            <Sidebar />
+                            <AppRouter />
+                        </div>
+                    </Suspense>
                 </div>
-            </Suspense>
-        </div>
-    }
-    on={
-        <div className={classNames('app_redesigned', {}, [theme])}>
-            <Suspense fallback=''>
-                <MainLayout 
-                    content={<AppRouter/>} 
-                    header={<Navbar/>} 
-                    sidebar={<Sidebar/>}
-                    toolbar={<div>hey</div>} 
-                />
-            </Suspense>
-        </div>
-    }
-    />
-  );
+            }
+            on={
+                <div className={classNames('app_redesigned', {}, [theme])}>
+                    <Suspense fallback=''>
+                        <MainLayout 
+                            content={<AppRouter/>} 
+                            header={<Navbar/>} 
+                            sidebar={<Sidebar/>}
+                            toolbar={<div>hey</div>} 
+                        />
+                    </Suspense>
+                </div>
+            }
+        />
+    );
 };
 
 export default App;

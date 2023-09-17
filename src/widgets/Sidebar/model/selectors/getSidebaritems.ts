@@ -16,7 +16,7 @@ import AboutIcon from '@/shared/assets/icons/Info.svg';
 import MainIcon from '@/shared/assets/icons/home.svg';
 import ProfileIcon from '@/shared/assets/icons/avatar.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
-import { toogleFeatures } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
 
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
@@ -24,7 +24,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
         {
             path: getRouteMain(),
             text: 'Main',
-            Icon: toogleFeatures({
+            Icon: toggleFeatures({
                 name: 'isAppRedesigned',
                 off: () => MainIconDeprecated,
                 on: () => MainIcon,
@@ -33,7 +33,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
         {
             path: getRouteAbout(),
             text: 'About',
-            Icon: toogleFeatures({
+            Icon: toggleFeatures({
                 name: 'isAppRedesigned',
                 off: () => AboutIconDeprecated,
                 on: () => AboutIcon,
@@ -46,7 +46,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
             {
                 path: getRouteProfile(userData.id),
                 text: 'Profile',
-                Icon: toogleFeatures({
+                Icon: toggleFeatures({
                     name: 'isAppRedesigned',
                     off: () => ProfileIconDeprecated,
                     on: () => ProfileIcon,
@@ -56,7 +56,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
             {
                 path: getRouteArticles(),
                 text: 'Article',
-                Icon: toogleFeatures({
+                Icon: toggleFeatures({
                     name: 'isAppRedesigned',
                     off: () => ArticleIconDeprecated,
                     on: () => ArticleIcon,

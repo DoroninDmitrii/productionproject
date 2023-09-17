@@ -3,8 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  DynamicModuleLoader,
-  ReducerList,
+    DynamicModuleLoader,
+    ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -16,42 +16,69 @@ import ArticlesPageFilters from '../ArticlesPageFilters/ArticlesPageFilters';
 import ArticleInfiniteList from '../ArticleInfiniteList/ArticleInfiniteList';
 import cls from './ArticlePage.module.scss';
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import ViewSelectorContainer from '../ViewSelectorContainer/ViewSelectorContainer';
 
 interface ArticlePageProps {
   className?: string;
 }
 
 const reducers: ReducerList = {
-  articlePage: articlePageReducer,
+    articlePage: articlePageReducer,
 };
 
 export const ArticlesPage = ({ className }: ArticlePageProps) => {
-  const { t, i18n } = useTranslation('article');
-  const dispatch = useAppDispatch();
+    const { t, i18n } = useTranslation('article');
+    const dispatch = useAppDispatch();
 
-  const [searchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
-  const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNextArticlesPage());
-  }, [dispatch]);
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
 
-  useInitialEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-  });
+    useInitialEffect(() => {
+        dispatch(initArticlesPage(searchParams));
+    });
 
-  return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-          <Page
-        data-testid={'ArticlesPage'}
-        onScrollEnd={onLoadNextPart}
-        className={classNames('', {}, [className])}
-      >
-              <ArticlesPageFilters />
-              <ArticleInfiniteList className={cls.list} />
-              <ArticlePageGreeting />
-          </Page>
-      </DynamicModuleLoader>
-  );
+    const content = (
+        <ToggleFeatures feature='isAppRedesigned' 
+            on={
+                <StickyContentLayout 
+                    left={<ViewSelectorContainer/>}
+                    right={<div>dsds</div>}
+                    content={
+                        <Page
+                            data-testid={'ArticlesPage'}
+                            onScrollEnd={onLoadNextPart}
+                            className={classNames(cls.ArticlePageRedesigned, {}, [className])}
+                        >
+                            <ArticleInfiniteList className={cls.list} />
+                            <ArticlePageGreeting />
+                        </Page>
+                    }
+                />
+            } 
+            off={
+                <Page
+                    data-testid={'ArticlesPage'}
+                    onScrollEnd={onLoadNextPart}
+                    className={classNames('', {}, [className])}
+                >
+                    <ArticlesPageFilters />
+                    <ArticleInfiniteList className={cls.list} />
+                    <ArticlePageGreeting />
+                </Page>
+            }
+        />
+    )
+
+    return (
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+            {content}
+        </DynamicModuleLoader>
+    );
 };
 
 export default memo(ArticlesPage);
