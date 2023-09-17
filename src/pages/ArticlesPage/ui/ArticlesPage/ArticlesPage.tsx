@@ -19,6 +19,7 @@ import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import ViewSelectorContainer from '../ViewSelectorContainer/ViewSelectorContainer';
+import { FilterContainer } from '../FilterContainer/FilterContainer';
 
 interface ArticlePageProps {
   className?: string;
@@ -47,7 +48,7 @@ export const ArticlesPage = ({ className }: ArticlePageProps) => {
             on={
                 <StickyContentLayout 
                     left={<ViewSelectorContainer/>}
-                    right={<div>dsds</div>}
+                    right={<FilterContainer/>}
                     content={
                         <Page
                             data-testid={'ArticlesPage'}

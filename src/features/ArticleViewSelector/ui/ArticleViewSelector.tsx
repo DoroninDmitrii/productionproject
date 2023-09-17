@@ -11,8 +11,8 @@ import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Card } from '@/shared/ui/redesigned/Card'
-import cls from './ArticleViewSelector.module.scss';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
   className?: string;
@@ -52,7 +52,9 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
             feature='isAppRedesigned' 
             on={
                 <Card 
-                    className={classNames(cls.ArticleViewSelectorRedesigned, {}, [className])}>
+                    className={classNames(cls.ArticleViewSelectorRedesigned, {}, [className])}
+                    border='round'
+                >
                     <HStack gap='8'>
                         {viewTypes.map((viewType, index) => (
                             <Icon

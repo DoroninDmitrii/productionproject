@@ -1,28 +1,15 @@
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 import { ArticleViewSelector } from '@/features/ArticleViewSelector'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useSelector } from 'react-redux'
-import { ArticleView } from '@/entities/Article'
-import { getArticlesPageView } from '../../model/selectors/articlesPageSelectors'
-import { articlePageActions } from '../../model/slices/articlePageSlice'
+import { useArticleFilters } from '../../lib/hooks/useArticleFilters'
 
 interface ViewSelectorContainerProps {
   className?: string
 }
 
 export const ViewSelectorContainer = memo((props: ViewSelectorContainerProps) => {
-    const { className } = props
+    const { className } = props;
 
-    const dispatch = useAppDispatch();
-    const view = useSelector(getArticlesPageView);
-
-    const onChangeView = useCallback(
-        (view: ArticleView) => {
-            dispatch(articlePageActions.setView(view));
-            dispatch(articlePageActions.setPage(1));
-        },
-        [dispatch],
-    );
+    const { view, onChangeView } = useArticleFilters();
 
     return (
         <ArticleViewSelector 
@@ -33,4 +20,4 @@ export const ViewSelectorContainer = memo((props: ViewSelectorContainerProps) =>
     )
 })
 
-export default ViewSelectorContainer
+export default ViewSelectorContainer;
