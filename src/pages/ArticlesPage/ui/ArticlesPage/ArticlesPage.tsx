@@ -14,12 +14,12 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import ArticlesPageFilters from '../ArticlesPageFilters/ArticlesPageFilters';
 import ArticleInfiniteList from '../ArticleInfiniteList/ArticleInfiniteList';
-import cls from './ArticlePage.module.scss';
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import ViewSelectorContainer from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FilterContainer } from '../FilterContainer/FilterContainer';
+import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
   className?: string;

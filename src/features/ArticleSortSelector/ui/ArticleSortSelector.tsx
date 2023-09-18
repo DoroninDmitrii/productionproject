@@ -59,20 +59,18 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         <ToggleFeatures
             feature='isAppRedesigned'
             on={
-                <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+                <div className={classNames(cls.ArticleSortSelectorRedesigned, {}, [className])}>
                     <VStack gap='8'>
-                        <Text title={t('Sort by')}/>
+                        <Text text={t('Sort by')}/>
                         <ListBox
                             items={sortFieldOptions}
                             value={sort}
                             onChange={onChangeSort}
                         />
-
                         <ListBox
                             items={orderOptions}
                             value={order}
                             onChange={onChangeOrder}
-                            className={cls.order}
                         />
                     </VStack>
                 </div>

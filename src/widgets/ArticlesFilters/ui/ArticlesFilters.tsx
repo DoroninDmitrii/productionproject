@@ -46,16 +46,16 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
                     onChange={onChangeSearch}
                     placeholder={t('Search')}
                 />
+                <ArticleTypeTabs
+                    className={cls.tabs}
+                    value={type}
+                    onChangeType={onChangeType}
+                />
                 <ArticleSortSelector
                     order={order}
                     sort={sort}
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort}
-                />
-                <ArticleTypeTabs
-                    className={cls.tabs}
-                    value={type}
-                    onChangeType={onChangeType}
                 />
             </VStack>
         </Card>
