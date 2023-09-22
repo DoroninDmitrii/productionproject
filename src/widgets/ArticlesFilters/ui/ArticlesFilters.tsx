@@ -8,6 +8,8 @@ import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { ArticleSortField , ArticleType } from '@/entities/Article'
 import { SortOrder } from '@/shared/types/sort'
+import SearchIcon from '@/shared/assets/icons/search.svg'
+import { Icon } from '@/shared/ui/redesigned/Icon'
 import cls from './ArticlesFilters.module.scss'
 
 interface ArticlesFiltersProps {
@@ -45,6 +47,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
                     value={search}
                     onChange={onChangeSearch}
                     placeholder={t('Search')}
+                    addonLeft={<Icon Svg={SearchIcon} />}
                 />
                 <ArticleTypeTabs
                     className={cls.tabs}

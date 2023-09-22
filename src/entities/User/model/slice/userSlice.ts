@@ -42,6 +42,7 @@ export const userSlice = createSlice({
         initAuthData.fulfilled,
         (state, { payload }: PayloadAction<User>) => {
           state.authData = payload;
+          console.log(payload.features, 'pa')
           setFeatureFlags(payload?.features)
           state._inited = true;
         },
