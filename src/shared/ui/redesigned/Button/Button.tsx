@@ -32,6 +32,7 @@ export const Button = memo((props: ButtonProps) => {
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
+        [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight)
     };
 
     return (
