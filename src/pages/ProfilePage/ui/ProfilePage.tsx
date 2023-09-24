@@ -10,24 +10,24 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-  const { t, i18n } = useTranslation('profile');
-  const { id } = useParams<{ id: string }>();
+    const { t, i18n } = useTranslation('profile');
+    const { id } = useParams<{ id: string }>();
 
-  // for storybook
-  // if (!id) {
-  //   return <Text text={t('Profile is not found')}/>
-  // }
+    // for storybook
+    // if (!id) {
+    //   return <Text text={t('Profile is not found')}/>
+    // }
 
-  return (
-      <Page
-      data-testid={'ProfilePage'}
-      className={classNames('', {}, [className])}
-    >
-          <VStack max gap={'16'}>
-              <EditableProfileCard id={id} />
-          </VStack>
-      </Page>
-  );
+    return (
+        <Page
+            data-testid={'ProfilePage'}
+            className={classNames('', {}, [className])}
+        >
+            <VStack max gap={'16'}>
+                <EditableProfileCard id={id} />
+            </VStack>
+        </Page>
+    );
 };
 
 export default ProfilePage;
