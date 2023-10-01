@@ -8,7 +8,6 @@ import { Card } from '@/shared/ui/redesigned/Card'
 import { Avatar } from '@/shared/ui/redesigned/Avatar'
 import { AppLink } from '@/shared/ui/redesigned/AppLink'
 import { AppImage } from '@/shared/ui/redesigned/AppImage'
-import ArticleTextBlockComponent from '../../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import EyeIcon from '@/shared/assets/icons/eye.svg'
 import { ArticleView, ArticleBlockType } from '../../../model/const/articlesConst'
@@ -17,7 +16,7 @@ import { getRouteArticleDetails } from '@/shared/const/router'
 import { Button } from '@/shared/ui/redesigned/Button'
 
 import cls from './ArticleListItemRedesigned.module.scss'
-import { HStack } from '@/shared/ui/redesigned/Stack'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     const {article, view, className, target} = props;
@@ -38,18 +37,30 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
         ) as ArticleTextBlock;
 
         return (
-            <div
+            <Card
+                padding='24' 
+                max
                 data-testid={'ArticleListItem'}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
-                <Card className={cls.card}>
-                    <div className={cls.header}>
-                        <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={cls.username} />
-                        <Text text={article.createdAt} className={cls.date} />
-                    </div>
-                    <Text title={article.title} className={cls.title} />
-                    {types}
+                <VStack max gap='16'>
+                    <HStack gap='8' max>
+                        <Avatar size={32} src={article.user.avatar} />
+                        <Text
+                            bold 
+                            text={article.user.username} 
+                        />
+                        <Text text={article.createdAt}/>
+                    </HStack>
+                    <Text 
+                        title={article.title} 
+                        bold 
+                        className={cls.title} 
+                    />
+                    <Text 
+                        title={article.subtitle}
+                        size='m' 
+                    />
                     <AppImage
                         src={article.img}
                         className={cls.img}
@@ -57,19 +68,19 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                         fallback={<Skeleton width='100%' height={250} />}
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent
-                            block={textBlock}
-                            className={cls.textBlock}
+                        <Text
+                            className={cls.textBlock} 
+                            text={textBlock.paragraphs.slice(0, 2).join(' ')}
                         />
                     )}
-                    <div className={cls.footer}>
+                    <HStack max justify='between'>
                         <AppLink target={target} to={getRouteArticleDetails(article.id)}>
                             <Button variant={'outline'}>{t('Read more...')}</Button>
                         </AppLink>
-                        {views}
-                    </div>
-                </Card>
-            </div>
+                        {views}                      
+                    </HStack>
+                </VStack>
+            </Card>
         );
     }
 

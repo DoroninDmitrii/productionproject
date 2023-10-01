@@ -15,7 +15,7 @@ import { getRouteArticleDetails } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import cls from './ArticleListItemDeprecated.module.scss'
+import cls from '../ArticleListItem.module.scss'
 
 
 export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
