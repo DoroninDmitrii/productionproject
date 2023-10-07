@@ -7,7 +7,7 @@ import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { useMobile } from '@/shared/lib/hooks/useMobile/useMobile';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon'
