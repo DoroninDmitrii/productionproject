@@ -4,8 +4,8 @@ import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
 import {
-  ReducerList,
-  DynamicModuleLoader,
+    ReducerList,
+    DynamicModuleLoader,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
@@ -16,48 +16,70 @@ import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComm
 import { ArticleRating } from '@/features/articleRating';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card'
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import cls from './ArticleDetailsPage.module.scss';
+import { AdditionalInfoCotainer } from '../AdditionalInfoCotainer/AdditionalInfoCotainer';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
 const reducers: ReducerList = {
-  articleDetailsPage: articleDetailsPageReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  const { t, i18n } = useTranslation('article-details');
-  const { id } = useParams<{ id: string }>();
-  // if (!id) {
-  //   return (
-  //       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-  //           {t('Article is not found')}
-  //       </Page>
-  //   )
-  // }
+    const { t, i18n } = useTranslation('article-details');
+    const { id } = useParams<{ id: string }>();
+    // if (!id) {
+    //   return (
+    //       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+    //           {t('Article is not found')}
+    //       </Page>
+    //   )
+    // }
 
-  if (!id) {
-    return null;
-  }
+    if (!id) {
+        return null;
+    }
 
-  return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-              <VStack gap={'16'} max>
-                  <ArticleDetailsPageHeader />
-                  <ArticleDetails id={id} />
-                  <ToggleFeatures
-                      feature='isArticleRatingEnabled' 
-                      on={<ArticleRating articleId={id} />}
-                      off={<Card>{t('The estimate of the aricle will be soon')}</Card>} 
-                  />
-                  <ArticleRecommendationsList />
-                  <ArticleDetailsComments id={id} />
-              </VStack>
-          </Page>
-      </DynamicModuleLoader>
-  );
+    return (
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <ToggleFeatures
+                feature='isAppRedesigned'
+                on={
+                    <StickyContentLayout
+                        content={
+                            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                                <VStack gap={'16'} max>
+                                    <DetailsContainer />
+                                    <ArticleRecommendationsList />
+                                    <ArticleDetailsComments id={id} />
+                                </VStack>
+                            </Page>
+                        }
+                        right={<AdditionalInfoCotainer />} 
+                    />
+                }
+                off={
+                    <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                        <VStack gap={'16'} max>
+                            <ArticleDetailsPageHeader />
+                            <ArticleDetails id={id} />
+                            <ToggleFeatures
+                                feature='isArticleRatingEnabled' 
+                                on={<ArticleRating articleId={id} />}
+                                off={<Card>{t('The estimate of the aricle will be soon')}</Card>} 
+                            />
+                            <ArticleRecommendationsList />
+                            <ArticleDetailsComments id={id} />
+                        </VStack>
+                    </Page>
+                }
+            ></ToggleFeatures>
+        </DynamicModuleLoader>
+    );
 };
 
 export default memo(ArticleDetailsPage);

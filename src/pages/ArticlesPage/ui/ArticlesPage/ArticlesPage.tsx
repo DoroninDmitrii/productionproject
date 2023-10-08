@@ -47,8 +47,8 @@ export const ArticlesPage = ({ className }: ArticlePageProps) => {
         <ToggleFeatures feature='isAppRedesigned' 
             on={
                 <StickyContentLayout 
-                    left={<ViewSelectorContainer/>}
-                    right={<FilterContainer/>}
+                    left={<ViewSelectorContainer />}
+                    right={<FilterContainer />}
                     content={
                         <Page
                             data-testid={'ArticlesPage'}
