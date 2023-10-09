@@ -18,8 +18,8 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card'
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
-import cls from './ArticleDetailsPage.module.scss';
 import { AdditionalInfoCotainer } from '../AdditionalInfoCotainer/AdditionalInfoCotainer';
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string;
