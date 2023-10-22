@@ -5,6 +5,8 @@
 }
 
 .StarRatingRedesigned {
+    display: flex;
+
     .hovered {
         fill: var(--icon-redesigned);
     }
