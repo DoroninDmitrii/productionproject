@@ -7,9 +7,9 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserInited , initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 
 const App = () => {
     const { theme } = useTheme();
@@ -23,7 +23,18 @@ const App = () => {
     }, [dispatch, inited]);
 
     if (!inited) {
-        return <PageLoader />
+        return (
+            <div id="app" className={classNames('app', {}, [theme])} >
+                <AppLoaderLayout />
+            </div>
+        )
+        // return (
+        //     <ToggleFeatures 
+        //         feature='isAppRedesigned' 
+        //         on={<AppLoaderLayout />} 
+        //         off={<PageLoader />}
+        //     />
+        // )
     }
 
     return (

@@ -22,7 +22,7 @@ export const articleDetailsSlice = createSlice({
             .addCase(
                 fetchArticlebyId.fulfilled,
                 (state, action: PayloadAction<Article>) => {
-                    state.isLoading = true;
+                    state.isLoading = false;
                     state.data = action.payload;
                 },
             )
