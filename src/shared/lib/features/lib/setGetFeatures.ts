@@ -1,6 +1,13 @@
+import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/const/localstorage';
 import { FeatureFlag } from '@/shared/types/featureFlag';
 
-let featureFlag: FeatureFlag = {};
+const defaultFeatures: FeatureFlag = {
+    isAppRedesigned: localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new'
+}
+
+let featureFlag: FeatureFlag = {
+    ...defaultFeatures,
+};
 
 export function setFeatureFlags(newFeatureFlags?: FeatureFlag) {
     if (newFeatureFlags) {
