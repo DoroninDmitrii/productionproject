@@ -1,7 +1,6 @@
 import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -19,49 +18,53 @@ interface PageProps extends TestProps {
 }
 
 export const Page = memo((props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
-  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const dispatch = useAppDispatch();
-  const { pathname } = useLocation();
-  const scrollPosition = useSelector((state: StateSchema) =>
-    getSaveScrollByPath(state, pathname),
-  );
-
-  useInfiniteScroll({
-    triggerRef,
-    wrapperRef,
-    callback: onScrollEnd,
-  });
-
-  useInitialEffect(() => {
-    wrapperRef.current.scrollTop = scrollPosition;
-  });
-
-  const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(
-      scrollSaveAction.setScrollPosition({
-        position: e.currentTarget.scrollTop,
-        path: pathname,
-      }),
+    const { className, children, onScrollEnd } = props;
+    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const dispatch = useAppDispatch();
+    const { pathname } = useLocation();
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getSaveScrollByPath(state, pathname),
     );
-  }, 500);
 
-  const PageToggle = toggleFeatures({
-    name: 'isAppRedesigned',
-    off: () => cls.Page,
-    on: () => cls.PageRedesigned,
-  })
+    useInfiniteScroll({
+        triggerRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef,
+        }),
+        callback: onScrollEnd,
+    });
 
-  return (
-      <section
-          onScroll={onScroll}
-          ref={wrapperRef}
-          className={classNames(cls.Page, {}, [className])}
-          data-testid={props['data-testid'] ?? 'Page'}
-    >
-          {children}
-          {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
-      </section>
-  );
+    useInitialEffect(() => {
+        wrapperRef.current.scrollTop = scrollPosition;
+    });
+
+    const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
+        dispatch(
+            scrollSaveAction.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        );
+    }, 500);
+
+    const PageToggle = toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => cls.Page,
+        on: () => cls.PageRedesigned,
+    })
+
+    return (
+        <section
+            className={PageToggle}
+            onScroll={onScroll}
+            ref={wrapperRef}
+            data-testid={props['data-testid'] ?? 'Page'}
+        >
+            {children}
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
+        </section>
+    );
 });

@@ -11,6 +11,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ScrollToTopButton } from '@/features/ScrollToTopButton';
 
 const App = () => {
     const { theme } = useTheme();
@@ -54,7 +55,7 @@ const App = () => {
                             content={<AppRouter/>} 
                             header={<Navbar/>} 
                             sidebar={<Sidebar/>}
-                            // toolbar={<div>hey</div>} 
+                            toolbar={<ScrollToTopButton />} 
                         />
                     </Suspense>
                 </div>
