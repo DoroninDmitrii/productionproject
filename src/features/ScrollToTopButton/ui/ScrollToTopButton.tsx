@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Icon } from '@/shared/ui/redesigned/Icon'
 import CircleIcon from '@/shared/assets/icons/circle-up.svg'
-import cls from './ScrollToTopButton.module.scss'
 
 interface ScrollToTopButtonProps {
   className?: string
@@ -19,7 +18,7 @@ export const ScrollToTopButton = memo((props: ScrollToTopButtonProps) => {
 
     return (
         <Icon 
-            className={classNames(cls.ScrollToTopButton, {}, [className])}
+            className={classNames('', {}, [className])}
             Svg={CircleIcon} 
             width={32} 
             height={32}
