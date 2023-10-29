@@ -21,11 +21,11 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     const [theme, setTheme] = useState<Theme>(initialTheme || fallbackTheme || Theme.LIGHT);
 
     useEffect(() => {
-        if (!isThemeInited && defaultTheme) {
-            setTheme(defaultTheme);
+        if (!isThemeInited && initialTheme) {
+            setTheme(initialTheme);
             setThemeInited(true);
         }
-    }, [defaultTheme, isThemeInited])
+    }, [initialTheme, isThemeInited])
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
