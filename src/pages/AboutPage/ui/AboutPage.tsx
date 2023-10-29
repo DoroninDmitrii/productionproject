@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 
 const AboutPage = () => {
-  const { t, i18n } = useTranslation('about');
-  return <Page data-testid={'AboutPage'}>{t('About page')}</Page>;
+    const { t, i18n } = useTranslation('about');
+    return <Page data-testid={'AboutPage'}>{t('About page')}</Page>;
 };
 
 export default AboutPage;

@@ -5,11 +5,11 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import ArticlesPage from './ArticlesPage';
 
 export default {
-  title: 'pages/ArticlesPage/ArticlesPage',
-  component: ArticlesPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'pages/ArticlesPage/ArticlesPage',
+    component: ArticlesPage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof ArticlesPage>;
 
 const Template: ComponentStory<typeof ArticlesPage> = (args) => (
@@ -19,11 +19,11 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
-  StoreDecorator({
-    articlePage: {
-      limit: 9,
-      page: 2,
-      order: 'asc',
-    },
-  }),
+    StoreDecorator({
+        articlePage: {
+            limit: 9,
+            page: 2,
+            order: 'asc',
+        },
+    }),
 ];

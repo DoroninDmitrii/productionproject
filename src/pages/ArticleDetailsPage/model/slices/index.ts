@@ -5,6 +5,6 @@ import { articleDetaisPageRecommendationsReducer } from './articleDetaisPageReco
 
 export const articleDetailsPageReducer =
   combineReducers<ArticleDetailsPageSchema>({
-    recommendations: articleDetaisPageRecommendationsReducer,
-    comments: articleDetailsCommnetsReducer,
+      recommendations: articleDetaisPageRecommendationsReducer,
+      comments: articleDetailsCommnetsReducer,
   });

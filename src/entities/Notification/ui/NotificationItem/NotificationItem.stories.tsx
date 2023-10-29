@@ -7,12 +7,12 @@ import { Theme } from '@/shared/const/theme';
 import NotificationItem from './NotificationItem';
 
 export default {
-  title: 'entities/NotificationItem',
-  component: NotificationItem,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  decorators: [StoreDecorator({})],
+    title: 'entities/NotificationItem',
+    component: NotificationItem,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof NotificationItem>;
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => (
@@ -21,20 +21,20 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {
-  item: {
-    id: '1',
-    title: 'Уведомление 1',
-    description: 'Произошло какое-то событие',
-  },
+    item: {
+        id: '1',
+        title: 'Уведомление 1',
+        description: 'Произошло какое-то событие',
+    },
 };
 Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const DARK = Template.bind({});
 DARK.args = {
-  item: {
-    id: '1',
-    title: 'Уведомление 1',
-    description: 'Произошло какое-то событие',
-  },
+    item: {
+        id: '1',
+        title: 'Уведомление 1',
+        description: 'Произошло какое-то событие',
+    },
 };
 DARK.decorators = [ThemeDecorator(Theme.DARK)];

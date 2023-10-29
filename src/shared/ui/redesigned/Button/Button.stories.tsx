@@ -6,70 +6,70 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-  title: 'shared/Button',
-  component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'shared/Button',
+    component: Button,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Text',
+    children: 'Text',
 };
 
 export const Clear = Template.bind({});
 Clear.args = {
-  children: 'Text',
-  variant: 'clear',
+    children: 'Text',
+    variant: 'clear',
 };
 
 export const ClearInverted = Template.bind({});
 ClearInverted.args = {
-  children: 'Text',
-  variant: 'clear',
+    children: 'Text',
+    variant: 'clear',
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
-  children: 'Text',
-  variant: 'clear',
+    children: 'Text',
+    variant: 'clear',
 };
 
 export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
-  children: 'Text',
-  variant: 'outline',
-  size: 'l',
+    children: 'Text',
+    variant: 'outline',
+    size: 'l',
 };
 
 export const OutlineSizeXL = Template.bind({});
 OutlineSizeXL.args = {
-  children: 'Text',
-  variant: 'outline',
-  size: 'xl',
+    children: 'Text',
+    variant: 'outline',
+    size: 'xl',
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
-  children: 'Text',
-  variant: 'outline',
+    children: 'Text',
+    variant: 'outline',
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SquareSizeL = Template.bind({});
 SquareSizeL.args = {
-  children: '>',
-  variant: 'clear',
-  square: true,
-  size: 'l',
+    children: '>',
+    variant: 'clear',
+    square: true,
+    size: 'l',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  children: '>',
-  variant: 'outline',
-  disabled: true,
+    children: '>',
+    variant: 'outline',
+    disabled: true,
 };

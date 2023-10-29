@@ -11,23 +11,23 @@ export const loginByUsername = createAsyncThunk<
   LoginByUsernameProps,
   ThunkConfig<string>
 >('users/loginByUsername', async ({ password, username }, thunkApi) => {
-  const { extra, dispatch, rejectWithValue } = thunkApi;
+    const { extra, dispatch, rejectWithValue } = thunkApi;
 
-  try {
-    const response = await extra.api.post<User>('/login', {
-      username,
-      password,
-    });
+    try {
+        const response = await extra.api.post<User>('/login', {
+            username,
+            password,
+        });
 
-    if (!response.data) {
-      throw new Error();
+        if (!response.data) {
+            throw new Error();
+        }
+
+        dispatch(userAction.setAuthData(response.data));
+
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        return rejectWithValue('Error');
     }
-
-    dispatch(userAction.setAuthData(response.data));
-
-    return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue('Error');
-  }
 });

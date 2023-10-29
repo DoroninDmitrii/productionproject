@@ -1,9 +1,9 @@
 import {
-  CombinedState,
-  EnhancedStore,
-  ReducersMapObject,
-  Reducer,
-  AnyAction,
+    CombinedState,
+    EnhancedStore,
+    ReducersMapObject,
+    Reducer,
+    AnyAction,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { CounterSchema } from '@/entities/Counter';

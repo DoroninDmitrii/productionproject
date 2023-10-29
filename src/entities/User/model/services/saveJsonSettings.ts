@@ -10,30 +10,30 @@ export const saveJsonSettings = createAsyncThunk<
   JsonSettings,
   ThunkConfig<string>
 >('user/saveJsonSettings', async (newJsonSettings, thunkApi) => {
-  const { rejectWithValue, getState, dispatch } = thunkApi;
-  const userData = getUserAuthData(getState())
-  const currentSettings = getJsonSettings(getState())
+    const { rejectWithValue, getState, dispatch } = thunkApi;
+    const userData = getUserAuthData(getState())
+    const currentSettings = getJsonSettings(getState())
  
-  if (!userData) {
-    return rejectWithValue('error') as any;
-  }
-
-  try {
-    const response = await dispatch(setJsonSettingsMutation({
-      userId: userData.id,
-      jsonSettings: {
-        ...currentSettings,
-        ...newJsonSettings
-      }
-    })).unwrap();
-
-    if (!response.jsonSettings) {
-      return rejectWithValue('error') as any;
+    if (!userData) {
+        return rejectWithValue('error') as any;
     }
 
-    return response.jsonSettings;
+    try {
+        const response = await dispatch(setJsonSettingsMutation({
+            userId: userData.id,
+            jsonSettings: {
+                ...currentSettings,
+                ...newJsonSettings
+            }
+        })).unwrap();
 
-  } catch (e) {
-    console.log(e);
-  }
+        if (!response.jsonSettings) {
+            return rejectWithValue('error') as any;
+        }
+
+        return response.jsonSettings;
+
+    } catch (e) {
+        console.log(e);
+    }
 });

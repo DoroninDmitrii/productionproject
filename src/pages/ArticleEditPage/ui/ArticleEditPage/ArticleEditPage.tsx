@@ -10,19 +10,19 @@ interface ArticleEditPageProps {
 }
 
 export const ArticleEditPage = memo((props: ArticleEditPageProps) => {
-  const { className } = props;
-  const { t, i18n } = useTranslation('article-details');
+    const { className } = props;
+    const { t, i18n } = useTranslation('article-details');
 
-  const { id } = useParams<{ id: string }>();
-  const isEdit = Boolean(id);
+    const { id } = useParams<{ id: string }>();
+    const isEdit = Boolean(id);
 
-  return (
-      <Page className={classNames('', {}, [className])}>
-          {isEdit
-        ? t('Article is edited according to ID = ') + id
-        : t('Create a new article')}
-      </Page>
-  );
+    return (
+        <Page className={classNames('', {}, [className])}>
+            {isEdit
+                ? t('Article is edited according to ID = ') + id
+                : t('Create a new article')}
+        </Page>
+    );
 });
 
 export default ArticleEditPage;

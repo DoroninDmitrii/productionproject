@@ -8,20 +8,20 @@ export function buildSlice<
   CaseReducers extends SliceCaseReducers<State>,
   Name extends string = string,
 >(options: CreateSliceOptions<State, CaseReducers, Name>) {
-  const slice = createSlice(options);
+    const slice = createSlice(options);
 
-  const useAction = (): typeof slice.actions => {
-    const dispatch = useDispatch();
-    // @ts-expect-error
-    return useMemo(
-      // @ts-expect-error
-      () => bindActionCreators(slice.actions, dispatch),
-      [dispatch],
-    );
-  };
+    const useAction = (): typeof slice.actions => {
+        const dispatch = useDispatch();
+        // @ts-expect-error
+        return useMemo(
+            // @ts-expect-error
+            () => bindActionCreators(slice.actions, dispatch),
+            [dispatch],
+        );
+    };
 
-  return {
-    ...slice,
-    useAction,
-  };
+    return {
+        ...slice,
+        useAction,
+    };
 }

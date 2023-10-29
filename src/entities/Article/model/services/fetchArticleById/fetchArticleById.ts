@@ -8,26 +8,26 @@ export const fetchArticlebyId = createAsyncThunk<
   string | undefined,
   ThunkConfig<string>
 >('articleDetails/fetchArticleById', async (articleId, thunkApi) => {
-  const { extra, rejectWithValue } = thunkApi;
+    const { extra, rejectWithValue } = thunkApi;
 
-  try {
-    if (!articleId) {
-      throw new Error('Error');
+    try {
+        if (!articleId) {
+            throw new Error('Error');
+        }
+
+        const response = await extra.api.get<Article>(`/articles/${articleId}`, {
+            params: {
+                _expand: 'user',
+            },
+        });
+
+        if (!response.data) {
+            throw new Error();
+        }
+
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        return rejectWithValue('Error');
     }
-
-    const response = await extra.api.get<Article>(`/articles/${articleId}`, {
-      params: {
-        _expand: 'user',
-      },
-    });
-
-    if (!response.data) {
-      throw new Error();
-    }
-
-    return response.data;
-  } catch (e) {
-    console.log(e);
-    return rejectWithValue('Error');
-  }
 });

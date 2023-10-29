@@ -8,11 +8,11 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
 export default {
-  title: 'pages/ProfilePage',
-  component: ProfilePage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'pages/ProfilePage',
+    component: ProfilePage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => (
@@ -22,19 +22,19 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
-  StoreDecorator({
-    profile: {
-      form: {
-        username: 'admin',
-        age: 30,
-        country: Country.Ukraine,
-        lastname: 'Ivanov',
-        first: 'Ivan',
-        city: 'Moscow',
-        currency: Currency.USD,
-      },
-    },
-  }),
+    StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                age: 30,
+                country: Country.Ukraine,
+                lastname: 'Ivanov',
+                first: 'Ivan',
+                city: 'Moscow',
+                currency: Currency.USD,
+            },
+        },
+    }),
 ];
 
 export const Dark = Template.bind({});
