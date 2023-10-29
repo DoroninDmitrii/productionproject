@@ -28,11 +28,11 @@ export const Card = memo((props: CardProps) => {
 
   return (
       <div
-      className={classNames(cls.Card, { [cls.max]: max }, [
+          className={classNames(cls.Card, { [cls.max]: max }, [
         className,
         cls[theme],
       ])}
-      {...otherProps}
+          {...otherProps}
     >
           {children}
       </div>

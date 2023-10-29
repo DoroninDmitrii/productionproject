@@ -43,10 +43,10 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
           {label && <span className={cls.label}>{`${label}>`}</span>}
 
           <select
-        disabled={readonly}
-        className={cls.select}
-        value={value}
-        onChange={onChangeHandler}
+              disabled={readonly}
+              className={cls.select}
+              value={value}
+              onChange={onChangeHandler}
       >
               {optionList}
           </select>

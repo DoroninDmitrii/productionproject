@@ -23,8 +23,8 @@ export const ArticlePageGreeting = memo(() => {
   return (
       <Modal lazy isOpen={isOpen} isClose={onClose}>
           <Text 
-            title={t('Welcome')} 
-            text={t('You can watching articles here')}
+              title={t('Welcome')} 
+              text={t('You can watching articles here')}
           />
       </Modal>
   )

@@ -32,19 +32,19 @@ export function Dropdown(props: DropdownProps) {
 
   return (
       <Menu
-      as={'div'}
-      className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
+          as={'div'}
+          className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
     >
           <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
           <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
               {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
               <button
-              type='button'
-              disabled={item.disabled}
-              onClick={item.onClick}
-              className={classNames(cls.item, { [popupCls.active]: active })}
-              key={index}
+                  type='button'
+                  disabled={item.disabled}
+                  onClick={item.onClick}
+                  className={classNames(cls.item, { [popupCls.active]: active })}
+                  key={index}
             >
                   {item.content}
               </button>
@@ -53,10 +53,10 @@ export function Dropdown(props: DropdownProps) {
           if (item.href) {
             return (
                 <Menu.Item
-                key={item.href}
-                as={AppLink}
-                to={item.href}
-                disabled={item.disabled}
+                    key={item.href}
+                    as={AppLink}
+                    to={item.href}
+                    disabled={item.disabled}
               >
                     {content}
                 </Menu.Item>
@@ -65,9 +65,9 @@ export function Dropdown(props: DropdownProps) {
 
           return (
               <Menu.Item
-              key={item.content as string}
-              as={Fragment}
-              disabled={item.disabled}
+                  key={item.content as string}
+                  as={Fragment}
+                  disabled={item.disabled}
             >
                   {content}
               </Menu.Item>

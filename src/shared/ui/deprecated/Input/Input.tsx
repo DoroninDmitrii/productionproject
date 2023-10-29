@@ -80,21 +80,21 @@ export const Input = memo((props: InputProps) => {
 
           <div className={cls.caretWrapper}>
               <input
-          ref={ref}
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          className={cls.input}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onSelect={onSelect}
-          readOnly={readonly}
-          {...otherProps}
+                  ref={ref}
+                  type={type}
+                  value={value}
+                  onChange={onChangeHandler}
+                  className={cls.input}
+                  onFocus={onFocus}
+                  onBlur={onBlur}
+                  onSelect={onSelect}
+                  readOnly={readonly}
+                  {...otherProps}
         />
               {isCaretVisible && (
               <span
-            className={cls.caret}
-            style={{ left: `${caretPosition * 9}px` }}
+                  className={cls.caret}
+                  style={{ left: `${caretPosition * 9}px` }}
           />
         )}
           </div>

@@ -12,8 +12,8 @@ export const NotFoundPage = ({ className }: NotFoundPageProps) => {
 
   return (
       <Page
-      data-testid={'NotFoundPage'}
-      className={classNames(cls.NotFoundPage, {}, [className])}
+          data-testid={'NotFoundPage'}
+          className={classNames(cls.NotFoundPage, {}, [className])}
     >
           {t('Page not found')}
       </Page>

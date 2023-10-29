@@ -32,22 +32,22 @@ export const Avatar = (props: AvatarProps) => {
 
   const errorFallback = (
       <Icon
-      inverted={fallbackInverted}
-      width={size}
-      height={size}
-      Svg={UserIcon}
+          inverted={fallbackInverted}
+          width={size}
+          height={size}
+          Svg={UserIcon}
     />
   );
   const fallback = <Skeleton width={size} height={size} border={'50%'} />;
 
   return (
       <AppImage
-      className={classNames(cls.Avatar, mods, [className])}
-      errorFallback={errorFallback}
-      fallback={fallback}
-      src={src}
-      alt={alt}
-      style={style}
+          className={classNames(cls.Avatar, mods, [className])}
+          errorFallback={errorFallback}
+          fallback={fallback}
+          src={src}
+          alt={alt}
+          style={style}
     />
   );
 };

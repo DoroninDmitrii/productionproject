@@ -47,28 +47,28 @@ export function ListBox(props: ListBoxProps) {
       <HStack gap='4'>
           {label && <span>{label + '>'}</span>}
           <HListBox
-        disabled={readonly}
-        as={'div'}
-        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
-        value={value}
-        onChange={onChange}
+              disabled={readonly}
+              as={'div'}
+              className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+              value={value}
+              onChange={onChange}
       >
               <HListBox.Button className={cls.trigger}>
                   <Button disabled={readonly}>{value ?? defaultValue}</Button>
               </HListBox.Button>
               <HListBox.Options
-          className={classNames(cls.options, {}, optionalClasses)}
+                  className={classNames(cls.options, {}, optionalClasses)}
         >
                   {items?.map((item) => (
                       <HListBox.Option
-              key={item.value}
-              value={item.value}
-              disabled={item.disabled}
-              as={Fragment}
+                          key={item.value}
+                          value={item.value}
+                          disabled={item.disabled}
+                          as={Fragment}
             >
                           {({ active, selected }) => (
                               <li
-                  className={classNames(cls.item, {
+                                  className={classNames(cls.item, {
                     [popupCls.active]: active,
                     [popupCls.disabled]: item.disabled,
                   })}
