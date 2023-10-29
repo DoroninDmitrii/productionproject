@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-invalid-void-type */
 import { rtkApi } from '@/shared/api/rtkApi';
 import { FeatureFlag } from '@/shared/types/featureFlag';
 

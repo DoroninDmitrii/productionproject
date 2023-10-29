@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
-import cls from './UiDesignedSwitcher.module.scss'
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 
 interface UiDesignedSwitcherProps {
@@ -55,7 +54,7 @@ export const UiDesignedSwitcher = memo((props: UiDesignedSwitcherProps) => {
                 <Skeleton width={300} height={40} />
             ) : (
                 <ListBox 
-                    className={classNames(cls.UiDesignedSwitcher, {}, [])}
+                    className={classNames('', {}, [])}
                     items={items} 
                     value={isAppRedesigned ? 'new' : 'old'}
                     onChange={onChange} 
